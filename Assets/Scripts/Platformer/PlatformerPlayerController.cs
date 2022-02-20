@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlatformerPlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool jumping = false;
     public float jumpPower = 5f;
     public float moveSpeed = 5f;
     public float acceleration = 1;
@@ -45,7 +44,7 @@ public class PlatformerPlayerController : MonoBehaviour
     private void Move(float xDir)
     {
         //rb.
-        rb.velocity = new Vector2(xDir * 10, rb.velocity.y);
+        rb.velocity = new Vector2(xDir * moveSpeed, rb.velocity.y);
         //rb.AddForce(Vector2.right * acceleration * moveSpeed * Time.deltaTime * 10);
     }
 
