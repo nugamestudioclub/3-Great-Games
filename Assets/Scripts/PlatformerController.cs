@@ -5,7 +5,25 @@ using UnityEngine;
 public class PlatformerController : MinigameController
 {
     GameObject player;
-    GameObject coins;
+    GameObject gems;
+    GameObject pacer;
+
+
+    /*
+    power up
+    power up block
+    grass blocks
+    brick block
+    brick block 2
+    background objects
+    clouds
+    player colors
+    enemy colors
+    key
+    open door
+    closed door
+  
+    */
     //22 -> gameobject
     //22 -> color [2] (may want to just use 4 bits for 16 possible colors)//color   [00][00][00] -> [red][blue][green]
 
