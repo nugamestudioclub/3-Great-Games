@@ -243,6 +243,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289484738}
   m_CullTransparentMesh: 1
+--- !u!1 &523752508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523752509}
+  - component: {fileID: 523752510}
+  m_Layer: 0
+  m_Name: CacheManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523752509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523752508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 262.41736, y: 362.41528, z: -28.73904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &523752510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523752508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50809360026920c4ca77ba9f60828585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortTermCaches:
+  - name: Plumber
+    cache:
+    - register: 00
+      code: 0
+      type: 0
+      color: {r: 1, g: 0, b: 0, a: 1}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 01
+      code: 1
+      type: 0
+      color: {r: 0.18237162, g: 1, b: 0, a: 1}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 02
+      code: 2
+      type: 0
+      color: {r: 0, g: 1, b: 0.88562393, a: 1}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 03
+      code: 3
+      type: 2
+      color: {r: 0, g: 0, b: 0, a: 0}
+      img: {fileID: 0}
+      obj: {fileID: 2789528772560354083, guid: 1909e3cb6d0f0154682d414444de1aff, type: 3}
+  - name: Tanks
+    cache: []
+  longTermCache:
+    name: Long Term Cache
+    cache:
+    - register: 0
+      code: 0
+      type: 0
+      color: {r: 1, g: 0, b: 0, a: 0}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 
+      code: 
+      type: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 
+      code: 
+      type: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 
+      code: 
+      type: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      img: {fileID: 0}
+      obj: {fileID: 0}
+    - register: 
+      code: 
+      type: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      img: {fileID: 0}
+      obj: {fileID: 0}
 --- !u!1 &822211061
 GameObject:
   m_ObjectHideFlags: 0

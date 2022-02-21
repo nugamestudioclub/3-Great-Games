@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class GameCache
 {
     private CacheItem[] items;
@@ -15,15 +16,19 @@ public class GameCache
     /// </summary>
     public int Size { get { return this.size; } }
     private int size;
+    private string name;
+    public string Name { get { return name; } }
     /// <summary>
     /// Creates a new Game Cache of a given size with the following initial items.
     /// </summary>
     /// <param name="size">The size of the cache.</param>
     /// <param name="items">The initial items in the gamecache.</param>
-    public GameCache(int size, params CacheItem[] items)
+    public GameCache(string name,int size, params CacheItem[] items)
     {
         this.size = size;
+        this.name = name;
         this.items = new CacheItem[size];
+        
         foreach(CacheItem item in items)
         {
             this.set(item);
