@@ -6,7 +6,9 @@ using UnityEngine;
 public abstract class MinigameController : MonoBehaviour
 {
     [SerializeField]
-    protected ColorPalette palette;
+    protected ColorPalette colorPalette;
+    [SerializeField]
+    protected AudioPalette audioPalette;
     //023935 -1
     //120499 -2
     //393933 -3

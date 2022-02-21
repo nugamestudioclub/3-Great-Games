@@ -28,3 +28,9 @@ public class AudioPalette : Palette<AudioClip>
 {
 
 }
+
+[CreateAssetMenu(fileName = "GameObject", menuName = "ScriptableObjects/Palette/GameObject", order = 1)]
+public class GameObjectPalette : Palette<GameObject>
+{
+
+}
