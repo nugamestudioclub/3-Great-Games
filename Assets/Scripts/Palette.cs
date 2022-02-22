@@ -20,18 +20,3 @@ public abstract class Palette<T> : ScriptableObject, IEnumerable<T>, IReadOnlyLi
 		return ((IEnumerable)items).GetEnumerator();
 	}
 }
-
-[CreateAssetMenu(fileName = "ColorPalette", menuName = "ScriptableObjects/Palette/Color", order = 1)]
-public class ColorPalette : Palette<Color> {
-
-}
-
-[CreateAssetMenu(fileName = "AudioPalette", menuName = "ScriptableObjects/Palette/Audio", order = 1)]
-public class AudioPalette : Palette<AudioClip> {
-
-}
-
-[CreateAssetMenu(fileName = "GameObjectPalette", menuName = "ScriptableObjects/Palette/GameObject", order = 1)]
-public class GameObjectPalette : Palette<GameObject> {
-
-}
