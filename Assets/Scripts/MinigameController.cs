@@ -14,7 +14,7 @@ public abstract class MinigameController : MonoBehaviour
     [SerializeField]
     protected GameObjectPalette gameObjectPalette;
 
-    public MinigameController Instance { get; private set; }
+    public static MinigameController Instance { get; private set; }
 
     void Awake() {
         Instance = this;
