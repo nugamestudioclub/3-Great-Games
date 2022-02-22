@@ -6,7 +6,9 @@ public class PlatformerController : MinigameController
 {
     GameObject player;
     GameObject gems;
-    GameObject pacer;
+    GameObject pacers;
+    GameObject powerUps;
+
 
 
     /*
@@ -46,6 +48,6 @@ public class PlatformerController : MinigameController
 
     public override void WriteToCache(GameCache cache)
     {
-        throw new System.NotImplementedException();
+        //cache.set("")
     }
 }
