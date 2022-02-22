@@ -7,8 +7,19 @@ public abstract class MinigameController : MonoBehaviour
 {
     [SerializeField]
     protected ColorPalette colorPalette;
+
     [SerializeField]
     protected AudioPalette audioPalette;
+
+    [SerializeField]
+    protected GameObjectPalette gameObjectPalette;
+
+    public MinigameController Instance { get; private set; }
+
+    void Awake() {
+        Instance = this;
+	}
+
     //023935 -1
     //120499 -2
     //393933 -3
