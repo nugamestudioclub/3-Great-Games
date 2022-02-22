@@ -20,15 +20,6 @@ public class GlitchySprite : MonoBehaviour {
 		greySprite = GreySprite(mainSprite);
 	}
 
-	public void Override(Sprite sprite) {
-		bool isTinted = IsTinted;
-
-		mainSprite = sprite;
-		greySprite = GreySprite(mainSprite);
-
-		Sprite = isTinted ? greySprite : mainSprite;
-	}
-
 	public void Tint(Color color) {
 		if( color == this.color ) {
 			spriteRenderer.sprite = mainSprite;
@@ -38,6 +29,20 @@ public class GlitchySprite : MonoBehaviour {
 			spriteRenderer.sprite = greySprite;
 			spriteRenderer.color = color;
 		}
+	}
+
+	public void OverrideSprite(Sprite sprite) {
+		bool isTinted = IsTinted;
+
+		mainSprite = sprite;
+		greySprite = GreySprite(mainSprite);
+
+		Sprite = isTinted ? greySprite : mainSprite;
+	}
+
+	public void OverrideColor(Color color) {
+		this.color = color;
+		Tint(spriteRenderer.color);
 	}
 
 	private static Sprite GreySprite(Sprite mainSprite) {
