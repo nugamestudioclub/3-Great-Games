@@ -7177,7 +7177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a8c1f570e3e4a4e9acd6f1f9cb72ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  palette: {fileID: 0}
+  colorPalette: {fileID: 0}
+  audioPalette: {fileID: 0}
 --- !u!4 &1205264501
 Transform:
   m_ObjectHideFlags: 0

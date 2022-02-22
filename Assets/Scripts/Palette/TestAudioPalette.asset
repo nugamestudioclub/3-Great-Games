@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: TestAudioPalette
   m_EditorClassIdentifier: Assembly-CSharp::AudioPalette
-  items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  items: []
