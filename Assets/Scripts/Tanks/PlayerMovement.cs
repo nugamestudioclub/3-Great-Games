@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 mov;
             transform.Rotate(0, 0, Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime);
-            Debug.Log(transform.);
+            Debug.Log(transform);
             mov = new Vector3(speed * Mathf.Cos(transform.rotation.z / 360 * 2 * Mathf.PI) * Input.GetAxis("Vertical") * Time.deltaTime, 
                 speed * Mathf.Sin(transform.rotation.z / 360 * 2 * Mathf.PI) * Input.GetAxis("Vertical") * Time.deltaTime, 0);
             controller.Move(mov);
