@@ -14,19 +14,25 @@ public class SpaceController : MonoBehaviour
     private Object bullet;
     [SerializeField]
     private float shootDelay;
-    [HideInInspector]
+    [SerializeField]
     private bool inShoot;
     // Start is called before the first frame update
+    [HideInInspector]
+    private Rigidbody2D rb;
+
     void Start()
     {
         horzSpeed = 0;
         vertSpeed = 0;
         inShoot = false;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         float newX = this.transform.position.x;
         float newY = this.transform.position.y;
         if (Input.GetKey(KeyCode.D))
@@ -91,8 +97,20 @@ public class SpaceController : MonoBehaviour
         inShoot = false;
     }
 
-    //IEnumerator CheckDeath()
-   // {
-        //if ()
-   // }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        Debug.Log(collision.transform.tag);
+        Debug.Log(horzSpeed);
+        if (collision.gameObject.CompareTag("HorzWall"))
+        {
+            vertSpeed = 0;
+            rb.velocity = Vector2.zero;
+        }
+        else if (collision.gameObject.CompareTag("VertWall"))
+        {
+            horzSpeed = 0;
+            rb.velocity = Vector2.zero;
+        }
+    }
+
 }
