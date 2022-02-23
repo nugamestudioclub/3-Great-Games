@@ -25,14 +25,11 @@ public abstract class GlitchySprite : MonoBehaviour {
 	}
 
 	public void Tint(Color color) {
-			Debug.Log(gameObject.name);
 		if( color == this.color ) {
-			Debug.Log("if");
 			spriteRenderer.sprite = mainSprite;
 			spriteRenderer.color = Color.white;
 		}
 		else {
-			Debug.Log("else");
 			spriteRenderer.sprite = greySprite;
 			spriteRenderer.color = color;
 		}
