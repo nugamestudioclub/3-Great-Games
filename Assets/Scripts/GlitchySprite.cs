@@ -2,8 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class GlitchySprite : MonoBehaviour {
-	[SerializeField]
+public abstract class GlitchySprite : MonoBehaviour {
 	private Color color;
 
 	private SpriteRenderer spriteRenderer;
@@ -20,12 +19,20 @@ public class GlitchySprite : MonoBehaviour {
 		greySprite = GreySprite(mainSprite);
 	}
 
+	void Start() {
+		color = MinigameController.Instance.Color(ColorId);
+		Tint(GameController.Instance.Color(ColorId));
+	}
+
 	public void Tint(Color color) {
+			Debug.Log(gameObject.name);
 		if( color == this.color ) {
+			Debug.Log("if");
 			spriteRenderer.sprite = mainSprite;
 			spriteRenderer.color = Color.white;
 		}
 		else {
+			Debug.Log("else");
 			spriteRenderer.sprite = greySprite;
 			spriteRenderer.color = color;
 		}
@@ -54,4 +61,6 @@ public class GlitchySprite : MonoBehaviour {
 
 		return path.Substring(0, pos) + "_grey" + path.Substring(pos, path.Length - pos);
 	}
+
+	public abstract int ColorId { get; }
 }
