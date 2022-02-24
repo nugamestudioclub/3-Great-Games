@@ -6,7 +6,8 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed;
-    [HideInInspector]
+    [SerializeField]
+    private Direction dir;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,19 +16,46 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float newY = this.transform.position.y + moveSpeed * Time.deltaTime;
+        float newY = this.transform.position.y;
+        if (dir == Direction.down)
+        {
+            newY -= moveSpeed * Time.deltaTime;
+        }
+        else if (dir == Direction.up)
+        {
+            newY += moveSpeed * Time.deltaTime;
+        }
         this.transform.position = new Vector2(this.transform.position.x, newY);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("GameObject1 collided with " + collision.name);
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (dir == Direction.down)
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        } else if (!collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.CompareTag("HorzWall"))
+            {
+                Destroy(gameObject);
+            }
         }
+        else if (dir == Direction.up)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+            else if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("VertWall"))
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+    private enum Direction
+    {
+        down, up
     }
 }

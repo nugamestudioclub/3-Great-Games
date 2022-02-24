@@ -17,15 +17,12 @@ public class SpaceController : MonoBehaviour
     [SerializeField]
     private bool inShoot;
     // Start is called before the first frame update
-    [HideInInspector]
-    private Rigidbody2D rb;
 
     void Start()
     {
         horzSpeed = 0;
         vertSpeed = 0;
         inShoot = false;
-        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -86,7 +83,6 @@ public class SpaceController : MonoBehaviour
         {
             StartCoroutine(Shoot());
         }
-        //StartCoroutine(CheckDeath());
     }
 
     IEnumerator Shoot()
@@ -99,17 +95,13 @@ public class SpaceController : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log(collision.transform.tag);
-        Debug.Log(horzSpeed);
-        if (collision.gameObject.CompareTag("HorzWall"))
+        if (collision.gameObject.CompareTag("HorzWall") || collision.gameObject.CompareTag("HorzWallTop"))
         {
             vertSpeed = 0;
-            rb.velocity = Vector2.zero;
         }
         else if (collision.gameObject.CompareTag("VertWall"))
         {
             horzSpeed = 0;
-            rb.velocity = Vector2.zero;
         }
     }
 

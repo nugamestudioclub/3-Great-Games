@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4553727406377075890}
+  - component: {fileID: 3241609525193564167}
   m_Layer: 0
-  m_Name: spawner
+  m_Name: shooterSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3241609525193564167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7522443742746431425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38b6d3b30e28a047afb3db5eef1c8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn: {fileID: 229854189229278928, guid: 06835cb6e5479fe48b465a534eea8758, type: 3}
+  spawnDelay: 111
+  waveDelay: 5
 --- !u!1 &8276001925769320284
 GameObject:
   m_ObjectHideFlags: 0
