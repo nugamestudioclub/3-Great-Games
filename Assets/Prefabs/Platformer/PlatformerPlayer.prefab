@@ -295,10 +295,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf06b7b6ebe93cd4195878ee7d3d31c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 6.5
-  moveSpeed: 5
-  acceleration: 1
-  maxSpeed: 10
+  jumpPower: 3.5
+  moveSpeed: 3
+  acceleration: 0.5
+  maxSpeed: 3
 --- !u!50 &4897030413336960962
 Rigidbody2D:
   serializedVersion: 4
