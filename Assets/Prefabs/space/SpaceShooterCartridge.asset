@@ -9,14 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce171d6f27764d647be75912ff9052a3, type: 3}
-  m_Name: jklm
+  m_Script: {fileID: 11500000, guid: 0be69c262bde0364085e056961666ed1, type: 3}
+  m_Name: SpaceShooterCartridge
   m_EditorClassIdentifier: 
+  id: 0
   colors:
     items:
-    - {r: 0.91974485, g: 1, b: 0, a: 1}
     - {r: 0, g: 0, b: 0, a: 0}
-    - {r: 1, g: 0, b: 0, a: 1}
-    - {r: 0.5518868, g: 1, b: 0.6952505, a: 1}
-    - {r: 0.3679245, g: 0.20999464, b: 0.20999464, a: 1}
-    - {r: 0.015045472, g: 0, b: 0.4811321, a: 1}
+    - {r: 0.48581886, g: 0, b: 1, a: 1}
+    - {r: 0.04431629, g: 1, b: 0, a: 1}
+    - {r: 0.003915994, g: 0.07520827, b: 0.8301887, a: 1}
+  sounds:
+    items: []
+  gameObjects:
+    items: []

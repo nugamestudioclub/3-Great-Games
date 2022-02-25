@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be69c262bde0364085e056961666ed1, type: 3}
-  m_Name: PlatformerCartridge
+  m_Name: TanksCartridge
   m_EditorClassIdentifier: 
   id: 0
   colors:
     items:
-    - {r: 0.3529412, g: 0.76470596, b: 0.09411766, a: 1}
-    - {r: 0.40939617, g: 0, b: 1, a: 1}
+    - {r: 0.6415094, g: 0.20925379, b: 0.003025995, a: 1}
+    - {r: 0.26926273, g: 0.6415094, b: 0.11196155, a: 1}
+    - {r: 0.4672481, g: 0.65515363, b: 0.7924528, a: 1}
+    - {r: 0.9528302, g: 0.77924997, b: 0.3460751, a: 1}
+    - {r: 0, g: 0.8018868, b: 0.38560677, a: 1}
+    - {r: 0.005638622, g: 0, b: 0.5566038, a: 1}
   sounds:
     items: []
   gameObjects:

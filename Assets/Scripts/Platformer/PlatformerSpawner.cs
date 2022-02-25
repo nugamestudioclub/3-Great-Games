@@ -2,15 +2,17 @@
 using UnityEngine;
 
 [Serializable]
-public enum PlatformerObjectType {
+public enum PlatformerObjectId {
 	Coin,
 	Brick,
 	Goomba
 }
 
 public class PlatformerSpawner : Spawner {
-	[SerializeField]
-	private PlatformerObjectType type;
+	protected override GameId GameId => GameId.Platformer;
 
-	protected override int TypeId => (int)type;
+	[SerializeField]
+	private PlatformerObjectId objectId;
+
+	protected override int ObjectId => (int)objectId;
 }

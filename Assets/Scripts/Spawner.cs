@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
 public abstract class Spawner : MonoBehaviour {
-	protected abstract int TypeId { get; }
+	protected abstract GameId GameId { get; }
+
+	protected abstract int ObjectId { get; }
 
 	void Start() {
 		Instantiate(
-			MinigameController.Instance.GameObject(TypeId),
+			GameCollection.Instance.Cartridge(GameId).GameObject(ObjectId),
 			transform.position,
 			transform.rotation
 		);

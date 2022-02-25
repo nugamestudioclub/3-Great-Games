@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "Cartridge", menuName = "ScriptableObjects/GameCartridge")]
 public class GameCartridge : ScriptableObject {
 	[SerializeField]
 	private GameId id;
