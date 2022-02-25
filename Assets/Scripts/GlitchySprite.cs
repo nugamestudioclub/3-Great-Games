@@ -9,8 +9,6 @@ public abstract class GlitchySprite : MonoBehaviour, IMemorable {
 	private Sprite mainSprite;
 	private Sprite greySprite;
 
-	public GameId Id => GameId;
-
 	protected abstract GameId GameId { get; }
 
 	public Sprite Sprite { get => spriteRenderer.sprite; private set => spriteRenderer.sprite = value; }
