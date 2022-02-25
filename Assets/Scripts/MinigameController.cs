@@ -1,3 +1,4 @@
+/*
 public abstract class MinigameController : BaseGameController {
 	public static MinigameController Instance { get; private set; }
 
@@ -26,3 +27,4 @@ public abstract class MinigameController : BaseGameController {
 	/// </summary>
 	public abstract void LoadGame();
 }
+*/

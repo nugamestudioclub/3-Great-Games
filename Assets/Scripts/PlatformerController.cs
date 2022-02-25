@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class PlatformerController : MinigameController
 
 
 
-    /*
+    
     power up
     power up block
     grass blocks
@@ -25,7 +26,7 @@ public class PlatformerController : MinigameController
     open door
     closed door
   
-    */
+    
     //22 -> gameobject
     //22 -> color [2] (may want to just use 4 bits for 16 possible colors)//color   [00][00][00] -> [red][blue][green]
 
@@ -51,3 +52,4 @@ public class PlatformerController : MinigameController
         //cache.set("")
     }
 }
+*/
