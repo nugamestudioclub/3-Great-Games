@@ -3,12 +3,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public abstract class GlitchySprite : MonoBehaviour, IMemorable {
-	public Color color;
+	public Color Color => GameCollection.Instance.Cartridge(GameId).Color(ColorId);
 
 	private SpriteRenderer spriteRenderer;
 	private Sprite mainSprite;
 	private Sprite greySprite;
-
 
 	public GameId Id => GameId;
 
@@ -25,7 +24,6 @@ public abstract class GlitchySprite : MonoBehaviour, IMemorable {
 	}
 
 	void Start() {
-		color = GameCollection.Instance.Cartridge(GameId).Color(ColorId);
 		GameMemory.Instance.Store(this);
 	}
 
@@ -34,7 +32,7 @@ public abstract class GlitchySprite : MonoBehaviour, IMemorable {
 	}
 
 	public void Tint(Color color) {
-		if( color == this.color ) {
+		if( color == this.Color ) {
 			spriteRenderer.sprite = mainSprite;
 			spriteRenderer.color = Color.white;
 		}
@@ -51,11 +49,6 @@ public abstract class GlitchySprite : MonoBehaviour, IMemorable {
 		greySprite = GreySprite(mainSprite);
 
 		Sprite = isTinted ? greySprite : mainSprite;
-	}
-
-	public void OverrideColor(Color color) {
-		this.color = color;
-		Tint(spriteRenderer.color);
 	}
 
 	private static Sprite GreySprite(Sprite mainSprite) {
