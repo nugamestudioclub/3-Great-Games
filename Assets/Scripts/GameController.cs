@@ -5,12 +5,14 @@ public class GameController : BaseGameController {
 	void Awake() {
 		Instance = this;
 
+		/*
 		if( colorPalette == null )
 			colorPalette = ScriptableObject.CreateInstance<ColorPalette>();
 		if( audioPalette == null )
 			audioPalette = ScriptableObject.CreateInstance<AudioPalette>();
 		if( gameObjectPalette == null )
 			gameObjectPalette = ScriptableObject.CreateInstance<GameObjectPalette>();
+		*/
 	}
 
 	public void Load() {

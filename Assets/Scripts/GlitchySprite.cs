@@ -2,12 +2,17 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public abstract class GlitchySprite : MonoBehaviour {
-	private Color color;
+public abstract class GlitchySprite : MonoBehaviour, IMemorable {
+	public Color color;
 
 	private SpriteRenderer spriteRenderer;
 	private Sprite mainSprite;
 	private Sprite greySprite;
+
+
+	public GameId Id => GameId;
+
+	protected abstract GameId GameId { get; }
 
 	public Sprite Sprite { get => spriteRenderer.sprite; private set => spriteRenderer.sprite = value; }
 
@@ -20,8 +25,12 @@ public abstract class GlitchySprite : MonoBehaviour {
 	}
 
 	void Start() {
-		color = MinigameController.Instance.Color(ColorId);
-		Tint(GameController.Instance.Color(ColorId));
+		color = GameCollection.Instance.Cartridge(GameId).Color(ColorId);
+		GameMemory.Instance.Store(this);
+	}
+
+	public void Refresh() {
+		Tint(GameMemory.Instance.Color(GameId, ColorId));
 	}
 
 	public void Tint(Color color) {
