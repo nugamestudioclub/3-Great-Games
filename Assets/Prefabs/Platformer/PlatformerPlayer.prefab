@@ -110,8 +110,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380511280822222680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.1, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: -0.02, y: 0, z: 0}
+  m_LocalScale: {x: 0.033333335, y: 0.033333335, z: 1}
   m_Children: []
   m_Father: {fileID: 4897030413336960960}
   m_RootOrder: 0
@@ -244,8 +244,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.47}
-  m_Size: {x: 0.4, y: 0.1}
+  m_Offset: {x: 0, y: -0.13333334}
+  m_Size: {x: 0.13333334, y: 0.033333335}
   m_Direction: 1
 --- !u!114 &2901865046536253744
 MonoBehaviour:
@@ -271,12 +271,12 @@ GameObject:
   - component: {fileID: 4897030413336960960}
   - component: {fileID: 4897030413336960961}
   - component: {fileID: 4897030413336960962}
-  - component: {fileID: 4897030413336960963}
   - component: {fileID: 2255176054420346346}
   - component: {fileID: 8054808748619506369}
+  - component: {fileID: 314301501789246683}
   m_Layer: 0
   m_Name: PlatformerPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 4897030413336961020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8402964913584089286}
   - {fileID: 4296196355707703839}
@@ -333,24 +333,8 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 248adc496e791ef4d8a26c2285c12f4c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &4897030413336960963
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4897030413336961020}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.11661214}
-  m_Size: {x: 0.5, y: 0.7667757}
-  m_Direction: 0
 --- !u!114 &2255176054420346346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,3 +361,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteOnly: 1
   objectId: 0
+--- !u!61 &314301501789246683
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897030413336961020}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.2}
+  m_EdgeRadius: 0.02

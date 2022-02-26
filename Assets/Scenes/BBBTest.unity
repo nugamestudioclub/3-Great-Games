@@ -154,11 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29e663f7103bbd4d94068535a8b35ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  capacity: 16
+  objects:
     items: []
-  gameObjects:
-    items:
-    - {fileID: 274755053796369319, guid: 8f1472c194168d7438a425628e11a08d, type: 3}
 --- !u!4 &789046682
 Transform:
   m_ObjectHideFlags: 0
@@ -9338,6 +9336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem
       objectReference: {fileID: 0}
+    - target: {fileID: 2864835655437743135, guid: 1909e3cb6d0f0154682d414444de1aff, type: 3}
+      propertyPath: m_Volume
+      value: 0.23
+      objectReference: {fileID: 0}
     - target: {fileID: 7228482995562472665, guid: 1909e3cb6d0f0154682d414444de1aff, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9434,10 +9436,6 @@ PrefabInstance:
     - target: {fileID: 4897030413336960960, guid: 7dae50d01556b8945affc6bcb018d993, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4897030413336960962, guid: 7dae50d01556b8945affc6bcb018d993, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4897030413336961020, guid: 7dae50d01556b8945affc6bcb018d993, type: 3}
       propertyPath: m_Name

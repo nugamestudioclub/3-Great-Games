@@ -39,6 +39,7 @@ public class GameMemory : MonoBehaviour {
 
 	public void Store(int index, IMemorable memoryItem) {
 		memory[index] = memoryItem;
+		Refresh();
 	}
 
 	public void Subscribe(IRefreshable refreshItem) {
