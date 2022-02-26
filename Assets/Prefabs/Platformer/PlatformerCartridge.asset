@@ -34,4 +34,10 @@ MonoBehaviour:
   sounds:
     items: []
   gameObjects:
-    items: []
+    items:
+    - {fileID: 8054808748619506369, guid: 7dae50d01556b8945affc6bcb018d993, type: 3}
+    - {fileID: 5653366438348147544, guid: d36056e5f5e404f4ea1741879ce62639, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}

@@ -154,25 +154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29e663f7103bbd4d94068535a8b35ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors:
-    items:
-    - {r: 1, g: 0, b: 0, a: 1}
-    - {r: 0, g: 1, b: 0, a: 1}
-    - {r: 0, g: 0, b: 1, a: 1}
-    - {r: 0, g: 1, b: 1, a: 1}
-    - {r: 1, g: 0, b: 1, a: 1}
-    - {r: 1, g: 1, b: 0, a: 1}
-    - {r: 0, g: 0, b: 0, a: 1}
-    - {r: 1, g: 0.5019608, b: 0, a: 1}
-    - {r: 0.5019608, g: 0, b: 1, a: 1}
-    - {r: 0, g: 0.5019608, b: 1, a: 1}
-    - {r: 0, g: 0.5019608, b: 0, a: 0}
-    - {r: 0.5019608, g: 0.2509804, b: 0, a: 0}
-    - {r: 1, g: 1, b: 1, a: 0}
   sounds:
     items: []
   gameObjects:
-    items: []
+    items:
+    - {fileID: 274755053796369319, guid: 8f1472c194168d7438a425628e11a08d, type: 3}
 --- !u!4 &789046682
 Transform:
   m_ObjectHideFlags: 0

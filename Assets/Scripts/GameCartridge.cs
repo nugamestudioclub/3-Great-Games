@@ -16,7 +16,7 @@ public class GameCartridge : ScriptableObject {
 
 	[SerializeField]
 	private Palette<GlitchyObject> gameObjects;
-	public GameObject GameObject(int index) => gameObjects[index].gameObject;
+	//public GameObject GameObject(int index) => gameObjects[index].gameObject;
 
 	//write instructions
 	public string writeColorPalette()

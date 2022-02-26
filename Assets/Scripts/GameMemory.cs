@@ -20,6 +20,8 @@ public class GameMemory : MonoBehaviour {
 	[SerializeField]
 	private Palette<GameObject> gameObjects;
 
+	public GameObject GameObject(int index) => gameObjects[index].gameObject;
+
 	private List<IMemorable> memory;
 
 	void Awake() {
@@ -37,6 +39,12 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	public void Load(GameId gameId) {
+		foreach (var memoryItem in memory)
+        {
+
+				Debug.Log($"{memoryItem}");
+		}
+			
 		loaded = false;
 
 		GameId = gameId;
@@ -54,9 +62,13 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	private void Refresh() {
-		foreach( var memoryItem in memory )
-			if( memoryItem is IRefreshable refreshment )
+		foreach( var memoryItem in memory)
+        {
+			Debug.Log($"{memoryItem}");
+			if (memoryItem is IRefreshable refreshment)
 				refreshment.Refresh();
+		}
+			
 	}
 
 	private void LoadColors(GameCartridge gameCartridge) {
