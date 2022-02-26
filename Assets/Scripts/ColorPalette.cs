@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorPalette : IMemorable, IEnumerable<Color>, IReadOnlyList<Color> {
 	private readonly GameId id;
 
-	private Palette<Color> Palette => GameCollection.Instance.Cartridge(id).ColorPalette;
+	private IReadOnlyPalette<Color> Palette => GameCollection.Instance.Cartridge(id).ColorPalette;
 
 	public ColorPalette(GameId id) {
 		this.id = id;

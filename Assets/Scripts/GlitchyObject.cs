@@ -18,19 +18,17 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	void Start() {
-		GameMemory.Instance.Store(this);
+		GameMemory.Instance.Subscribe(this);
 	}
 
 	public void Refresh() {
-		glitchySprite.Tint(GameMemory.Instance.Color(GameId, ColorId));
-		if (spriteOnly)
-        {
+		glitchySprite.Tint(GameMemory.Instance.ColorPalette[ColorId]);
+		if( spriteOnly ) {
 
-        }
-        else
-        {
-			Instantiate(GameMemory.Instance.GameObject(ObjectId), transform.position, transform.rotation);
-			Destroy(gameObject);
-        }
+		}
+		else {
+			// Instantiate(GameMemory.Instance.Object(ObjectId), transform.position, transform.rotation);
+			// Destroy(gameObject);
+		}
 	}
 }
