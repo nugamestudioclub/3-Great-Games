@@ -62,7 +62,9 @@ public class GameMemory : MonoBehaviour {
 		loaded = true;
 	}
 
-	public GlitchyObject GlitchyObject(string hex) {
+	public IMemorable MemoryItem(int index) => memory[index];
+
+	public GlitchyObject Object(string hex) {
 		return ActiveCartridge.ObjectPalette[HexToInt(hex.Substring(0, 2))];
 	}
 
