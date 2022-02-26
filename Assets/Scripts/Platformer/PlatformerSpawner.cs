@@ -3,9 +3,15 @@ using UnityEngine;
 
 [Serializable]
 public enum PlatformerObjectId {
-	Coin,
+	Player, //sprite replaced
+	Grass,
+	Dirt,
 	Brick,
-	Goomba
+	Cloud, //game object replaced
+	Gem,
+	Key,
+	Door,
+	Pacer,
 }
 
 public class PlatformerSpawner : Spawner {

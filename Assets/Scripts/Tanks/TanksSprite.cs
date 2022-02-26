@@ -1,12 +1,21 @@
 ﻿using UnityEngine;
 
 public enum TanksColor {
-	A,
-	B,
-	C,
-	D,
-	E,
-	F,
+	Brown,
+	DarkGreen,
+	LightBlue,
+	Yellow,
+	Green,
+	DarkBlue,
+	G,
+	H,
+	I,
+	J,
+	K,
+	L,
+	M,
+	N,
+	O,
 }
 
 public class TanksSprite : GlitchySprite {

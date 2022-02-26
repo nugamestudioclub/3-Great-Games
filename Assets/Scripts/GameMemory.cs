@@ -17,17 +17,17 @@ public class GameMemory : MonoBehaviour {
 	[SerializeField]
 	private Palette<GameObject> gameObjects;
 
-	private List<IMemorable> memory;
+	private List<IRefreshable> refreshments;
 
 	void Awake() {
 		Instance = this;
-		memory = new List<IMemorable>();
+		refreshments = new List<IRefreshable>();
 	}
 
-	public void Store(IMemorable memoryItem) {
-		memory.Add(memoryItem);
+	public void Store(IRefreshable refreshment) {
+		refreshments.Add(refreshment);
 		if( loaded )
-			memoryItem.Refresh();
+			refreshment.Refresh();
 	}
 
 	public void Load(GameCartridge gameCartridge) {
@@ -50,14 +50,14 @@ public class GameMemory : MonoBehaviour {
 	public int ColorCount => colors.Count;
 
 	private void Refresh() {
-		foreach( var memoryItem in memory )
-			memoryItem.Refresh();
+		foreach( var refreshment in refreshments )
+			refreshment.Refresh();
 	}
 
 	private void LoadColors(GameCartridge gameCartridge) {
-		for( int i = 0, offset = ColorCount - gameCartridge.ColorCount; i < offset; ++i )
+		for (int i = 0, offset = ColorCount - gameCartridge.ColorCount; i < offset; ++i)
 			colors[i + offset] = colors[i];
-		for( int i = 0; i < gameCartridge.ColorCount; ++i )
+		for (int i = 0; i < gameCartridge.ColorCount; ++i)
 			colors[i] = gameCartridge.Color(i);
 	}
 }

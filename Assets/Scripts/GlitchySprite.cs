@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public abstract class GlitchySprite : MonoBehaviour, IMemorable {
+public abstract class GlitchySprite : MonoBehaviour, IRefreshable {
 	public Color Color => GameCollection.Instance.Cartridge(GameId).Color(ColorId);
 
 	private SpriteRenderer spriteRenderer;
