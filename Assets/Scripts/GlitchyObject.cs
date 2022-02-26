@@ -6,7 +6,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	public int ColorId => glitchySprite.ColorId;
 	public int AudioId { get; }
 
-	public string HexCode => $"2{ObjectId}{ColorId}{AudioId}";
+	public string ToHex => $"2{ObjectId}{ColorId}{AudioId}";
 
 
 	private GlitchySprite glitchySprite;
@@ -20,8 +20,6 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public void Refresh() {
-		Debug.Log($"Refreshing {name}");
 		glitchySprite.Tint(GameMemory.Instance.Color(GameId, ColorId));
 	}
-
 }

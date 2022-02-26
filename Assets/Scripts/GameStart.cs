@@ -5,6 +5,6 @@ public class GameStart : MonoBehaviour {
 	private GameId gameId;
 
 	void Start() {
-		GameMemory.Instance.Load(GameCollection.Instance.Cartridge(gameId));
+		GameMemory.Instance.Load(gameId);
 	}
 }

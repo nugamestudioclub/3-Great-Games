@@ -18,5 +18,9 @@ public class GameCollection : MonoBehaviour {
 		Instance = this;
 	}
 
+	public GameId GameId(int id) => (GameId)(id % Count);
+
 	public GameCartridge Cartridge(GameId gameId) => cartridges[(int)gameId];
+
+	public int Count => cartridges.Count;
 }

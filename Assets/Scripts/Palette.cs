@@ -9,10 +9,7 @@ public class Palette<T> : IEnumerable<T>, IReadOnlyList<T> {
 	private List<T> items;
 	public int Count => items.Count;
 
-	public T this[int index] {
-		get => items[index % items.Count];
-		set => items[index % items.Count] = value;
-	}
+	public T this[int index] => items[index % items.Count];
 
 	public IEnumerator<T> GetEnumerator() {
 		return ((IEnumerable<T>)items).GetEnumerator();

@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMemory : MonoBehaviour {
 	public static GameMemory Instance { get; private set; }
 
-	public GameCartridge GameCartridge { get; private set; }
+	public GameId GameId { get; private set; }
 
 	private bool loaded;
 
-	[SerializeField]
-	private Palette<Color> colors;
+	public ColorPalette ColorPalette => ColorPalette.FromHex(memory[0].ToHex);
 
 	[SerializeField]
 	private Palette<AudioClip> sounds;
@@ -20,46 +20,56 @@ public class GameMemory : MonoBehaviour {
 	private List<IMemorable> memory;
 
 	void Awake() {
+		DontDestroyOnLoad(this);
+
 		Instance = this;
 		memory = new List<IMemorable>();
+		memory.Add(null);
 	}
 
 	public void Store(IMemorable memoryItem) {
 		memory.Add(memoryItem);
-		Debug.Log("Storing obj");
-		if( loaded && memoryItem is IRefreshable refreshment)
+		if( loaded && memoryItem is IRefreshable refreshment )
 			refreshment.Refresh();
 	}
 
-	public void Load(GameCartridge gameCartridge) {
+	public void Load(GameId gameId) {
 		loaded = false;
 
-		LoadColors(gameCartridge);
-		GameCartridge = gameCartridge;
+		GameId = gameId;
+		memory[0] = new ColorPalette(GameId);
 		Refresh();
 
 		loaded = true;
 	}
 
 	public Color Color(GameId gameId, int index) {
-		if( gameId != GameCartridge.Id )
-			index += GameCartridge.ColorCount;
+		if( gameId != GameId )
+			index += GameCollection.Instance.Cartridge(GameId).ColorPalette.Count;
 
-		return colors[index];
+		return ColorPalette[index];
 	}
-
-	public int ColorCount => colors.Count;
 
 	private void Refresh() {
 		foreach( var memoryItem in memory )
-			if (memoryItem is IRefreshable refreshment)
+			if( memoryItem is IRefreshable refreshment )
 				refreshment.Refresh();
 	}
 
 	private void LoadColors(GameCartridge gameCartridge) {
+		/*
 		for (int i = 0, offset = ColorCount - gameCartridge.ColorCount; i < offset; ++i)
 			colors[i + offset] = colors[i];
 		for (int i = 0; i < gameCartridge.ColorCount; ++i)
 			colors[i] = gameCartridge.Color(i);
+		*/
+	}
+
+	public static int HexToInt(string hex) {
+		return Convert.ToInt32(hex, 16);
+	}
+
+	public static string IntToHex(int value) {
+		return Convert.ToString(value, 16);
 	}
 }

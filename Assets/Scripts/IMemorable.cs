@@ -2,6 +2,6 @@
 
 public interface IMemorable
 {
-    string HexCode { get; }
+    string ToHex { get; }
 }
 
