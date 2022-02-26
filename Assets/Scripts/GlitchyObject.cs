@@ -22,6 +22,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public void Refresh() {
+		glitchySprite.Tint(GameMemory.Instance.Color(GameId, ColorId));
 		if (spriteOnly)
         {
 
@@ -31,6 +32,5 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 			Instantiate(GameMemory.Instance.GameObject(ObjectId), transform.position, transform.rotation);
 			Destroy(gameObject);
         }
-        glitchySprite.Tint(GameMemory.Instance.Color(GameId, ColorId));
 	}
 }
