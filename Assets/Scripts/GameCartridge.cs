@@ -15,8 +15,8 @@ public class GameCartridge : ScriptableObject {
 	private Palette<AudioClip> sounds;
 
 	[SerializeField]
-	private Palette<GlitchyObject> gameObjects;
-	//public GameObject GameObject(int index) => gameObjects[index].gameObject;
+	private Palette<GlitchyObject> glitchyObjects;
+	public Palette<GlitchyObject> ObjectPalette => glitchyObjects;
 
 	//write instructions
 	public string writeColorPalette()
@@ -30,7 +30,7 @@ public class GameCartridge : ScriptableObject {
 	}
 	public string writeGameObjects()
 	{
-		for (int i = 0; i < gameObjects.Count; i++)
+		for (int i = 0; i < glitchyObjects.Count; i++)
         {
 			return writeGameObject(i, i, i);
         }

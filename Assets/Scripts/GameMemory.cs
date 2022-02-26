@@ -9,6 +9,8 @@ public class GameMemory : MonoBehaviour {
 
 	private bool loaded;
 
+	public GameCartridge ActiveCartridge => GameCollection.Instance.Cartridge(GameId);
+
 	public ColorPalette ColorPalette {
 		get => ColorPalette.FromHex(memory[0].ToHex);
 		set => memory[0] = value;
@@ -22,33 +24,33 @@ public class GameMemory : MonoBehaviour {
 
 	public GameObject GameObject(int index) => gameObjects[index].gameObject;
 
-	private List<IMemorable> memory;
+	private List<IMemorable> memory; // hex codes
+
+	private List<IRefreshable> refreshMemory;
 
 	void Awake() {
 		DontDestroyOnLoad(this);
 
 		Instance = this;
-		memory = new List<IMemorable>();
-		memory.Add(null);
+		memory = new List<IMemorable> { null, null };
+		refreshMemory = new List<IRefreshable>();
 	}
 
-	public void Store(IMemorable memoryItem) {
-		memory.Add(memoryItem);
-		if( loaded && memoryItem is IRefreshable refreshment )
-			refreshment.Refresh();
+	public void Store(IRefreshable refreshItem) {
+		refreshMemory.Add(refreshItem);
+		if( loaded )
+			refreshItem.Refresh();
 	}
 
 	public void Load(GameId gameId) {
-		foreach (var memoryItem in memory)
-        {
-
-				Debug.Log($"{memoryItem}");
-		}
-			
 		loaded = false;
 
 		GameId = gameId;
 		ColorPalette = new ColorPalette(GameId);
+		// AudioPalette = new AudioPalette(GameId);
+		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i )
+			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
+
 		Refresh();
 
 		loaded = true;
@@ -61,23 +63,13 @@ public class GameMemory : MonoBehaviour {
 		return ColorPalette[index];
 	}
 
-	private void Refresh() {
-		foreach( var memoryItem in memory)
-        {
-			Debug.Log($"{memoryItem}");
-			if (memoryItem is IRefreshable refreshment)
-				refreshment.Refresh();
-		}
-			
+	public GlitchyObject GlitchyObject(string hex) {
+		return ActiveCartridge.ObjectPalette[HexToInt(hex.Substring(0, 2))];
 	}
 
-	private void LoadColors(GameCartridge gameCartridge) {
-		/*
-		for (int i = 0, offset = ColorCount - gameCartridge.ColorCount; i < offset; ++i)
-			colors[i + offset] = colors[i];
-		for (int i = 0; i < gameCartridge.ColorCount; ++i)
-			colors[i] = gameCartridge.Color(i);
-		*/
+	private void Refresh() {
+		foreach( var refreshItem in refreshMemory )
+			refreshItem.Refresh();
 	}
 
 	public static int HexToInt(string hex) {
