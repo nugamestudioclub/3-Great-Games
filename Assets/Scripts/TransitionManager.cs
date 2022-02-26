@@ -22,8 +22,13 @@ public class TransitionManager : MonoBehaviour
     public void ToTanks()
     {
         SceneManager.LoadScene("Tank_Test", LoadSceneMode.Single);
-        //SceneManager.LoadScene("MarcoTest", LoadSceneMode.Single);
     }
+
+    public void ToCredit()
+    {
+        SceneManager.LoadScene("Tank_Test", LoadSceneMode.Single);
+    }
+
 
     public void QuitGame()
     {
