@@ -13,7 +13,7 @@ public abstract class GlitchySprite : MonoBehaviour {
 
 	public abstract int ColorId { get; }
 
-	public Color Color => GameCollection.Instance.Cartridge(GameId).Color(ColorId);
+	public Color Color => GameCollection.Instance.Cartridge(GameId).ColorPalette[ColorId];
 
 	public bool IsTinted => Sprite == greySprite;
 
