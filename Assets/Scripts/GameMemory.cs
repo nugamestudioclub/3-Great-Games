@@ -9,7 +9,10 @@ public class GameMemory : MonoBehaviour {
 
 	private bool loaded;
 
-	public ColorPalette ColorPalette => ColorPalette.FromHex(memory[0].ToHex);
+	public ColorPalette ColorPalette {
+		get => ColorPalette.FromHex(memory[0].ToHex);
+		set => memory[0] = value;
+	}
 
 	[SerializeField]
 	private Palette<AudioClip> sounds;
@@ -37,7 +40,7 @@ public class GameMemory : MonoBehaviour {
 		loaded = false;
 
 		GameId = gameId;
-		memory[0] = new ColorPalette(GameId);
+		ColorPalette = new ColorPalette(GameId);
 		Refresh();
 
 		loaded = true;
