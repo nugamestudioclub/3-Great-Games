@@ -12,7 +12,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	private GlitchySprite glitchySprite;
 
 	void Awake() {
-		glitchySprite = GetComponent<GlitchySprite>();
+		glitchySprite = GetComponentInChildren<GlitchySprite>();
 	}
 
 	void Start() {
@@ -20,6 +20,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public void Refresh() {
+		Debug.Log($"Refreshing {name}");
 		glitchySprite.Tint(GameMemory.Instance.Color(GameId, ColorId));
 	}
 

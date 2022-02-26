@@ -26,6 +26,7 @@ public class GameMemory : MonoBehaviour {
 
 	public void Store(IMemorable memoryItem) {
 		memory.Add(memoryItem);
+		Debug.Log("Storing obj");
 		if( loaded && memoryItem is IRefreshable refreshment)
 			refreshment.Refresh();
 	}

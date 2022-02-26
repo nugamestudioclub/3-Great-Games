@@ -19,7 +19,7 @@ public class PlatformerObject : GlitchyObject
 	public override GameId GameId => GameId.Platformer;
 
 	[SerializeField]
-	private SpaceObjectId objectId;
+	private PlatformerObjectId objectId;
 
 	public override int ObjectId => (int)objectId;
 }

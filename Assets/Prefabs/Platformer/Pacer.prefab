@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5814615314917512980}
   - component: {fileID: 5814615314917512983}
+  - component: {fileID: 6822225868083774636}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -143,6 +144,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6822225868083774636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814615314917512981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
 --- !u!1 &5814615315347326715
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +169,7 @@ GameObject:
   - component: {fileID: 5814615315347326660}
   - component: {fileID: 5814615315347326661}
   - component: {fileID: 5814615315347326714}
+  - component: {fileID: 2231793881692233239}
   m_Layer: 0
   m_Name: Pacer
   m_TagString: Untagged
@@ -231,6 +246,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.16, y: 0.16}
   m_Direction: 0
+--- !u!114 &2231793881692233239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814615315347326715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectId: 8
 --- !u!1 &6089520443873230662
 GameObject:
   m_ObjectHideFlags: 0

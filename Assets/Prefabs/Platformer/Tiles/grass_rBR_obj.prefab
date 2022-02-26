@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6836758047552424290}
   - component: {fileID: 3888591998937746256}
-  - component: {fileID: 8819343059021777257}
+  - component: {fileID: 8980653831136015948}
+  - component: {fileID: 405245787137251566}
   m_Layer: 0
   m_Name: grass_rBR_obj
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8819343059021777257
+--- !u!114 &8980653831136015948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +93,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc03563443f288943ae69fb708a416da, type: 3}
+  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
+  color: 5
+--- !u!114 &405245787137251566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274755053796369319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectId: 1
