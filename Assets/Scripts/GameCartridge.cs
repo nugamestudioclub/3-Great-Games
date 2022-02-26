@@ -22,9 +22,35 @@ public class GameCartridge : ScriptableObject {
 	public int SoundCount => colors.Count;
 
 	[SerializeField]
-	private Palette<GameObject> gameObjects;
-
-	public GameObject GameObject(int index) => gameObjects[index];
+	private Palette<GlitchyObject> gameObjects;
+	public GameObject GameObject(int index) => gameObjects[index].gameObject;
 
 	public int GameObjectCount => colors.Count;
+
+
+
+	//write instructions
+	public string writeColorPalette()
+    {
+		return $"0{(int)(Id + 1)}00";
+    }
+	public string writeAudioPalette()
+    {
+							//tempo pitch
+		return $"1{(int)(Id + 1)}00";
+	}
+	public string writeGameObjects()
+	{
+		for (int i = 0; i < gameObjects.Count; i++)
+        {
+			return writeGameObject(i, i, i);
+        }
+		return "";
+	}
+	public string writeGameObject(int gameObjectId, int colorId, int audioId)
+    {
+		return $"2{gameObjectId}{colorId}{audioId}";
+
+	}
+	//read instruction
 }

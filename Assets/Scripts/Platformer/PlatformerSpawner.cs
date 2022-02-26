@@ -14,11 +14,12 @@ public enum PlatformerObjectId {
 	Pacer,
 }
 
-public class PlatformerSpawner : Spawner {
-	protected override GameId GameId => GameId.Platformer;
+public class PlatformerObject : GlitchyObject
+{
+	public override GameId GameId => GameId.Platformer;
 
 	[SerializeField]
-	private PlatformerObjectId objectId;
+	private SpaceObjectId objectId;
 
-	protected override int ObjectId => (int)objectId;
+	public override int ObjectId => (int)objectId;
 }

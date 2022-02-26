@@ -12,12 +12,12 @@ public enum TanksObjectId
 	Bullet,
 }
 
-public class TanksSpawner : Spawner
+public class TanksObject : GlitchyObject
 {
-	protected override GameId GameId => GameId.Tanks;
+	public override GameId GameId => GameId.Tanks;
 
 	[SerializeField]
-	private TanksObjectId objectId;
+	private SpaceObjectId objectId;
 
-	protected override int ObjectId => (int)objectId;
+	public override int ObjectId => (int)objectId;
 }

@@ -2,13 +2,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public abstract class GlitchySprite : MonoBehaviour, IRefreshable {
+public abstract class GlitchySprite : MonoBehaviour {
 	public Color Color => GameCollection.Instance.Cartridge(GameId).Color(ColorId);
 
 	private SpriteRenderer spriteRenderer;
 	private Sprite mainSprite;
 	private Sprite greySprite;
-
 	protected abstract GameId GameId { get; }
 
 	public Sprite Sprite { get => spriteRenderer.sprite; private set => spriteRenderer.sprite = value; }
@@ -19,14 +18,6 @@ public abstract class GlitchySprite : MonoBehaviour, IRefreshable {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		mainSprite = spriteRenderer.sprite;
 		greySprite = GreySprite(mainSprite);
-	}
-
-	void Start() {
-		GameMemory.Instance.Store(this);
-	}
-
-	public void Refresh() {
-		Tint(GameMemory.Instance.Color(GameId, ColorId));
 	}
 
 	public void Tint(Color color) {

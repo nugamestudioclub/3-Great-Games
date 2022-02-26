@@ -12,12 +12,12 @@ public enum SpaceObjectId
 	EnemyBullet,
 }
 
-public class SpaceSpawner : Spawner
+public class SpaceObject : GlitchyObject
 {
-	protected override GameId GameId => GameId.SpaceShooter;
+	public override GameId GameId => GameId.SpaceShooter;
 
 	[SerializeField]
 	private SpaceObjectId objectId;
 
-	protected override int ObjectId => (int)objectId;
+	public override int ObjectId => (int)objectId;
 }

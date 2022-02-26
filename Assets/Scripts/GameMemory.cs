@@ -17,16 +17,16 @@ public class GameMemory : MonoBehaviour {
 	[SerializeField]
 	private Palette<GameObject> gameObjects;
 
-	private List<IRefreshable> refreshments;
+	private List<IMemorable> memory;
 
 	void Awake() {
 		Instance = this;
-		refreshments = new List<IRefreshable>();
+		memory = new List<IMemorable>();
 	}
 
-	public void Store(IRefreshable refreshment) {
-		refreshments.Add(refreshment);
-		if( loaded )
+	public void Store(IMemorable memoryItem) {
+		memory.Add(memoryItem);
+		if( loaded && memoryItem is IRefreshable refreshment)
 			refreshment.Refresh();
 	}
 
@@ -50,8 +50,9 @@ public class GameMemory : MonoBehaviour {
 	public int ColorCount => colors.Count;
 
 	private void Refresh() {
-		foreach( var refreshment in refreshments )
-			refreshment.Refresh();
+		foreach( var memoryItem in memory )
+			if (memoryItem is IRefreshable refreshment)
+				refreshment.Refresh();
 	}
 
 	private void LoadColors(GameCartridge gameCartridge) {

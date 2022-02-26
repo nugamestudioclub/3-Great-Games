@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public abstract class Spawner : MonoBehaviour {
-	protected abstract GameId GameId { get; }
+public  class Spawner : MonoBehaviour {
 
-	protected abstract int ObjectId { get; }
+	[SerializeField]
+	private GlitchyObject obj;
 
 	void Start() {
 		Instantiate(
-			GameCollection.Instance.Cartridge(GameId).GameObject(ObjectId),
+			GameCollection.Instance.Cartridge(obj.GameId).GameObject(obj.ObjectId),
 			transform.position,
 			transform.rotation
 		);
