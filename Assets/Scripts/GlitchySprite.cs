@@ -3,14 +3,17 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public abstract class GlitchySprite : MonoBehaviour {
-	public Color Color => GameCollection.Instance.Cartridge(GameId).Color(ColorId);
+	protected abstract GameId GameId { get; }
 
 	private SpriteRenderer spriteRenderer;
 	private Sprite mainSprite;
 	private Sprite greySprite;
-	protected abstract GameId GameId { get; }
 
 	public Sprite Sprite { get => spriteRenderer.sprite; private set => spriteRenderer.sprite = value; }
+
+	public abstract int ColorId { get; }
+
+	public Color Color => GameCollection.Instance.Cartridge(GameId).Color(ColorId);
 
 	public bool IsTinted => Sprite == greySprite;
 
@@ -21,7 +24,7 @@ public abstract class GlitchySprite : MonoBehaviour {
 	}
 
 	public void Tint(Color color) {
-		if( color == this.Color ) {
+		if( color == Color ) {
 			spriteRenderer.sprite = mainSprite;
 			spriteRenderer.color = Color.white;
 		}
@@ -49,6 +52,4 @@ public abstract class GlitchySprite : MonoBehaviour {
 
 		return path.Substring(0, pos) + "_grey" + path.Substring(pos, path.Length - pos);
 	}
-
-	public abstract int ColorId { get; }
 }
