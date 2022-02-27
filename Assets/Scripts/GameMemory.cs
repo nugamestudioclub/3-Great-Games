@@ -68,10 +68,11 @@ public class GameMemory : MonoBehaviour {
 
 	public GlitchyObject Object(string hex) {
 		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-		int gameIndex = HexToInt(hex.Substring(0, 1));
-		int objIndex = HexToInt((memory[memoryIndex].ToHex));
+		string memoryHex = memory[memoryIndex].ToHex;
+		int objIndex = HexToInt(memoryHex.Substring(1, 1));
+		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
 
-		return ActiveCartridge.ObjectPalette[objIndex];
+		return GameCollection.Instance.Cartridge(gameIndex).ObjectPalette[objIndex];
 	}
 
 	private void Refresh() {

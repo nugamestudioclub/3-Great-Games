@@ -50,6 +50,9 @@ MonoBehaviour:
   speed: 1
   rotSpeed: 90
   enable: 1
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &7471304308436018342
 CharacterController:
   m_ObjectHideFlags: 0
@@ -100,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 1
+  glitchySprite: {fileID: 1966975705359768551}
   objectId: 0
 --- !u!1 &7471304309152047134
 GameObject:
@@ -112,6 +116,7 @@ GameObject:
   - component: {fileID: 7471304309152047133}
   - component: {fileID: 7471304309152047132}
   - component: {fileID: 7471304309152047131}
+  - component: {fileID: 1966975705359768551}
   m_Layer: 0
   m_Name: tank_base_move1
   m_TagString: Untagged
@@ -203,3 +208,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1966975705359768551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471304309152047134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb965bdfe6df174c827c777d2ab2ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 7471304309152047132}
+  colorId: 0

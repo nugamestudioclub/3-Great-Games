@@ -43,8 +43,6 @@ public abstract class GlitchySprite : MonoBehaviour {
 		if( mainSprite.texture == null )
 			mainSprite = GameMemory.Instance.MissingSprite;
 
-		Debug.Log(mainSprite.texture);
-
 		greySprite = GreySprite(mainSprite);
 
 		Sprite = isTinted ? greySprite : mainSprite;

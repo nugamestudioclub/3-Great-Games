@@ -24,4 +24,5 @@ MonoBehaviour:
   sounds:
     items: []
   objects:
-    items: []
+    items:
+    - {fileID: 6326911676404257193, guid: cb210c8042fdc25428ce656ee344b2f3, type: 3}

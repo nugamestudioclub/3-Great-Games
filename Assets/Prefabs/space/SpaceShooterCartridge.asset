@@ -34,4 +34,6 @@ MonoBehaviour:
   sounds:
     items: []
   objects:
-    items: []
+    items:
+    - {fileID: -720275996306567688, guid: 2e5e5ca9eacb1e14b91821b30d73070d, type: 3}
+    - {fileID: 3576641283472580401, guid: 7084e1336cf18764ca2b8c629c2776d3, type: 3}
