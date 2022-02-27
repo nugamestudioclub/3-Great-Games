@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ShootController : MonoBehaviour
 {
     [SerializeField]
@@ -65,6 +65,7 @@ public class ShootController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            SceneManager.LoadScene("Menu_Scene");
         }
         if (collision.gameObject.CompareTag("HorzWall"))
         {
@@ -84,4 +85,5 @@ public class ShootController : MonoBehaviour
     {
         Move, Shoot
     }
+
 }

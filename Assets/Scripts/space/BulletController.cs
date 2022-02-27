@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BulletController : MonoBehaviour
 {
     [SerializeField]
@@ -9,9 +9,7 @@ public class BulletController : MonoBehaviour
     [SerializeField]
     private Direction dir;
     // Start is called before the first frame update
-    void Start()
-    {
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -33,8 +31,12 @@ public class BulletController : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                GameObject go = GameObject.FindWithTag("Audio");
+                AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
+                other.playSound();
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
+                SceneManager.LoadScene("Menu_Scene");
             }
             else if (collision.gameObject.CompareTag("HorzWall"))
             {
@@ -45,6 +47,9 @@ public class BulletController : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
+                GameObject go = GameObject.FindWithTag("Audio");
+                AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
+                other.playSound();
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }

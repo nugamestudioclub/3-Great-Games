@@ -16,6 +16,10 @@ public class SpaceController : MonoBehaviour
     private float shootDelay;
     [HideInInspector]
     private bool inShoot;
+    [SerializeField]
+    private AudioClip audio;
+    [HideInInspector]
+    private AudioSource audioSrc;
     // Start is called before the first frame update
 
     void Start()
@@ -23,6 +27,7 @@ public class SpaceController : MonoBehaviour
         horzSpeed = 0;
         vertSpeed = 0;
         inShoot = false;
+        audioSrc = GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
@@ -88,6 +93,7 @@ public class SpaceController : MonoBehaviour
     IEnumerator Shoot()
     {
         inShoot = true;
+        audioSrc.PlayOneShot(audio, 1f);
         Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y + 0.7f, this.transform.position.z), Quaternion.identity);
         yield return new WaitForSeconds(shootDelay);
         inShoot = false;
