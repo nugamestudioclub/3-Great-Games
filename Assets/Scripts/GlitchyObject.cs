@@ -30,8 +30,8 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 		if( spriteOnly ) {
 			var newObject = GameMemory.Instance.Object(ToHex);
 
-			//if( !(GameId == newObject.GameId && ObjectId == newObject.ObjectId) )
-			glitchySprite.OverrideSprite(newObject.GlitchySprite);
+			if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
+				glitchySprite.OverrideSprite(newObject.GlitchySprite);
 
 			glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
 		}
