@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerController : MonoBehaviour
+public class SpaceEnemySpawnerController : MonoBehaviour
 {
     [SerializeField]
     private GameObject spawn;
@@ -14,11 +14,17 @@ public class SpawnerController : MonoBehaviour
     private bool spawned;
     [HideInInspector]
     private bool inWave;
+    [HideInInspector]
+    private bool firstSpawn;
+    [HideInInspector]
+    private bool firstWave;
     // Start is called before the first frame update
     void Start()
     {
         spawned = false;
         inWave = false;
+        firstSpawn = true;
+        firstWave = true;
     }
 
     // Update is called once per frame
@@ -37,19 +43,33 @@ public class SpawnerController : MonoBehaviour
     private IEnumerator Spawn()
     {
         spawned = true;
-        Instantiate(spawn, this.transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(spawnDelay);
+        if (firstSpawn)
+        {
+            firstSpawn = false;
+            yield return new WaitForSeconds(spawnDelay);
+        } else
+        {
+            Instantiate(spawn, this.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(spawnDelay);
+        }
         spawned = false;
     }
     private IEnumerator Wave()
     {
         inWave = true;
-        for (int i = -3; i <= 3; i++)
+        if (firstWave)
         {
-            Vector3 pos = new Vector3(this.transform.position.x + i, this.transform.position.y, this.transform.position.z);
-            Instantiate(spawn, pos, Quaternion.identity);
+            firstWave = false;
+            yield return new WaitForSeconds(waveDelay);
+        } else
+        {
+            for (int i = -1; i <= 1; i++)
+            {
+                Vector3 pos = new Vector3(this.transform.position.x + i, this.transform.position.y, this.transform.position.z);
+                Instantiate(spawn, pos, Quaternion.identity);
+            }
+            yield return new WaitForSeconds(waveDelay);
         }
-        yield return new WaitForSeconds(waveDelay);
         inWave = false;
     }
 }

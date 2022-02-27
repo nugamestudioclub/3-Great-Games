@@ -48,7 +48,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000000029802322, y: 0.022782743}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -59,7 +59,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.82912964, y: 0.7835641}
   m_EdgeRadius: 0
 --- !u!114 &866283864391521211
 MonoBehaviour:
@@ -75,8 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 10
   bullet: {fileID: 381242584841251801, guid: 835e550b96d6af746aaaef2dfcbe5faa, type: 3}
-  shootDelay: 0.2
-  inShoot: 0
+  shootDelay: 0.1
 --- !u!50 &8229482749855620186
 Rigidbody2D:
   serializedVersion: 4
@@ -111,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 1
+  glitchySprite: {fileID: 0}
   objectId: 0
 --- !u!1 &3121878323957796271
 GameObject:

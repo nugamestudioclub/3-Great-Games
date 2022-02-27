@@ -16,12 +16,17 @@ public class ShootController : MonoBehaviour
     private int layerMask;
     [HideInInspector]
     private bool inShoot;
+    [SerializeField]
+    private float moveTime;
+    [HideInInspector]
+    private float originalTime;
     // Start is called before the first frame update
     void Start()
     {
         state = Action.Move;
         layerMask = 1 << 3;
         inShoot = false;
+        originalTime = moveTime;
     }
 
     // Update is called once per frame
@@ -29,6 +34,7 @@ public class ShootController : MonoBehaviour
     {
         float newX = this.transform.position.x;
         float newY = this.transform.position.y;
+        moveTime -= Time.deltaTime;
         if (state == Action.Move)
         {
             newY -= moveSpeed * Time.deltaTime;
@@ -45,14 +51,12 @@ public class ShootController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (state == Action.Move)
+        if (moveTime <= 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 5, layerMask);
-            if (hit.collider != null && hit.distance >= 3)
-            {
-                state = Action.Shoot;
-            }
+            state = Action.Shoot;
+            moveTime = originalTime;
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -62,12 +66,17 @@ public class ShootController : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("HorzWall"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator Shoot()
     {
         inShoot = true;
         Instantiate(projectile, this.transform.position, Quaternion.identity);
+        state = Action.Move;
         yield return new WaitForSeconds(shootDelay);
         inShoot = false;
     }

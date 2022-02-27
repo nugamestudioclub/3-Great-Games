@@ -14,7 +14,7 @@ public class SpaceController : MonoBehaviour
     private Object bullet;
     [SerializeField]
     private float shootDelay;
-    [SerializeField]
+    [HideInInspector]
     private bool inShoot;
     // Start is called before the first frame update
 
@@ -88,7 +88,7 @@ public class SpaceController : MonoBehaviour
     IEnumerator Shoot()
     {
         inShoot = true;
-        Instantiate(bullet, this.transform.position, Quaternion.identity);
+        Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y + 0.7f, this.transform.position.z), Quaternion.identity);
         yield return new WaitForSeconds(shootDelay);
         inShoot = false;
     }
