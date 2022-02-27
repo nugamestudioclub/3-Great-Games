@@ -65,6 +65,7 @@ public class ShootController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameMemory.Instance.Corrupt();
             SceneManager.LoadScene("Menu_Scene");
         }
         if (collision.gameObject.CompareTag("HorzWall"))

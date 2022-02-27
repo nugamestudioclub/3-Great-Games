@@ -132,7 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteOnly: 1
   glitchySprite: {fileID: 761197725940729547}
-  objectId: 0
+  platformerReplacements: 
+  spaceShooterReplacements: 
+  tanksReplacements: 
+  objectId: 2
 --- !u!1 &2264539205784107405
 GameObject:
   m_ObjectHideFlags: 0

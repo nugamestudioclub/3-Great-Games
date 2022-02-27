@@ -6,22 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Test/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Tank_Test.unity
+    path: Assets/Scenes/Test/Tank_Test.unity
     guid: b5664a02d48f4c74da332c0671ab313a
   - enabled: 1
-    path: Assets/Scenes/Menu_Scene.unity
+    path: Assets/Scenes/Test/Menu_Scene.unity
     guid: 4ee80b34988b91040b416496991db45b
   - enabled: 0
-    path: Assets/Scenes/BBBTest.unity
+    path: Assets/Scenes/Test/BBBTest.unity
     guid: a493838ffae23d24fbd94819cd301052
   - enabled: 1
     path: Assets/Scenes/space.unity
     guid: 12840e0246f0e2645af33f0db152c111
   - enabled: 0
-    path: Assets/Scenes/MarcoTest.unity
+    path: Assets/Scenes/Test/MarcoTest.unity
     guid: 776bae3bbeadd5e4da6ae18d031546ba
   - enabled: 1
     path: Assets/Scenes/Platformer_Ending.unity

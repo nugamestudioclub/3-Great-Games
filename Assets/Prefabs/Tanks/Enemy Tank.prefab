@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4758341141835106152}
-  colorId: 0
+  colorId: 7
 --- !u!1 &4758341142449490464
 GameObject:
   m_ObjectHideFlags: 0

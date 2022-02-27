@@ -87,8 +87,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 1
-  glitchySprite: {fileID: 0}
-  objectId: 0
+  glitchySprite: {fileID: 6910746594703221216}
+  platformerReplacements: 
+  spaceShooterReplacements: 
+  tanksReplacements: 
+  objectId: 4
 --- !u!1 &2378165850723735056
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1246425798507091375}
   - component: {fileID: 2076635239006829029}
+  - component: {fileID: 6910746594703221216}
   m_Layer: 0
   m_Name: SpriteRenderer
   m_TagString: Untagged
@@ -171,3 +175,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6910746594703221216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378165850723735056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ad4c7b1ebf9ab4a9aaebb871fe30d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2076635239006829029}
+  color: 0

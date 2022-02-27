@@ -9,7 +9,7 @@ public class GameStart : MonoBehaviour {
 
 	void Start() {
 		PlayerPrefs.SetFloat("TankScore", 0);
-		GameMemory.Instance.Load(gameId);
+		
 
 	}
 
