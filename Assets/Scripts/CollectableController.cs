@@ -6,7 +6,8 @@ using UnityEngine;
 public class CollectableController : MonoBehaviour
 {
     private Collider2D myCollider;
-    private bool isCollected = false;
+    [HideInInspector]
+    public bool isCollected = false;
     private float collectedTime;
 
     private AudioSource audioSource;

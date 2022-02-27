@@ -10,6 +10,8 @@ public class PEPacingController : PlatformEnemyController
     [SerializeField]
     private ColliderController head;
     bool switchingDirection = false;
+    
+ 
     protected override void Move()
     {
         if (!sides.isColliding)
@@ -21,8 +23,15 @@ public class PEPacingController : PlatformEnemyController
             switchingDirection = true;
             xDir *= -1;
         }
-
+        Debug.Log($"Movespeed {moveSpeed}");
         rb.velocity = new Vector2(xDir * moveSpeed, rb.velocity.y);
+        if (rb.velocity.x > 0)
+        {
+            sr.flipX = true;
+        } else 
+        {
+            sr.flipX = false;
+        }
     }
 
     protected override void Update()
