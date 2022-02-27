@@ -11,7 +11,7 @@ public enum PlatformerObjectId {
 	Gem,
 	Key,
 	Door,
-	Pacer,
+	Ladybug,
 }
 
 public class PlatformerObject : GlitchyObject

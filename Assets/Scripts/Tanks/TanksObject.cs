@@ -5,7 +5,6 @@ using UnityEngine;
 public enum TanksObjectId
 {
 	Player, //sprite replaced
-	PlayerGun,
 	Ground,
 	Enemy,
 	Dirt,
