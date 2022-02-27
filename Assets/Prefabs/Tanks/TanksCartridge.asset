@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be69c262bde0364085e056961666ed1, type: 3}
   m_Name: TanksCartridge
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2
   colors:
     items:
     - {r: 0.6415094, g: 0.20925379, b: 0.003025995, a: 1}
@@ -23,6 +23,5 @@ MonoBehaviour:
     - {r: 0.005638622, g: 0, b: 0.5566038, a: 1}
   sounds:
     items: []
-  gameObjects:
-    items:
-    - {fileID: 6326911676404257193, guid: cb210c8042fdc25428ce656ee344b2f3, type: 3}
+  objects:
+    items: []

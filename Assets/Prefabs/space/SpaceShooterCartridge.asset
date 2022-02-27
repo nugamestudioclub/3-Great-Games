@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be69c262bde0364085e056961666ed1, type: 3}
   m_Name: SpaceShooterCartridge
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   colors:
     items:
     - {r: 0.9843138, g: 0.7803922, b: 0.9843138, a: 1}
@@ -33,6 +33,5 @@ MonoBehaviour:
     - {r: 0, g: 0.1137255, b: 1, a: 1}
   sounds:
     items: []
-  gameObjects:
-    items:
-    - {fileID: -720275996306567688, guid: 2e5e5ca9eacb1e14b91821b30d73070d, type: 3}
+  objects:
+    items: []

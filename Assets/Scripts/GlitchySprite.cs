@@ -38,6 +38,10 @@ public abstract class GlitchySprite : MonoBehaviour {
 
 	public void OverrideSprite(GlitchySprite glitchySprite) {
 		bool isTinted = IsTinted;
+		var sprite = glitchySprite.Sprite;
+
+		if( sprite == null )
+			sprite = GameMemory.Instance.MissingSprite;
 
 		mainSprite = glitchySprite.Sprite;
 		greySprite = GreySprite(mainSprite);

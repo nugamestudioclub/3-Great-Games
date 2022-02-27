@@ -17,6 +17,10 @@ public class GameMemory : MonoBehaviour {
 		set => memory[0] = value;
 	}
 
+	[SerializeField]
+	private Sprite missingSprite;
+	public Sprite MissingSprite => missingSprite;
+
 	private Palette<IMemorable> memory; // hex codes
 
 	private List<IRefreshable> refreshMemory;
@@ -64,7 +68,10 @@ public class GameMemory : MonoBehaviour {
 	public Color Color(int index) => ColorPalette[index];
 
 	public GlitchyObject Object(string hex) {
-		return ActiveCartridge.ObjectPalette[HexToInt(memory[GlitchyObject.HexToId(hex) + 2].ToHex.Substring(0, 2))];
+		int memoryIndex = GlitchyObject.HexToId(hex) + 2;
+		int objIndex = GlitchyObject.HexToId(memory[memoryIndex].ToHex);
+
+		return ActiveCartridge.ObjectPalette[objIndex];
 	}
 
 	private void Refresh() {
