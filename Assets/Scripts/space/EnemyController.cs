@@ -92,7 +92,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            SceneManager.LoadScene("Space_Ending");
+            SceneManager.LoadScene("Menu_Scene");
         }
         else if (collision.gameObject.CompareTag("HorzWall"))
         {

@@ -23,6 +23,6 @@ public class AudioManager : MonoBehaviour
 
     public void playSound()
     {
-        audioSrc.PlayOneShot(explosion, 0.1f);
+        audioSrc.PlayOneShot(explosion, 1f);
     }
 }
