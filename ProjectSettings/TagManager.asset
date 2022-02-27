@@ -45,3 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2116345585
+    locked: 0
+  - name: Grass
+    uniqueID: 3884258943
+    locked: 0
+  - name: Tank
+    uniqueID: 3892747153
+    locked: 0
+  - name: Barrel
+    uniqueID: 61236479
+    locked: 0
+  - name: Bullet
+    uniqueID: 4020059605
+    locked: 0

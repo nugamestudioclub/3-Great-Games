@@ -29,8 +29,8 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
         }
         else
         {
-			Instantiate(GameMemory.Instance.GameObject(ObjectId), transform.position, transform.rotation);
-			Destroy(gameObject);
+			//Instantiate(GameMemory.Instance.GameObject(ObjectId), transform.position, transform.rotation);
+			//Destroy(gameObject);
         }
 	}
 }
