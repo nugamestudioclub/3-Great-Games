@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-directory = "C:\\Users\\HomeOne\\Projects\\_Sync\\GitHub\\brackeys-glitchy\\Assets\\Sprites\\Platformer\\block"
+directory = "C:\\Users\\HomeOne\\Projects\\_Sync\\GitHub\\brackeys-glitchy\\Assets\\Sprites\\Platformer"
 ext = ".png"
 
 def luma(r, g, b):
@@ -21,7 +21,10 @@ def desaturate(filename, output):
 
 for root, folders, files in os.walk(directory):
 	for file in files:
-		if file.endswith(ext):
-			pos = file.rfind(".")
-			output = file[0:pos] + "_grey" + ext
-			desaturate(os.path.join(root, file), os.path.join(root, output))
+		try:
+			if file.endswith(ext):
+				pos = file.rfind(".")
+				output = file[0:pos] + "_grey" + ext
+				desaturate(os.path.join(root, file), os.path.join(root, output))
+		except:
+			print(os.path.join(root, file) + " failed!")

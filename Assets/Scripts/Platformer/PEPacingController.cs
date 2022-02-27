@@ -23,7 +23,6 @@ public class PEPacingController : PlatformEnemyController
             switchingDirection = true;
             xDir *= -1;
         }
-        Debug.Log($"Movespeed {moveSpeed}");
         rb.velocity = new Vector2(xDir * moveSpeed, rb.velocity.y);
         if (rb.velocity.x > 0)
         {
