@@ -32,7 +32,8 @@ MonoBehaviour:
     - {r: 0.96470594, g: 0.6392157, b: 0, a: 1}
     - {r: 0.9843138, g: 0.8078432, b: 0, a: 1}
   sounds:
-    items: []
+    items:
+    - {fileID: 0}
   objects:
     items:
     - {fileID: 8054808748619506369, guid: 7dae50d01556b8945affc6bcb018d993, type: 3}
