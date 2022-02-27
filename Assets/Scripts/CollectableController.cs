@@ -23,6 +23,8 @@ public class CollectableController : MonoBehaviour
     {
         if (isCollected)
         {
+            if( GameMemory.Instance.Rand.Next(10) == 0 )
+                GameMemory.Instance.Corrupt();
 
             collectedTime += Time.deltaTime;
             if (collectedTime > collectSound.length)
