@@ -29,7 +29,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public void Refresh() {
-<<<<<<< HEAD
+
 		glitchySprite.Tint(GameMemory.Instance.Color(GameId, ColorId));
 		if (spriteOnly)
         {
@@ -40,17 +40,6 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 			//Instantiate(GameMemory.Instance.GameObject(ObjectId), transform.position, transform.rotation);
 			//Destroy(gameObject);
         }
-=======
-		if( isAwake ) {
-			glitchySprite.Tint(GameMemory.Instance.ColorPalette[ColorId]);
-			if( spriteOnly ) {
 
-			}
-			else {
-				// Instantiate(GameMemory.Instance.Object(ObjectId), transform.position, transform.rotation);
-				// Destroy(gameObject);
-			}
-		}
->>>>>>> 57d8f453c1235859937fed64a30a4e1f87f479a1
 	}
 }
