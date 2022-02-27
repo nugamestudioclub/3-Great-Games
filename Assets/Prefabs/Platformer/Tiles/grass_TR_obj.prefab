@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3888591998937746256}
   color: 5
 --- !u!114 &7197426704364061476
 MonoBehaviour:
@@ -110,4 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 1
+  glitchySprite: {fileID: 9144573973802613705}
   objectId: 1

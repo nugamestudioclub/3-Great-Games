@@ -25,11 +25,14 @@ public class HexKeyboard : MonoBehaviour {
 	}
 
 	private char Validate(string text, int pos, char ch) {
-		return IsHexDigit(ch) ? char.ToUpper(ch) : '\0';
+		return text.Length < 4 && IsHexDigit(ch) ? char.ToUpper(ch) : '\0';
 	}
 
 	private void Submit() {
-		Text += new string('0', maxLength - Text.Length);
+		int count = maxLength - Text.Length;
+
+		if( count > 0 )
+			Text += new string('0', maxLength - Text.Length);
 		GameMemory.Instance.Store(Id, new MemoryItem(Text));
 	}
 }

@@ -290,4 +290,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6414670501609910007}
   color: 0

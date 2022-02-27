@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class GlitchySprite : MonoBehaviour {
 	protected abstract GameId GameId { get; }
 
+	[SerializeField]
 	private SpriteRenderer spriteRenderer;
 	private Sprite mainSprite;
 	private Sprite greySprite;
@@ -18,7 +19,8 @@ public abstract class GlitchySprite : MonoBehaviour {
 	public bool IsTinted => Sprite == greySprite;
 
 	void Awake() {
-		spriteRenderer = GetComponent<SpriteRenderer>();
+		if( spriteRenderer == null )
+			spriteRenderer = GetComponent<SpriteRenderer>();
 		mainSprite = spriteRenderer.sprite;
 		greySprite = GreySprite(mainSprite);
 	}
@@ -34,10 +36,10 @@ public abstract class GlitchySprite : MonoBehaviour {
 		}
 	}
 
-	public void OverrideSprite(Sprite sprite) {
+	public void OverrideSprite(GlitchySprite glitchySprite) {
 		bool isTinted = IsTinted;
 
-		mainSprite = sprite;
+		mainSprite = glitchySprite.Sprite;
 		greySprite = GreySprite(mainSprite);
 
 		Sprite = isTinted ? greySprite : mainSprite;

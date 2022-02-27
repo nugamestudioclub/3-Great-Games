@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 0
+  glitchySprite: {fileID: 0}
   objectId: 7
 --- !u!82 &2864835655437743135
 AudioSource:
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isColliding: 0
   myTag: Player
-  openSprite: {fileID: 21300000, guid: c38fceab0866b104682097906e504ed1, type: 3}
+  openSprite: {fileID: 21300000, guid: c187427ef71804e46a9bea8013da9ff4, type: 3}
   key: {fileID: 0}
   collectSound: {fileID: 8300000, guid: 17c2906a95008a146a941a7c94683b7c, type: 3}
 --- !u!1 &7673304638623849062
@@ -250,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c187427ef71804e46a9bea8013da9ff4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c38fceab0866b104682097906e504ed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -273,4 +274,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6414670501609910007}
   color: 15

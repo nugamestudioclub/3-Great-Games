@@ -12,14 +12,10 @@ public class GameMemory : MonoBehaviour {
 
 	public GameCartridge ActiveCartridge { get; private set; }
 
-	public ColorPalette ColorPalette {
+	private ColorPalette ColorPalette {
 		get => ColorPalette.FromHex(memory[0].ToHex);
 		set => memory[0] = value;
 	}
-
-	[SerializeField]
-	private Palette<GlitchyObject> objects;
-	public GlitchyObject Object(int index) => objects[index];
 
 	private Palette<IMemorable> memory; // hex codes
 
@@ -65,8 +61,10 @@ public class GameMemory : MonoBehaviour {
 
 	public IMemorable MemoryItem(int index) => memory[index];
 
+	public Color Color(int index) => ColorPalette[index];
+
 	public GlitchyObject Object(string hex) {
-		return ActiveCartridge.ObjectPalette[HexToInt(hex.Substring(0, 2))];
+		return ActiveCartridge.ObjectPalette[HexToInt(memory[GlitchyObject.HexToId(hex) + 2].ToHex.Substring(0, 2))];
 	}
 
 	private void Refresh() {

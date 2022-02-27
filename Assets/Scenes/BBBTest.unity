@@ -232,8 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capacity: 16
-  objects:
-    items: []
 --- !u!4 &789046682
 Transform:
   m_ObjectHideFlags: 0
@@ -9432,7 +9430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228482995562472665, guid: 1e9844f097b20dc41b67d5d56d22857a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.601
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 7228482995562472665, guid: 1e9844f097b20dc41b67d5d56d22857a, type: 3}
       propertyPath: m_LocalPosition.z
