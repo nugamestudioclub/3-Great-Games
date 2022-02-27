@@ -57,7 +57,6 @@ public class GameMemory : MonoBehaviour {
 
 		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i ) 
 			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
-
 		Refresh();
 
 		loaded = true;
@@ -68,11 +67,11 @@ public class GameMemory : MonoBehaviour {
 	public Color Color(int index) => ColorPalette[index];
 
 	public GlitchyObject Object(string hex) {
-		int gameId = HexToInt(hex.Substring(0, 1));
 		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-		int objId = HexToInt(memory[memoryIndex].ToHex);
+		int gameIndex = HexToInt(hex.Substring(0, 1));
+		int objIndex = HexToInt((memory[memoryIndex].ToHex));
 
-		return GameCollection.Instance.Cartridge(gameId).ObjectPalette[objId];
+		return ActiveCartridge.ObjectPalette[objIndex];
 	}
 
 	private void Refresh() {
