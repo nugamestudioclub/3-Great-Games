@@ -10479,6 +10479,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2231793881692233239, guid: 2b9bfcb20e289a349928492e9e19b71b, type: 3}
+      propertyPath: spaceShooterReplacements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231793881692233239, guid: 2b9bfcb20e289a349928492e9e19b71b, type: 3}
+      propertyPath: spaceShooterReplacements.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231793881692233239, guid: 2b9bfcb20e289a349928492e9e19b71b, type: 3}
+      propertyPath: spaceShooterReplacements.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5814615314917512980, guid: 2b9bfcb20e289a349928492e9e19b71b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
