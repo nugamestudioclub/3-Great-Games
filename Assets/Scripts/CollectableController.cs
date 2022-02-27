@@ -44,6 +44,7 @@ public class CollectableController : MonoBehaviour
         audioSource.PlayOneShot(collectSound);
         //
         myCollider.enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         isCollected = true;
     }
 }
