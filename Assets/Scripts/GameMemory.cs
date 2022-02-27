@@ -62,8 +62,7 @@ public class GameMemory : MonoBehaviour {
 		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i )
 			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
 
-		ApplyCorruption();
-		Refresh();
+		ApplyCorruption(Corruption % 5 + 1);
 
 		loaded = true;
 	}
@@ -98,11 +97,13 @@ public class GameMemory : MonoBehaviour {
 
 	public void Corrupt() {
 		++Corruption;
+		ApplyCorruption(1);
 	}
 
-	private void ApplyCorruption() {
-		for( int i = 0; i < Corruption % 10 + 1; ++i )
+	private void ApplyCorruption(int count = 1) {
+		for( int i = 0; i < count; ++i )
 			memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
+		Refresh();
 	}
 
 	private string RandomHexString() {
@@ -117,6 +118,6 @@ public class GameMemory : MonoBehaviour {
 	private char RandomHexChar() {
 		int n = Rand.Next(16);
 
-		return (char)(n < 10 ? '0' + n : 'A' + n);
+		return (char)(n < 10 ? '0' + n : 'A' + n - 10);
 	}
 }
