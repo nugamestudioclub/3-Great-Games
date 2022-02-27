@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
@@ -92,6 +92,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            SceneManager.LoadScene("Space_Ending");
         }
         else if (collision.gameObject.CompareTag("HorzWall"))
         {
