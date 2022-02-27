@@ -40,6 +40,8 @@ public class Enemy_Behavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if( GameMemory.Instance.Rand.Next(10) == 0 )
+            GameMemory.Instance.Corrupt();
         PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") + 1);
         Destroy(me);
     }

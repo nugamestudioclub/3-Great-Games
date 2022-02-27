@@ -29,6 +29,9 @@ public abstract class PlatformEnemyController : MonoBehaviour
 
     protected void Die()
     {
+        if( GameMemory.Instance.Rand.Next(10) == 0 )
+            GameMemory.Instance.Corrupt();
+
         //play sound
         //play animation
         animator.Play("ladybug_death");

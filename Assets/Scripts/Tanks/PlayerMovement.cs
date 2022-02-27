@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            GameMemory.Instance.Corrupt();
             tm.ToMenu();
         }
         

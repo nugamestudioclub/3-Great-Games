@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameMemory : MonoBehaviour {
 	public static GameMemory Instance { get; private set; }
 
-	private System.Random random = new System.Random();
+	public System.Random Rand { get; private set; } = new System.Random();
 
 	[SerializeField]
 	private int capacity = 16;
@@ -13,6 +13,8 @@ public class GameMemory : MonoBehaviour {
 	private bool loaded;
 
 	public GameCartridge ActiveCartridge { get; private set; }
+
+	public int Corruption { get; private set; }
 
 	private ColorPalette ColorPalette {
 		get => ColorPalette.FromHex(memory[0].ToHex);
@@ -92,9 +94,10 @@ public class GameMemory : MonoBehaviour {
 		return Convert.ToString(value, 16);
 	}
 
-	public void Corrupt(int count = 1) {
-		for( int i = 0; i < count; ++i )
-			memory[random.Next(capacity)] = new MemoryItem(RandomHexString());
+	public void Corrupt() {
+		for( int i = 0; i < Corruption % 10 + 1; ++i )
+			memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
+		++Corruption;
 	}
 
 	private string RandomHexString() {
@@ -107,7 +110,7 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	private char RandomHexChar() {
-		int n = random.Next(16);
+		int n = Rand.Next(16);
 
 		return (char)(n < 10 ? '0' + n : 'A' + n);
 	}
