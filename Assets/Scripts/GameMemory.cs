@@ -97,8 +97,11 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	public void Corrupt() {
-		++Corruption;
-		ApplyCorruption(1);
+		try {
+			++Corruption;
+			ApplyCorruption(1);
+		}
+		catch { }
 	}
 
 	private void ApplyCorruption(int count = 1) {
