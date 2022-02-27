@@ -76,6 +76,7 @@ MonoBehaviour:
   acceleration: 10
   bullet: {fileID: 381242584841251801, guid: 835e550b96d6af746aaaef2dfcbe5faa, type: 3}
   shootDelay: 0.1
+  audio: {fileID: 8300000, guid: e63bf42956d47d044899f37e553310c5, type: 3}
 --- !u!50 &8229482749855620186
 Rigidbody2D:
   serializedVersion: 4

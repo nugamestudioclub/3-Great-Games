@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 0
+  spriteOnly: 1
   glitchySprite: {fileID: 140991388243653327}
   objectId: 7
 --- !u!82 &2864835655437743135

@@ -67,8 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 0
-  objectId: 5
+  spriteOnly: 1
+  glitchySprite: {fileID: 140991388243653327}
+  objectId: 6
 --- !u!58 &7988361977365759362
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986ad94222c728741b3e9c6e09336889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollected: 0
   collectSound: {fileID: 8300000, guid: cbe0f85fc8847864b93e9c48712d676a, type: 3}
 --- !u!82 &2864835655437743135
 AudioSource:
@@ -289,4 +291,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
+  spriteRenderer: {fileID: 6414670501609910007}
+  color: 15
