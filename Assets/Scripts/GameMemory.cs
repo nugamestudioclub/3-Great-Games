@@ -76,8 +76,9 @@ public class GameMemory : MonoBehaviour {
 		string memoryHex = memory[memoryIndex].ToHex;
 		int objIndex = HexToInt(memoryHex.Substring(1, 1));
 		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
+		var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
 
-		return GameCollection.Instance.Cartridge(gameIndex).ObjectPalette[objIndex];
+		return objPalette[objIndex % objPalette.Count];
 	}
 
 	private void Refresh() {
