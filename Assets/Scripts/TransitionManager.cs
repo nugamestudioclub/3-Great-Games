@@ -26,7 +26,22 @@ public class TransitionManager : MonoBehaviour
 
     public void ToCredit()
     {
-        SceneManager.LoadScene("Tank_Test", LoadSceneMode.Single);
+        SceneManager.LoadScene("Credits_Scene", LoadSceneMode.Single);
+    }
+
+    public void ToTankEnd()
+    {
+        SceneManager.LoadScene("Tank_Ending", LoadSceneMode.Single);
+    }
+
+    public void ToSpaceEnd()
+    {
+        SceneManager.LoadScene("Space_Ending", LoadSceneMode.Single);
+    }
+
+    public void ToPlatformerEnd()
+    {
+        SceneManager.LoadScene("Platformer_Ending", LoadSceneMode.Single);
     }
 
 

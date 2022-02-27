@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  myTag: 
 --- !u!70 &5814615314533875393
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8dbfd0fc771c718469f9eadfefb0cd1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d453e1663c18df4da6d404de15cc688, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,8 +171,9 @@ GameObject:
   - component: {fileID: 5814615315347326661}
   - component: {fileID: 5814615315347326714}
   - component: {fileID: 2231793881692233239}
+  - component: {fileID: 1565852456700151228}
   m_Layer: 0
-  m_Name: Pacer
+  m_Name: Ladybug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e632dc6f81aa52498db970f48bc7f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 1
   sides: {fileID: 5814615314533875398}
   head: {fileID: 6760062388122825951}
 --- !u!70 &5814615315347326714
@@ -258,7 +260,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteOnly: 0
   objectId: 8
+--- !u!95 &1565852456700151228
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814615315347326715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a09589b322371794bbf4bfc27823f044, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6089520443873230662
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  myTag: Player
 --- !u!70 &5554557340645212439
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -5,11 +5,12 @@ using UnityEngine;
 public class GameMemory : MonoBehaviour {
 	public static GameMemory Instance { get; private set; }
 
-	public GameId GameId { get; private set; }
+	[SerializeField]
+	private int capacity = 16;
 
 	private bool loaded;
 
-	public GameCartridge ActiveCartridge => GameCollection.Instance.Cartridge(GameId);
+	public GameCartridge ActiveCartridge { get; private set; }
 
 	public ColorPalette ColorPalette {
 		get => ColorPalette.FromHex(memory[0].ToHex);
@@ -17,14 +18,10 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	[SerializeField]
-	private Palette<AudioClip> sounds;
+	private Palette<GlitchyObject> objects;
+	public GlitchyObject Object(int index) => objects[index];
 
-	[SerializeField]
-	private Palette<GameObject> gameObjects;
-
-	public GameObject GameObject(int index) => gameObjects[index].gameObject;
-
-	private List<IMemorable> memory; // hex codes
+	private Palette<IMemorable> memory; // hex codes
 
 	private List<IRefreshable> refreshMemory;
 
@@ -32,11 +29,20 @@ public class GameMemory : MonoBehaviour {
 		DontDestroyOnLoad(this);
 
 		Instance = this;
-		memory = new List<IMemorable> { null, null };
+
+		memory = new Palette<IMemorable>();
+		for( int i = 0; i < capacity; ++i )
+			memory.Add(new MemoryItem());
+
 		refreshMemory = new List<IRefreshable>();
 	}
 
-	public void Store(IRefreshable refreshItem) {
+	public void Store(int index, IMemorable memoryItem) {
+		memory[index] = memoryItem;
+		Refresh();
+	}
+
+	public void Subscribe(IRefreshable refreshItem) {
 		refreshMemory.Add(refreshItem);
 		if( loaded )
 			refreshItem.Refresh();
@@ -45,10 +51,11 @@ public class GameMemory : MonoBehaviour {
 	public void Load(GameId gameId) {
 		loaded = false;
 
-		GameId = gameId;
-		ColorPalette = new ColorPalette(GameId);
+		ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
+		ColorPalette = new ColorPalette(gameId);
 		// AudioPalette = new AudioPalette(GameId);
-		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i )
+
+		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i ) 
 			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
 
 		Refresh();
@@ -56,14 +63,9 @@ public class GameMemory : MonoBehaviour {
 		loaded = true;
 	}
 
-	public Color Color(GameId gameId, int index) {
-		if( gameId != GameId )
-			index += GameCollection.Instance.Cartridge(GameId).ColorPalette.Count;
+	public IMemorable MemoryItem(int index) => memory[index];
 
-		return ColorPalette[index];
-	}
-
-	public GlitchyObject GlitchyObject(string hex) {
+	public GlitchyObject Object(string hex) {
 		return ActiveCartridge.ObjectPalette[HexToInt(hex.Substring(0, 2))];
 	}
 

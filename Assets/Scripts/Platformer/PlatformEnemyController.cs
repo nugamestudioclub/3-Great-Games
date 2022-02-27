@@ -5,12 +5,16 @@ using UnityEngine;
 public abstract class PlatformEnemyController : MonoBehaviour
 {
     public bool IsDying { get; private set; }
-    public float moveSpeed = 5f;
+    public float moveSpeed;
     protected Rigidbody2D rb;
+    private Animator animator;
+    protected SpriteRenderer sr;
 
     private void Awake()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,7 @@ public abstract class PlatformEnemyController : MonoBehaviour
     {
         //play sound
         //play animation
+        animator.Play("ladybug_death");
 
         IsDying = true;
         Debug.Log($"{gameObject.name} has died!");

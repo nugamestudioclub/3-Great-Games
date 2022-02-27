@@ -33,11 +33,9 @@ MonoBehaviour:
     - {r: 0.9843138, g: 0.8078432, b: 0, a: 1}
   sounds:
     items: []
-  gameObjects:
+  objects:
     items:
     - {fileID: 8054808748619506369, guid: 7dae50d01556b8945affc6bcb018d993, type: 3}
     - {fileID: 5653366438348147544, guid: d36056e5f5e404f4ea1741879ce62639, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8917292314325573105, guid: 4a4f1376434c7c44e8e4919871e4caa5, type: 3}
+    - {fileID: 8917292314325573105, guid: 4c8fe525dcbd6884ea74aa3fddc745fe, type: 3}
