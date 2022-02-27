@@ -45,30 +45,33 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public void Refresh() {
-		var newObject = GameMemory.Instance.Object(ToHex);
+		try {
+			var newObject = GameMemory.Instance.Object(ToHex);
 
-		if( spriteOnly ) {
-			//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
+			if( spriteOnly ) {
+				//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
 				glitchySprite.OverrideSprite(newObject.GlitchySprite);
 
-			glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
-		}
-		else {
-			bool valid = newObject.GameId switch {
-				GameId.Platformer => platformerReplacements.Contains((PlatformerObjectId)ObjectId),
-				GameId.SpaceShooter => spaceShooterReplacements.Contains((SpaceObjectId)ObjectId),
-				GameId.Tanks => tanksReplacements.Contains((TanksObjectId)ObjectId),
-				_ => false
-			};
-
-			if( valid ) {
-				Instantiate(GameMemory.Instance.Object(newObject.ToHex), transform.position, transform.rotation);
-				IsActive = false;
-				Destroy(this);
+				glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
 			}
 			else {
-				Debug.Log(newObject.ToHex);
+				bool valid = newObject.GameId switch {
+					GameId.Platformer => platformerReplacements.Contains((PlatformerObjectId)ObjectId),
+					GameId.SpaceShooter => spaceShooterReplacements.Contains((SpaceObjectId)ObjectId),
+					GameId.Tanks => tanksReplacements.Contains((TanksObjectId)ObjectId),
+					_ => false
+				};
+
+				if( valid ) {
+					Instantiate(GameMemory.Instance.Object(newObject.ToHex), transform.position, transform.rotation);
+					IsActive = false;
+					Destroy(this);
+				}
+				else {
+					Debug.Log(newObject.ToHex);
+				}
 			}
 		}
+		catch { }
 	}
 }
