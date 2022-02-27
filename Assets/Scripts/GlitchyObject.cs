@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	[SerializeField]
@@ -24,6 +25,15 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	private GlitchySprite glitchySprite;
 	public GlitchySprite GlitchySprite => glitchySprite;
 
+	[SerializeField]
+	private List<PlatformerObjectId> platformerReplacements;
+
+	[SerializeField]
+	private List<SpaceObjectId> spaceShooterReplacements;
+
+	[SerializeField]
+	private List<TanksObjectId> tanksReplacements;
+
 	void Awake() {
 		if( glitchySprite == null )
 			glitchySprite = GetComponentInChildren<GlitchySprite>();
@@ -35,20 +45,30 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public void Refresh() {
-		if( spriteOnly ) {
-			var newObject = GameMemory.Instance.Object(ToHex);
+		var newObject = GameMemory.Instance.Object(ToHex);
 
+		if( spriteOnly ) {
 			//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
 				glitchySprite.OverrideSprite(newObject.GlitchySprite);
 
 			glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
 		}
 		else {
-			/*
-			Instantiate(GameMemory.Instance.Object(ToHex), transform.position, transform.rotation);
-			IsActive = false;
-			Destroy(this);
-			*/
+			bool valid = newObject.GameId switch {
+				GameId.Platformer => platformerReplacements.Contains((PlatformerObjectId)ObjectId),
+				GameId.SpaceShooter => spaceShooterReplacements.Contains((SpaceObjectId)ObjectId),
+				GameId.Tanks => tanksReplacements.Contains((TanksObjectId)ObjectId),
+				_ => false
+			};
+
+			if( valid ) {
+				Instantiate(GameMemory.Instance.Object(newObject.ToHex), transform.position, transform.rotation);
+				IsActive = false;
+				Destroy(this);
+			}
+			else {
+				Debug.Log(newObject.ToHex);
+			}
 		}
 	}
 }

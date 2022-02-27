@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameMemory : MonoBehaviour {
 	public static GameMemory Instance { get; private set; }
 
+	private System.Random random = new System.Random();
+
 	[SerializeField]
 	private int capacity = 16;
 
@@ -88,5 +90,25 @@ public class GameMemory : MonoBehaviour {
 
 	public static string IntToHex(int value) {
 		return Convert.ToString(value, 16);
+	}
+
+	public void Corrupt(int count = 1) {
+		for( int i = 0; i < count; ++i )
+			memory[random.Next(capacity)] = new MemoryItem(RandomHexString());
+	}
+
+	private string RandomHexString() {
+		string hex = "";
+
+		for( int i = 0; i < 4; ++i )
+			hex += RandomHexChar();
+
+		return hex;
+	}
+
+	private char RandomHexChar() {
+		int n = random.Next(16);
+
+		return (char)(n < 10 ? '0' + n : 'A' + n);
 	}
 }
