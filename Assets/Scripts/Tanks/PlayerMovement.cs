@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool enable;
 
+    [SerializeField]
+    private TransitionManager tm;
+
     private Animator ani;
 
     public UnityEvent OnShoot = new UnityEvent();
@@ -46,6 +49,15 @@ public class PlayerMovement : MonoBehaviour
                 ani.Play("tank_driving");
             }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            tm.ToMenu();
+        }
+        
     }
 
 

@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tank_Test.unity
     guid: b5664a02d48f4c74da332c0671ab313a
   - enabled: 1
@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Platformer_Ending.unity
     guid: b2c9c05811e86b947bd3301d7976f1da
+  - enabled: 1
+    path: Assets/Scenes/Tank_Test_2.unity
+    guid: b130f300aae649544b2a0102f2ba7997
   - enabled: 1
     path: Assets/Scenes/Credits_Scene.unity
     guid: 5b2b42a52a70cf542852879d764bb569

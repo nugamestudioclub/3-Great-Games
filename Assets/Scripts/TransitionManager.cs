@@ -21,7 +21,7 @@ public class TransitionManager : MonoBehaviour
 
     public void ToTanks()
     {
-        SceneManager.LoadScene("Tank_Test", LoadSceneMode.Single);
+        SceneManager.LoadScene("Tank_Test_2", LoadSceneMode.Single);
     }
 
     public void ToCredit()

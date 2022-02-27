@@ -9,6 +9,7 @@ TagManager:
   - VertWall
   - HorzWallTop
   - Audio
+  - Bullet
   layers:
   - Default
   - TransparentFX
