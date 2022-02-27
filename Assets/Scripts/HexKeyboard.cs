@@ -29,12 +29,7 @@ public class HexKeyboard : MonoBehaviour {
 	}
 
 	private void Submit() {
-		int count = maxLength - Text.Length;
-
-		Text += new string('0', count);
-
-		Debug.Log($"{Text}");
-
+		Text += new string('0', maxLength - Text.Length);
 		GameMemory.Instance.Store(Id, new MemoryItem(Text));
 	}
 }

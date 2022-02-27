@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 1
+  glitchySprite: {fileID: 8353112787447402640}
   objectId: 0
 --- !u!61 &314301501789246683
 BoxCollider2D:

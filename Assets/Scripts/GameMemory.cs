@@ -54,7 +54,8 @@ public class GameMemory : MonoBehaviour {
 		ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
 		ColorPalette = new ColorPalette(gameId);
 		// AudioPalette = new AudioPalette(GameId);
-		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i )
+
+		for( int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i ) 
 			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
 
 		Refresh();

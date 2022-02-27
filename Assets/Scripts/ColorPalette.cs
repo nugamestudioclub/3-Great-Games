@@ -28,7 +28,6 @@ public class ColorPalette : IMemorable, IEnumerable<Color>, IReadOnlyList<Color>
 	}
 
 	public static ColorPalette FromHex(string hex) {
-		Debug.Log(hex);
 		return new ColorPalette(GameCollection.Instance.GameId(GameMemory.HexToInt(hex.Substring(1, 1))));
 	}
 

@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 0
+  glitchySprite: {fileID: 140991388243653327}
   objectId: 5
 --- !u!58 &7988361977365759362
 CircleCollider2D:

@@ -35,21 +35,14 @@ public static class Tinter {
 		var greyscale = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
 
 		for( int x = 0; x < texture.width; ++x )
-			for( int y = 0; y < texture.height; ++y ) {
-				var color = Greyscale(texture.GetPixel(x, y));
-
-				Debug.Log($"{(x, y)} {color}");
-
-				texture.SetPixel(x, y, color);
-			}
+			for( int y = 0; y < texture.height; ++y )
+				texture.SetPixel(x, y, Greyscale(texture.GetPixel(x, y)));
 		return greyscale;
 	}
 
 	public static void Desaturate(Texture2D texture) {
 		for( int x = 0; x < texture.width; ++x )
 			for( int y = 0; y < texture.height; ++y ) {
-				var color = Greyscale(texture.GetPixel(x, y));
-
 				texture.SetPixel(x, y, Greyscale(texture.GetPixel(x, y)));
 			}
 	}

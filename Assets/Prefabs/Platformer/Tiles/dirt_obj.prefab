@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteOnly: 1
+  glitchySprite: {fileID: 7914048607830522394}
   objectId: 2
