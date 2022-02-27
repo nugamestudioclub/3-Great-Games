@@ -5,7 +5,6 @@ using UnityEngine;
 public enum SpaceObjectId
 {
 	Player, //sprite replaced
-	Stars,
 	Spider,
 	Shooter,
 	PlayerBullet,
