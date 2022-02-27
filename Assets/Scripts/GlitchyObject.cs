@@ -40,6 +40,4 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 			// Destroy(gameObject);
 		}
 	}
-
-	public static int HexToId(string hex) => GameMemory.HexToInt(hex.Substring(0, 2));
 }
