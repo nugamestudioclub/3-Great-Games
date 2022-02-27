@@ -11,7 +11,11 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 
 	public int AudioId { get; }
 
-	public string ToHex => $"{ObjectId.ToString().PadLeft(2, '0')}{ColorId}{AudioId}";
+	public string ToHex =>
+		$"{GameMemory.IntToHex((int)GameId)}" +
+		$"{GameMemory.IntToHex(ObjectId)}" +
+		$"{GameMemory.IntToHex(ColorId)}" +
+		$"{GameMemory.IntToHex(AudioId)}";
 
 	[SerializeField]
 	private GlitchySprite glitchySprite;
@@ -30,7 +34,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 		if( spriteOnly ) {
 			var newObject = GameMemory.Instance.Object(ToHex);
 
-			if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
+			//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
 				glitchySprite.OverrideSprite(newObject.GlitchySprite);
 
 			glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
