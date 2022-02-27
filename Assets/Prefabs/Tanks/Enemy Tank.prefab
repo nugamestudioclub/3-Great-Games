@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4758341141835106166}
   - component: {fileID: 4758341141835106152}
-  - component: {fileID: 4758341141835106153}
+  - component: {fileID: 3839711495409428760}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4758341141835106153
+--- !u!114 &3839711495409428760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4758341141835106167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ad4c7b1ebf9ab4a9aaebb871fe30d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5eb965bdfe6df174c827c777d2ab2ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  color: 0
+  spriteRenderer: {fileID: 4758341141835106152}
+  colorId: 0
 --- !u!1 &4758341142449490464
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 1212241692461791603}
   - component: {fileID: 4758341141213108094}
   - component: {fileID: 4758341141213108095}
+  - component: {fileID: 5032917832497507148}
   m_Layer: 0
   m_Name: Enemy Tank
   m_TagString: Untagged
@@ -204,3 +205,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &5032917832497507148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448819110527126669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3320be9f405b0044a841be188052ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteOnly: 1
+  glitchySprite: {fileID: 3839711495409428760}
+  objectId: 2

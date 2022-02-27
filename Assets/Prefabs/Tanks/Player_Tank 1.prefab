@@ -50,6 +50,7 @@ MonoBehaviour:
   speed: 1
   rotSpeed: 90
   enable: 1
+  tm: {fileID: 0}
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
@@ -221,4 +222,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7471304309152047132}
-  colorId: 0
+  colorId: 1

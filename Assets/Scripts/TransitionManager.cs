@@ -11,7 +11,7 @@ public class TransitionManager : MonoBehaviour
     }
     public void ToPlatformer()
     {
-        SceneManager.LoadScene("BBBTest", LoadSceneMode.Single);
+        SceneManager.LoadScene("Platformer_Scene", LoadSceneMode.Single);
     }
 
     public void ToSpace()

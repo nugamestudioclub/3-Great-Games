@@ -49,7 +49,8 @@ public abstract class GlitchySprite : MonoBehaviour {
 	}
 
 	private static Sprite GreySprite(Sprite mainSprite) {
-		return AssetDatabase.LoadAssetAtPath<Sprite>(GreyPath(AssetDatabase.GetAssetPath(mainSprite)));
+		//return AssetDatabase.LoadAssetAtPath<Sprite>(GreyPath(AssetDatabase.GetAssetPath(mainSprite)));
+		return mainSprite;
 	}
 
 	private static string GreyPath(string path) {

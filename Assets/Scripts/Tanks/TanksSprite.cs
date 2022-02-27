@@ -7,7 +7,7 @@ public enum TanksColor {
 	Yellow,
 	Green,
 	DarkBlue,
-	G,
+	Orange,
 	H,
 	I,
 	J,
