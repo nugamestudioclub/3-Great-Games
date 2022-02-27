@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	[SerializeField]
 	private bool spriteOnly;
+
 	public abstract GameId GameId { get; }
 
 	public abstract int ObjectId { get; }
@@ -10,6 +11,8 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	public int ColorId => glitchySprite.ColorId;
 
 	public int AudioId { get; }
+
+	public bool IsActive { get; set; }
 
 	public string ToHex =>
 		$"{GameMemory.IntToHex((int)GameId)}" +
@@ -24,6 +27,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	void Awake() {
 		if( glitchySprite == null )
 			glitchySprite = GetComponentInChildren<GlitchySprite>();
+		IsActive = true;
 	}
 
 	void Start() {
@@ -40,8 +44,11 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 			glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
 		}
 		else {
-			// Instantiate(GameMemory.Instance.Object(ObjectId), transform.position, transform.rotation);
-			// Destroy(gameObject);
+			/*
+			Instantiate(GameMemory.Instance.Object(ToHex), transform.position, transform.rotation);
+			IsActive = false;
+			Destroy(this);
+			*/
 		}
 	}
 }

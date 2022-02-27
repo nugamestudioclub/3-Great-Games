@@ -3,11 +3,14 @@
 public class HexConsole : MonoBehaviour, IRefreshable {
 	[SerializeField]
 	private HexKeyboard[] keyboards = new HexKeyboard[16];
-    private void Awake()
-    {
+
+	public bool IsActive => true;
+
+	void Awake() {
 		DontDestroyOnLoad(this);
-    }
-    void Start() {
+	}
+
+	void Start() {
 		for( int i = 0; i < keyboards.Length; ++i )
 			keyboards[i].Id = i;
 		GameMemory.Instance.Subscribe(this);
