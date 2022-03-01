@@ -1,4 +1,7 @@
-﻿public enum TileType {
+﻿using System;
+using UnityEngine;
+
+public enum TileType {
 	//standard
 	Block, //4 edges
 	Center, //no edges
@@ -39,8 +42,19 @@
 	Cross,
 }
 
-namespace Assets.Scripts.Utils {
-	class TileSpriteSheet : SpriteSheet {
+[Serializable]
+[CreateAssetMenu(
+	fileName = nameof(TileSpriteSheet),
+	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(TileSpriteSheet))
+]
+public class TileSpriteSheet : SpriteSheet {
+	[SerializeField]
+	private TileType type;
 
-	}
+	[SerializeField]
+	private TilemapSprites sprites;
+
+	public override Sprite Original => sprites.OriginalSprite(type);
+
+	public override Sprite Grey => sprites.GreySprite(type);
 }

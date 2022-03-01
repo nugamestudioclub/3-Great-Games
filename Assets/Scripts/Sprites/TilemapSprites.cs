@@ -8,36 +8,34 @@ using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(
-	fileName = nameof(TilemapSpriteSheet),
-	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(TilemapSpriteSheet))
+	fileName = nameof(TilemapSprites),
+	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(TilemapSprites))
 ]
-public class TilemapSpriteSheet : ScriptableObject, ISpriteSheet {
+public class TilemapSprites : ScriptableObject {
 
 	[SerializeField]
-	[SerializeProperty(nameof(OriginalSprite))]
-	private Sprite originalSprite;
-	public Sprite OriginalSprite {
-		get => originalSprite;
+	[SerializeProperty(nameof(DefaultSprite))]
+	private Sprite defaultSprite;
+	public Sprite DefaultSprite {
+		get => defaultSprite;
 		set {
-			originalSprite = value;
+			defaultSprite = value;
 			for( int i = 0; i < tiles.Length; i++ )
-				tiles[i] = FindTile((TileType)i, originalSprite);
+				tiles[i] = FindTile((TileType)i, defaultSprite);
 		}
 	}
 
-	public Sprite GreySprite => tiles[0].GreySprite;
+	public Sprite OriginalSprite(TileType type) => tiles[(int)type].OriginalSprite;
 
-	public Sprite GetOriginalSprite(TileType type) => tiles[(int)type].OriginalSprite;
-
-	public Sprite GetGreySprite(TileType type) => tiles[(int)type].GreySprite;
+	public Sprite GreySprite(TileType type) => tiles[(int)type].GreySprite;
 
 	[ReadOnly]
 	[SerializeField]
-	private SpriteSheet[] tiles = new SpriteSheet[Enum.GetValues(typeof(TileType)).Length];
+	private SingleSpriteSheet[] tiles = new SingleSpriteSheet[Enum.GetValues(typeof(TileType)).Length];
 
-	private static SpriteSheet FindTile(TileType type, Sprite sprite) {
+	private static SingleSpriteSheet FindTile(TileType type, Sprite sprite) {
 		Sprite tileSprite = null;
-		SpriteSheet tileSpriteSheet = CreateInstance<SpriteSheet>();
+		SingleSpriteSheet tileSpriteSheet = CreateInstance<SingleSpriteSheet>();
 
 #if UNITY_EDITOR
 		string spritePath = AssetDatabase.GetAssetPath(sprite);
@@ -69,7 +67,7 @@ public class TilemapSpriteSheet : ScriptableObject, ISpriteSheet {
 		return $"{Paths.SPRITE_SHEETS}/Tiles/{tilename}/{tilename}_{tiletype}.asset";
 	}
 
-	private static void CreateAsset(SpriteSheet spriteSheet, string path) {
+	private static void CreateAsset(SingleSpriteSheet spriteSheet, string path) {
 		string absolutePath = $"{Directory.GetCurrentDirectory()}/{path}";
 
 		if( !Directory.Exists(absolutePath) )

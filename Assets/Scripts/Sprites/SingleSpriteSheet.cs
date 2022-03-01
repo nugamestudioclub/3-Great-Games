@@ -6,10 +6,10 @@ using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(
-	fileName = nameof(SpriteSheet),
-	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(SpriteSheet))
+	fileName = nameof(SingleSpriteSheet),
+	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(SingleSpriteSheet))
 ]
-public class SpriteSheet : ScriptableObject, ISpriteSheet {
+public class SingleSpriteSheet : SpriteSheet {
 	[SerializeField]
 	[SerializeProperty(nameof(OriginalSprite))]
 	private Sprite originalSprite;
@@ -21,9 +21,13 @@ public class SpriteSheet : ScriptableObject, ISpriteSheet {
 		}
 	}
 
+	public override Sprite Original => OriginalSprite;
+
 	[field: ReadOnly]
 	[field: SerializeField]
 	public Sprite GreySprite { get; private set; }
+
+	public override Sprite Grey => GreySprite;
 
 	private static Sprite FindGrey(Sprite sprite) {
 		Sprite greySprite = null;
