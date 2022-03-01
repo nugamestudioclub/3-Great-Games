@@ -17,19 +17,15 @@ public class SpriteWrapper : ScriptableObject
         set
         {
             originalSprite = value;
-            if (greySprite == null)
-            {
-                greySprite = TryAssignGrey(originalSprite);
-            };
+            GreySprite = TryAssignGrey(originalSprite);
         }
     }
-    [SerializeField]
-    [SerializeProperty("GreySprite")]
-    private Sprite greySprite;
- 
-    public Sprite GreySprite { get => greySprite; private set => greySprite = value; }
+    
+    [field: ReadOnly]
+    [field: SerializeField]
+    public Sprite GreySprite { get; private set; }
 
-    private Sprite TryAssignGrey(Sprite sprite)
+    private static Sprite TryAssignGrey(Sprite sprite)
     {
         Sprite gSprite;
         #if UNITY_EDITOR
