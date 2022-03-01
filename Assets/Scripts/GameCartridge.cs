@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Cartridge", menuName = "ScriptableObjects/GameCartridge")]
+[CreateAssetMenu(
+	fileName = nameof(GameCartridge),
+	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(GameCartridge))
+]
 public class GameCartridge : ScriptableObject {
 	[SerializeField]
 	private GameId id;
