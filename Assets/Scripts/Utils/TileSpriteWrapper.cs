@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -11,7 +12,7 @@ public enum TileType
     //standard
     Block, //4 edges
     Center, //no edges
-    
+
     //edges
     EdgeLeft,
     EdgeRight,
@@ -62,7 +63,7 @@ public class TileSpriteWrapper : ScriptableObject
         set
         {
             block = value;
-            for(int i = 0; i < wrappers.Length; i++)
+            for (int i = 0; i < wrappers.Length; i++)
             {
                 wrappers[i] = TryAssignTileType(i, block);
             }
@@ -70,35 +71,62 @@ public class TileSpriteWrapper : ScriptableObject
     }
     [ReadOnly]
     [SerializeField]
-    private  SpriteWrapper [] wrappers = new SpriteWrapper[Enum.GetValues(typeof(TileType)).Length];
+    private SpriteWrapper[] wrappers = new SpriteWrapper[Enum.GetValues(typeof(TileType)).Length];
 
-    
+
 
     private SpriteWrapper TryAssignTileType(int i, Sprite sprite)
     {
-        Sprite blockTypeSprite;
+        Sprite blockTypeSprite = null;
         SpriteWrapper wrapper = CreateInstance<SpriteWrapper>();
-        #if UNITY_EDITOR
-        string path = BlockTypePath(i, AssetDatabase.GetAssetPath(sprite));
-        blockTypeSprite = AssetDatabase.LoadAssetAtPath<Sprite>(BlockTypePath(i, AssetDatabase.GetAssetPath(sprite)));
-        AssetDatabase.CreateAsset(wrapper, SpriteWrapperPath(path));
-        #endif
+#if UNITY_EDITOR
+        string tileType = Enum.GetName(typeof(TileType), i);
+        string spritePath = AssetDatabase.GetAssetPath(sprite);
+        string folderPath = spritePath.Substring(0, spritePath.LastIndexOf('/'));
+        string tilename = Tilename(spritePath);
+        int extPos = spritePath.LastIndexOf('.');
+        string ext = spritePath.Substring(extPos, spritePath.Length - extPos);
+        string tilepath = Tilepath(folderPath, tilename, tileType, ext);
+
+
+        string spriteWrapperPath = SpriteWrapperPath(tilename, tileType);
+        //Debug.Log($"Block Tile path : {tilepath }");
+        //Debug.Log($"Sprite Wrapper Path : {spriteWrapperPath}");
+        blockTypeSprite = AssetDatabase.LoadAssetAtPath<Sprite>(tilepath);
+        AssetDatabase.CreateAsset(wrapper, spriteWrapperPath);
+
+#endif
         wrapper.OriginalSprite = blockTypeSprite == null ? sprite : blockTypeSprite;
         return wrapper;
     }
 
-    private static string BlockTypePath(int i, string path)
+    private static string Tilename(string path)
     {
-        int pos = path.LastIndexOf('_');
+        int prefixPos = path.LastIndexOf('_');
+        int extPos = path.LastIndexOf('.');
+        int finalPos = prefixPos < 0 ? extPos : prefixPos;
 
-        return path.Substring(0, pos) + "_" + Enum.GetName(typeof(TileType), i) + path.Substring(pos, path.Length - pos);
+        int tilenamePos = path.LastIndexOf('/');
+
+        string tilename = path.Substring(tilenamePos + 1, finalPos - tilenamePos - 1);
+        return tilename;
     }
 
-    private static string SpriteWrapperPath(string path)
+    private static string Tilepath(string folderPath, string tilename, string tiletype, string ext)
     {
-        string folderName = "Sprites/";
-        int folderPos = path.IndexOf(folderName) + folderName.Length;
-        int extPos = path.IndexOf('.');
-        return path.Substring(0, folderPos) + path.Substring(folderPos, extPos - folderPos) + ".asset";
+        return $"{folderPath}/{tilename}_{tiletype}{ext}";
+    }
+
+    private static string SpriteWrapperPath(string tilename, string tiletype)
+    {
+        string folderPath = $"Sprites/SpriteWrappers/TileSpriteWrappers/{tilename}";
+        string fullPath = $"{Application.dataPath}/{folderPath}";
+        
+        if (!Directory.Exists(fullPath))
+        {
+            Directory.CreateDirectory(fullPath);
+        }
+
+        return $"Assets/{folderPath}/{tilename}_{tiletype}.asset";
     }
 }
