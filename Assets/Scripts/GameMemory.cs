@@ -81,6 +81,17 @@ public class GameMemory : MonoBehaviour {
 		return objPalette[objIndex % objPalette.Count];
 	}
 
+	public EntityData EntityData(string hex)
+	{
+		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
+		string memoryHex = memory[memoryIndex].ToHex;
+		int objIndex = HexToInt(memoryHex.Substring(1, 1));
+		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
+		var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).EntitiesPalette;
+
+		return objPalette[objIndex % objPalette.Count];
+	}
+
 	private void Refresh() {
 		foreach( var refreshItem in refreshMemory )
 			if( refreshItem.IsActive )
@@ -96,7 +107,18 @@ public class GameMemory : MonoBehaviour {
 		return Convert.ToString(value, 16);
 	}
 
-	public void Corrupt() {
+	/// <summary>
+	/// TODO REMOVE THIS
+	/// </summary>
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+			Corrupt();
+
+		}
+    }
+    public void Corrupt() {
 		try {
 			++Corruption;
 			ApplyCorruption(1);
@@ -106,7 +128,8 @@ public class GameMemory : MonoBehaviour {
 
 	private void ApplyCorruption(int count = 1) {
 		for( int i = 0; i < count; ++i )
-			memory[Rand.Next(capacity - 1)] = new MemoryItem(RandomHexString());
+			memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
+		Debug.Log("Corrupting...");
 		Refresh();
 	}
 

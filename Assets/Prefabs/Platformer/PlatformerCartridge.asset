@@ -43,5 +43,10 @@ MonoBehaviour:
     - {fileID: 7009128463630344398, guid: 7acdc4d5db583004ab205f14fa44ac91, type: 3}
     - {fileID: 7009128463630344398, guid: 1909e3cb6d0f0154682d414444de1aff, type: 3}
     - {fileID: 7009128463630344398, guid: ed32b69582ed9544c9e96ccfadd050e2, type: 3}
-    - {fileID: 7009128463630344398, guid: 1e9844f097b20dc41b67d5d56d22857a, type: 3}
+    - {fileID: 0}
     - {fileID: 2231793881692233239, guid: 2b9bfcb20e289a349928492e9e19b71b, type: 3}
+  entities:
+    items:
+    - {fileID: 11400000, guid: df4b9c147c3da66498694a8c4b906429, type: 2}
+    - {fileID: 11400000, guid: fdfb10294e6de2140a8cf06ec5641c11, type: 2}
+    - {fileID: 11400000, guid: 4bad011955a51fd4fb13b9b2b667ff28, type: 2}

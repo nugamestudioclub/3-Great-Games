@@ -41,7 +41,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	void Start() {
-		GameMemory.Instance.Subscribe(this);
+		//GameMemory.Instance.Subscribe(this);
 	}
 
 	public void Refresh() {

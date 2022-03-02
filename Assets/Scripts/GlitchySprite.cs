@@ -35,7 +35,7 @@ public abstract class GlitchySprite : MonoBehaviour {
 		get => spriteSheet; 
 		set { 
 			spriteSheet = value;
-			Debug.Log($"Setting spritesheet original:{spriteSheet.Original.texture.name}, grey:{spriteSheet.Grey.texture.name}");
+			//Debug.Log($"Setting spritesheet original:{spriteSheet.Original.texture.name}, grey:{spriteSheet.Grey.texture.name}");
 			Sprite = IsTinted ? spriteSheet.Grey : spriteSheet.Original;
 		} 
 	}

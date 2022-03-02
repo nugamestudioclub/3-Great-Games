@@ -34,6 +34,7 @@ public enum SpaceColorId {
 	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(EntityData) + "/" + nameof(SpaceEntityData))
 ]
 public class SpaceEntityData : EntityData {
+	public override GameId GameId => GameId.SpaceShooter;
 	[SerializeField]
 	private SpaceEntityId entityId;
 	public override int EntityId => (int)entityId;

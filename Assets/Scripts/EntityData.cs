@@ -3,8 +3,7 @@ using UnityEngine;
 
 [Serializable]
 public abstract class EntityData : ScriptableObject {
-	[field: SerializeField]
-	public GameId GameId { get; set; }
+	public abstract GameId GameId { get; }
 
 	public abstract int EntityId { get; }
 
@@ -12,4 +11,8 @@ public abstract class EntityData : ScriptableObject {
 
 	[field: SerializeField]
 	public SpriteSheet SpriteSheet { get; private set; }
+
+	//TODO Remove this
+	[field: SerializeField]
+	public bool SpriteOnly { get; private set; } = true;
 }

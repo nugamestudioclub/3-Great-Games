@@ -1,44 +1,78 @@
 ﻿using UnityEngine;
 
-public class Entity : MonoBehaviour {
+public class Entity : MonoBehaviour, IRefreshable, IMemorable
+{
 	[SerializeField]
 	private EntityData template;
 
-	private SpriteRenderer spriteRenderer;
-
-	private SpriteSheet spriteSheet;
-
-	private Sprite Sprite {
-		get => spriteRenderer.sprite;
-		set => spriteRenderer.sprite = value;
-	}
+	private NewGlitchySprite glitchySprite;
 
 	private Color color;
 
 	void Awake() {
-		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		glitchySprite = GetComponentInChildren<NewGlitchySprite>();
+		IsActive = true;
 	}
 
 	void Start() {
 		var cartridge = GameCollection.Instance.Cartridge(template.GameId);
 
 		color = cartridge.ColorPalette[template.ColorId];
+		glitchySprite.Color = color;
+		glitchySprite.Draw(template.SpriteSheet);
 
+		GameMemory.Instance.Subscribe(this);
 	}
 
-	public void Redraw(SpriteSheet spriteSheet) {
-		this.spriteSheet = spriteSheet;
-	}
+	public bool IsActive { get; set; }
+	public void Refresh()
+	{
+		try
+		{
+			var newObject = GameMemory.Instance.Object(ToHex);
+			EntityData newEntity = GameMemory.Instance.EntityData(ToHex);
+			Debug.Log($"Same spritesheet? template :{template.SpriteSheet.Original.texture.name} new :{newEntity.SpriteSheet.Original.texture.name}");
 
-	public void Tint(Color color) {
-		if( color == this.color ) {
-			Sprite = spriteSheet.Original;
-			spriteRenderer.color = Color.white;
+			if (template.SpriteOnly)
+			{
+				Debug.Log($"Calling refresh on sprite only: Hexcode {ToHex}");
+				//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
+				
+
+				glitchySprite.Tint(GameMemory.Instance.Color(template.ColorId));
+				glitchySprite.Draw(newEntity.SpriteSheet);
+				Debug.Log($"Finishing Calling refresh on sprite only: Hexcode {ToHex}");
+			}
+			else
+			{
+				/*
+				bool valid = newObject.GameId switch
+				{
+					//GameId.Platformer => platformerReplacements.Contains((PlatformerObjectId)ObjectId),
+					//GameId.SpaceShooter => spaceShooterReplacements.Contains((SpaceObjectId)ObjectId),
+					//GameId.Tanks => tanksReplacements.Contains((TanksObjectId)ObjectId),
+					_ => false
+				};
+
+				if (valid)
+				{
+					Instantiate(GameMemory.Instance.Object(newObject.ToHex), transform.position, transform.rotation);
+					IsActive = false;
+					Destroy(this);
+				}
+				else
+				{
+					Debug.Log(newObject.ToHex);
+				}
+				*/
+			}
 		}
-		else {
-			Sprite = spriteSheet.Grey;
-			spriteRenderer.color = color;
-			this.color = color;
-		}
+		catch { }
 	}
+
+	public string ToHex =>
+		$"{GameMemory.IntToHex((int)template.GameId)}" +
+		$"{GameMemory.IntToHex(template.EntityId)}" +
+		$"{GameMemory.IntToHex(template.ColorId)}" +
+		$"{GameMemory.IntToHex(0)}"; //audio id
 }

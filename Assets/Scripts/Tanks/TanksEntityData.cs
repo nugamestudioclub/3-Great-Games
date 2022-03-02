@@ -33,6 +33,7 @@ public enum TanksColorId {
 	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(EntityData) + "/" + nameof(TanksEntityData))
 ]
 public class TanksEntityData : EntityData {
+	public override GameId GameId => GameId.Tanks;
 	[SerializeField]
 	private TanksEntityId entityId;
 	public override int EntityId => (int)entityId;

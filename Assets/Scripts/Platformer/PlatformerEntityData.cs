@@ -38,6 +38,7 @@ public enum PlatformerColorId {
 	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(EntityData) + "/" + nameof(PlatformerEntityData))
 ]
 public class PlatformerEntityData : EntityData {
+	public override GameId GameId => GameId.Platformer;
 	[SerializeField]
 	private PlatformerEntityId entityId;
 	public override int EntityId => (int)entityId;
@@ -45,4 +46,6 @@ public class PlatformerEntityData : EntityData {
 	[SerializeField]
 	private PlatformerColorId colorId;
 	public override int ColorId => (int)colorId;
+
+    
 }
