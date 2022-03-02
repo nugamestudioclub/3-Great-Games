@@ -8,5 +8,5 @@ public static class Paths {
 
 	public const string SPRITE_SHEETS = SPRITES + "/" + nameof(SpriteSheet) + "s";
 
-	public const string SCRIPTALBE_SPRITE_SHEETS = SCRIPTABLE_OBJECTS + "/" + nameof(SpriteSheet) + "s";
+	public const string SCRIPTABLE_SPRITE_SHEETS = SCRIPTABLE_OBJECTS + "/" + nameof(SpriteSheet) + "s";
 }
