@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 [CreateAssetMenu(
 	fileName = nameof(SingleSpriteSheet),
-	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(SingleSpriteSheet))
+	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(SingleSpriteSheet))
 ]
 public class SingleSpriteSheet : SpriteSheet {
 	[SerializeField]
