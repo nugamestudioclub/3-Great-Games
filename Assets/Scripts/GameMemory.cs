@@ -22,8 +22,8 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	[SerializeField]
-	private Sprite missingSprite;
-	public Sprite MissingSprite => missingSprite;
+	private SpriteSheet missingSpriteSheet;
+	public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
 
 	private Palette<IMemorable> memory; // hex codes
 
@@ -106,7 +106,7 @@ public class GameMemory : MonoBehaviour {
 
 	private void ApplyCorruption(int count = 1) {
 		for( int i = 0; i < count; ++i )
-			memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
+			memory[Rand.Next(capacity - 1)] = new MemoryItem(RandomHexString());
 		Refresh();
 	}
 

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8496910186900096923}
   - component: {fileID: 6749143624698130321}
+  - component: {fileID: 3988643999203613546}
+  - component: {fileID: 841339830872098359}
   m_Layer: 0
   m_Name: cloud_middle
   m_TagString: Untagged
@@ -82,3 +84,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3988643999203613546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880409277282355029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteOnly: 1
+  glitchySprite: {fileID: 841339830872098359}
+  platformerReplacements: 
+  spaceShooterReplacements: 
+  tanksReplacements: 
+  objectId: 4
+--- !u!114 &841339830872098359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880409277282355029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6749143624698130321}
+  spriteSheet: {fileID: 11400000, guid: b17554c6529d8d341b56063391a966a2, type: 2}
+  color: 13
