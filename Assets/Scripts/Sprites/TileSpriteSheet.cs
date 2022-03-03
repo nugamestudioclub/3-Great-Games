@@ -3,8 +3,9 @@ using UnityEngine;
 
 public enum TileType {
 	// standard
-	Block,  // 4 edges
-	Center, // no edges
+	Default, // serialized
+	Block,   // 4 edges
+	Center,  // no edges
 
 	// edges
 	EdgeLeft,
@@ -22,7 +23,13 @@ public enum TileType {
 	InnerBottomLeft,
 	InnerBottomRight,
 
-	// pipes (one thick, two non adjacent exists)
+	// caps (one thick, one exit)
+	CapLeft,
+	CapRight,
+	CapTop,
+	CapBottom,
+
+	// pipes (one thick, two non adjacent exits)
 	PipeHorizontal,
 	PipeVertical,
 
@@ -40,12 +47,6 @@ public enum TileType {
 
 	// cross (one thick, 4 exits)
 	Cross,
-
-	// caps (one thick, one open side)
-	CapLeft,
-	CapRight,
-	CapTop,
-	CapBottom,
 }
 
 [Serializable]
