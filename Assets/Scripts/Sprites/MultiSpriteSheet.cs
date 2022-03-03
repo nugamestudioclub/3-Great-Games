@@ -1,10 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
 [CreateAssetMenu(
 	fileName = nameof(MultiSpriteSheet),
-	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(MultiSpriteSheet))
+	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(MultiSpriteSheet))
 ]
 public class MultiSpriteSheet : SpriteSheet {
 	[SerializeField]

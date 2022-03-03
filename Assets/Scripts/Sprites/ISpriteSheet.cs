@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-public interface ISprite {
+
+public interface ISpriteSheet {
 	Sprite OriginalSprite { get; }
 
 	Sprite GreySprite { get; }

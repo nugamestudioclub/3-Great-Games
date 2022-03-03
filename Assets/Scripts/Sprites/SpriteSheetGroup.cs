@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -54,7 +53,7 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		return spriteSheet;
 	}
 
-	protected int IndexOrZero(int index) => 0 >= index && index < Count ? index : 0;
+	private int IndexOrZero(int index) => 0 >= index && index < Count ? index : 0;
 
 	protected abstract string FolderName();
 

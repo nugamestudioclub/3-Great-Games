@@ -59,9 +59,9 @@ public class TileSpriteSheet : SpriteSheet {
 	private TileType type;
 
 	[SerializeField]
-	private TileSpriteSheetGroup sprites;
+	private TileSpriteSheetGroup spriteGroup;
 
-	public override Sprite Original => sprites.OriginalSprite((int)type);
+	public override Sprite Original => spriteGroup.OriginalSprite((int)type);
 
-	public override Sprite Grey => sprites.GreySprite((int)type);
+	public override Sprite Grey => spriteGroup.GreySprite((int)type);
 }

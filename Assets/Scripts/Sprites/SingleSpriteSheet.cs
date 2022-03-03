@@ -1,10 +1,8 @@
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 using UnityEngine;
 
-[Serializable]
 [CreateAssetMenu(
 	fileName = nameof(SingleSpriteSheet),
 	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(SingleSpriteSheet))
