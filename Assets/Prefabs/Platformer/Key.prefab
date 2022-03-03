@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7228482995562472665}
   - component: {fileID: 8035719740350573924}
-  - component: {fileID: 7009128463630344398}
   - component: {fileID: 7988361977365759362}
   - component: {fileID: 3528120856819497106}
   - component: {fileID: 2864835655437743135}
+  - component: {fileID: 765106208463915608}
+  - component: {fileID: -4526268734620453602}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -55,21 +56,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7009128463630344398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2789528772560354083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 140991388243653327}
-  objectId: 6
 --- !u!58 &7988361977365759362
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,6 +182,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &765106208463915608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789528772560354083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  template: {fileID: 11400000, guid: 40206d8fafbca5347bae851b6d79b654, type: 2}
+--- !u!114 &-4526268734620453602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789528772560354083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e894495b36a284fa7ecef40f7a1c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheets:
+  - {fileID: 11400000, guid: da3426835dfb4d743aadd97bacb82526, type: 2}
+  - {fileID: 11400000, guid: 91a7adea8f47e5a4da55379177631d94, type: 2}
+  - {fileID: 11400000, guid: ed619f72858255c4f8b16e9e5a3c1a0f, type: 2}
+  - {fileID: 11400000, guid: 2db07e998aedfe44490610cf59143cd9, type: 2}
+  glitchySprite: {fileID: 8773029690309729854}
 --- !u!1 &7673304638623849062
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724554378517127705}
   - component: {fileID: 6414670501609910007}
-  - component: {fileID: 140991388243653327}
+  - component: {fileID: 8773029690309729854}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -279,7 +296,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &140991388243653327
+--- !u!114 &8773029690309729854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,8 +305,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7673304638623849062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 6414670501609910007}
-  color: 15

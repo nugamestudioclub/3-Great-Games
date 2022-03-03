@@ -19,8 +19,8 @@ public class NewGlitchySprite : MonoBehaviour {
 		set { 
 			spriteSheet = value;
 			Debug.Log($"Setting spritesheet original:{spriteSheet.Original.texture.name}, grey:{spriteSheet.Grey.texture.name}");
-			//Sprite = IsTinted ? spriteSheet.Grey : spriteSheet.Original;
-			Sprite = spriteSheet.Grey;
+			Sprite = IsTinted ? spriteSheet.Grey : spriteSheet.Original;
+			//Sprite = spriteSheet.Grey;
 		} 
 	}
 
