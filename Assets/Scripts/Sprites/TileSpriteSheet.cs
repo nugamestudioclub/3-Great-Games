@@ -45,16 +45,16 @@ public enum TileType {
 [Serializable]
 [CreateAssetMenu(
 	fileName = nameof(TileSpriteSheet),
-	menuName = Paths.SCRIPTABLE_OBJECTS + "/" + nameof(TileSpriteSheet))
+	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(TileSpriteSheet))
 ]
 public class TileSpriteSheet : SpriteSheet {
 	[SerializeField]
 	private TileType type;
 
 	[SerializeField]
-	private TilemapSprites sprites;
+	private TileSpriteSheetGroup sprites;
 
-	public override Sprite Original => sprites.OriginalSprite(type);
+	public override Sprite Original => sprites.OriginalSprite((int)type);
 
-	public override Sprite Grey => sprites.GreySprite(type);
+	public override Sprite Grey => sprites.GreySprite((int)type);
 }
