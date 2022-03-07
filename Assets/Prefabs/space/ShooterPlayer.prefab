@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8106901111686906149}
   - component: {fileID: 2468077013896822657}
-  - component: {fileID: 5425380356092502278}
+  - component: {fileID: 109777785}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5425380356092502278
+--- !u!114 &109777785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 733779223547632882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f415e3f37c493404297508067c6ccf14, type: 3}
+  m_Script: {fileID: 11500000, guid: 311c2eb9486c2f64ab3a5890b2521d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1660865806993220421
@@ -253,6 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteOnly: 1
   glitchySprite: {fileID: 5732587534929674206}
+  platformerReplacements: 
+  spaceShooterReplacements: 
+  tanksReplacements: 
   objectId: 0
 --- !u!1 &3121878323957796271
 GameObject:
@@ -350,4 +353,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7599599065478314612}
+  spriteSheet: {fileID: 0}
   color: 0

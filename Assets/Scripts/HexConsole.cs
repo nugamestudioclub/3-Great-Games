@@ -6,8 +6,17 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 
 	public bool IsActive => true;
 
+	public static HexConsole Instance { get; private set; }
 	void Awake() {
-		DontDestroyOnLoad(this);
+		if (Instance != null)
+		{
+			Destroy(this);
+		}
+		else
+		{
+			DontDestroyOnLoad(this);
+			Instance = this;
+		}
 	}
 
 	void Start() {

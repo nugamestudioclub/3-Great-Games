@@ -781,10 +781,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2391089992436793391, guid: 2e5e5ca9eacb1e14b91821b30d73070d, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e5e5ca9eacb1e14b91821b30d73070d, type: 3}
 --- !u!1 &112573535
@@ -2291,7 +2287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 443363309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f415e3f37c493404297508067c6ccf14, type: 3}
+  m_Script: {fileID: 11500000, guid: 311c2eb9486c2f64ab3a5890b2521d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &457179541
@@ -3683,7 +3679,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 949982738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f415e3f37c493404297508067c6ccf14, type: 3}
+  m_Script: {fileID: 11500000, guid: 311c2eb9486c2f64ab3a5890b2521d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1000940743

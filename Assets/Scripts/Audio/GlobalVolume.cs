@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-
-public delegate void Notify();
 
 public class GlobalVolume : MonoBehaviour
 {
     public static GlobalVolume Instance { get; private set; }
 
-    public event Notify ProcessCompleted;
+    public event EventHandler<float> VolumeChanged;
 
     private float volume;
 
@@ -20,15 +17,24 @@ public class GlobalVolume : MonoBehaviour
         } 
     }
 
-    protected virtual void OnVolumeChanged()
-    {
-        ProcessCompleted?.Invoke();
-    }
-
-     
     void Awake()
     {
-        DontDestroyOnLoad(this);
-        Instance = this;
+        if (Instance != null)
+        {
+            Destroy(this);
+        } 
+        else
+        {
+            DontDestroyOnLoad(this);
+            Instance = this;
+            Volume = PlayerPrefs.GetFloat("VolumeLevel", 0.25f);
+        }
+    }
+
+
+    protected virtual void OnVolumeChanged()
+    {
+        PlayerPrefs.SetFloat("VolumeLevel", Volume);
+        VolumeChanged?.Invoke(this, Volume); 
     }
 }

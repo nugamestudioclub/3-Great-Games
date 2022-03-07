@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5302937591604263611}
   - component: {fileID: 5302937591604263614}
   - component: {fileID: 5302937591604263612}
+  - component: {fileID: 596929765}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameId: 0
+  tm: {fileID: 0}
 --- !u!114 &5302937591604263614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capacity: 16
-  missingSprite: {fileID: 0}
+  missingSpriteSheet: {fileID: 0}
 --- !u!114 &5302937591604263612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,3 +78,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 657c5cec626e7e04796e74db8c4eb5c9, type: 2}
   - {fileID: 11400000, guid: 994394d713815b1439b39ca7f0227331, type: 2}
   - {fileID: 11400000, guid: bff2a11f62eb4174fb9ab88603088c41, type: 2}
+--- !u!114 &596929765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5302937591604263615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b1d923ee31430499f9a8148c3558c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

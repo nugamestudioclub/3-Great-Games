@@ -209,10 +209,6 @@ PrefabInstance:
       propertyPath: tm
       value: 
       objectReference: {fileID: 1601521109}
-    - target: {fileID: 5302937591604263611, guid: 04866bef40d3518439793d0b195cec43, type: 3}
-      propertyPath: gameId
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5302937591604263613, guid: 04866bef40d3518439793d0b195cec43, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1201,7 +1197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 847193377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f415e3f37c493404297508067c6ccf14, type: 3}
+  m_Script: {fileID: 11500000, guid: 311c2eb9486c2f64ab3a5890b2521d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &847193379
@@ -2869,7 +2865,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2053558888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efcb470dba2275646b99b81ddd87c8c0, type: 3}
+  m_Script: {fileID: 11500000, guid: c422bdb00a53b9f47b48e4fcc14adf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7356632351375609461

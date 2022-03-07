@@ -6,16 +6,20 @@ public class UpdateGlobalVolume : MonoBehaviour
 
     void Awake()
     {
-        //TODO: Subscribe to volume change event
-        GlobalVolume.Instance.ProcessCompleted += UpdateVolume_ProcessCompleted;
         ac = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void UpdateVolume()
+    private void Start()
     {
-        //TODO: change to on event trigger
+        //Subscribe to volume change event
         ac.volume = GlobalVolume.Instance.Volume;
+        GlobalVolume.Instance.VolumeChanged += GlobalVolume_Changed;
+    }
+
+    void GlobalVolume_Changed(object sender, float e) 
+    {
+        //on event trigger
+        ac.volume = e;
     }
 
 
