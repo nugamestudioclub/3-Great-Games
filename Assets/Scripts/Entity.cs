@@ -27,7 +27,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable
 	public bool IsActive { get; set; }
 	public void Refresh()
 	{
-		try
+		//try
 		{
 			var newObject = GameMemory.Instance.Object(ToHex);
 			EntityData newEntity = GameMemory.Instance.EntityData(ToHex);
@@ -67,7 +67,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable
 				*/
 			}
 		}
-		catch { }
+		//catch { }
 	}
 
 	public string ToHex =>

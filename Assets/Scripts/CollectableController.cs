@@ -29,7 +29,8 @@ public class CollectableController : MonoBehaviour
             collectedTime += Time.deltaTime;
             if (collectedTime > collectSound.length)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+               // Destroy(gameObject);
             }
         }
 

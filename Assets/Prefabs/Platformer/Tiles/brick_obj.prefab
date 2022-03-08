@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6836758047552424290}
   - component: {fileID: 3888591998937746256}
   - component: {fileID: 518176069344497690}
-  - component: {fileID: 7914048607830522394}
-  - component: {fileID: 8917292314325573105}
+  - component: {fileID: -3666448665039921327}
+  - component: {fileID: 6834478091921664398}
   m_Layer: 0
   m_Name: brick_obj
   m_TagString: Untagged
@@ -111,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0.01
---- !u!114 &7914048607830522394
+--- !u!114 &-3666448665039921327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,12 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3888591998937746256}
-  color: 0
---- !u!114 &8917292314325573105
+  template: {fileID: 11400000, guid: c4af70fcc8e62344a97d02fd2ad97219, type: 2}
+--- !u!114 &6834478091921664398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 7914048607830522394}
-  objectId: 3

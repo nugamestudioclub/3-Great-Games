@@ -13,8 +13,13 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		get => defaultSprite;
 		set {
 			defaultSprite = value;
-			for( int i = 0; i < Count; i++ )
+			Debug.Log($"{name} has legnth of: {Count}");
+			for( int i = 0; i < Count; i++)
+            {
+				Debug.Log($"Making {(TileType) i} spritesheet");
 				this[i] = MakeSpriteSheet(i, defaultSprite);
+			}
+				
 		}
 	}
 
@@ -53,7 +58,7 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		return spriteSheet;
 	}
 
-	private int IndexOrZero(int index) => 0 >= index && index < Count ? index : 0;
+	private int IndexOrZero(int index) => 0 <= index && index < Count ? index : 0;
 
 	protected abstract string FolderName();
 
@@ -73,10 +78,14 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 
 	private static void CreateAsset(SingleSpriteSheet spriteSheet, string path) {
 		string absolutePath = $"{Directory.GetCurrentDirectory()}/{path}";
-
-		if( !Directory.Exists(absolutePath) )
+		if (File.Exists(absolutePath))
+		{
+			File.Delete(absolutePath);
+		}
+		if ( !Directory.Exists(absolutePath) )
 			Directory.CreateDirectory(absolutePath);
 
+		
 		AssetDatabase.CreateAsset(spriteSheet, path);
 	}
 }
