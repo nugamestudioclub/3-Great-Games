@@ -40,3 +40,6 @@ MonoBehaviour:
     - {fileID: 8557833019245924213, guid: 06835cb6e5479fe48b465a534eea8758, type: 3}
     - {fileID: 8291491210143932993, guid: 835e550b96d6af746aaaef2dfcbe5faa, type: 3}
     - {fileID: 717939876567637405, guid: 7a54f1a63a6fd094889c72ec9373f821, type: 3}
+  entities:
+    items:
+    - {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4758341141835106166}
   - component: {fileID: 4758341141835106152}
-  - component: {fileID: 3839711495409428760}
+  - component: {fileID: 7261761860539504737}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3839711495409428760
+--- !u!114 &7261761860539504737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4758341141835106167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb965bdfe6df174c827c777d2ab2ed9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 4758341141835106152}
-  colorId: 7
 --- !u!1 &4758341142449490464
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +136,7 @@ GameObject:
   - component: {fileID: 1212241692461791603}
   - component: {fileID: 4758341141213108094}
   - component: {fileID: 4758341141213108095}
-  - component: {fileID: 5032917832497507148}
+  - component: {fileID: -377277104469482644}
   m_Layer: 0
   m_Name: Enemy Tank
   m_TagString: Untagged
@@ -205,7 +203,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &5032917832497507148
+--- !u!114 &-377277104469482644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,9 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8448819110527126669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3320be9f405b0044a841be188052ddb, type: 3}
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 3839711495409428760}
-  objectId: 2
+  template: {fileID: 11400000, guid: 89a2b0312f12ea641836ec74ad1fb315, type: 2}

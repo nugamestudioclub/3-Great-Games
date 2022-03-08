@@ -50,10 +50,21 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		string spriteSheetPath = SpriteSheetPath(FolderName(), groupName, typeName);
 
 		sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
-		CreateAsset(spriteSheet, spriteSheetPath);
-#endif
 
+		Debug.Log($"{spriteSheetPath} is the path!");
+		
+		CreateAsset(ref spriteSheet, spriteSheetPath);
+#endif
+		if (sprite != null)
+		{
+			Debug.Log($"Trying to use: {sprite.texture.name} at {index}");
+		} else
+        {
+			//Debug.Log($"Trying to use: {defaultSprite.texture.name} at {index}");
+		}
 		spriteSheet.OriginalSprite = sprite == null ? defaultSprite : sprite;
+
+		Debug.Log($"Trying to use: {spriteSheet.OriginalSprite.texture.name} at {index}");
 
 		return spriteSheet;
 	}
@@ -76,16 +87,18 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		return $"{Paths.SPRITE_SHEETS}/{folderName}/{groupName}/{groupName}_{typeName}.asset";
 	}
 
-	private static void CreateAsset(SingleSpriteSheet spriteSheet, string path) {
+	private static void CreateAsset(ref SingleSpriteSheet spriteSheet, string path) {
 		string absolutePath = $"{Directory.GetCurrentDirectory()}/{path}";
 		if (File.Exists(absolutePath))
 		{
-			File.Delete(absolutePath);
-		}
-		if ( !Directory.Exists(absolutePath) )
-			Directory.CreateDirectory(absolutePath);
+			spriteSheet = AssetDatabase.LoadAssetAtPath<SingleSpriteSheet>(path);
+		} else
+        {
+			if ( !Directory.Exists(absolutePath) )
+				Directory.CreateDirectory(absolutePath);
 
+			AssetDatabase.CreateAsset(spriteSheet, path);
+		}
 		
-		AssetDatabase.CreateAsset(spriteSheet, path);
 	}
 }

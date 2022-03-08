@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BrickSpriteSheet
   m_EditorClassIdentifier: 
   type: 1
-  spriteGroup: {fileID: 0}
+  spriteGroup: {fileID: 11400000, guid: b8e4e1af68d64ee4bb4d5ea9663f3f01, type: 2}

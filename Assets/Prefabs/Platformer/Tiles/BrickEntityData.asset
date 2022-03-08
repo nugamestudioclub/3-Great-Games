@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4821114c3dbb9ca468015ddc49118b38, type: 3}
   m_Name: BrickEntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 0}
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: a5557dbac26b7574191e501e37c114fd, type: 2}
   <SpriteOnly>k__BackingField: 1
   entityId: 3
   colorId: 0

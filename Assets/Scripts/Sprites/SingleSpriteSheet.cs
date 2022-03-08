@@ -8,6 +8,7 @@ using UnityEngine;
 	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(SingleSpriteSheet))
 ]
 public class SingleSpriteSheet : SpriteSheet {
+	static int i = 0;
 	[SerializeField]
 	[SerializeProperty(nameof(OriginalSprite))]
 	private Sprite originalSprite;
@@ -15,7 +16,9 @@ public class SingleSpriteSheet : SpriteSheet {
 		get => originalSprite;
 		set {
 			originalSprite = value;
-			GreySprite = FindGrey(originalSprite);
+			
+            Debug.Log($"{name}{value.texture.name}{ i++}");
+            GreySprite = FindGrey(originalSprite);
 		}
 	}
 

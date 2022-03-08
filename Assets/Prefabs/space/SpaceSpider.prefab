@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 9166195717504175680}
   - component: {fileID: 2432976934821062587}
   - component: {fileID: 3118571594355830847}
-  - component: {fileID: 3576641283472580401}
   - component: {fileID: 1521781153247760205}
+  - component: {fileID: 8066016585426089048}
   m_Layer: 0
   m_Name: SpaceSpider
   m_TagString: Enemy
@@ -116,24 +116,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3576641283472580401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229854189229278928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3649d6f0fcf89e45a29e12c47dd78e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 6857360221644432320}
-  platformerReplacements: 
-  spaceShooterReplacements: 
-  tanksReplacements: 
-  objectId: 0
 --- !u!114 &1521781153247760205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,8 +131,20 @@ MonoBehaviour:
   sheets:
   - {fileID: 11400000, guid: 4080ea5ffc5250e4b888f9dfb8ecaf3d, type: 2}
   - {fileID: 11400000, guid: d2dbf7bbe0b0ff640a29de3026ea7dac, type: 2}
-  glitchySprite: {fileID: 6857360221644432320}
-  index: 0
+  glitchySprite: {fileID: 4264134628995948222}
+--- !u!114 &8066016585426089048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229854189229278928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  template: {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}
 --- !u!1 &2264539205784107405
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2326162714557657013}
   - component: {fileID: 1238194487151569452}
-  - component: {fileID: 6857360221644432320}
+  - component: {fileID: 4264134628995948222}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -234,7 +228,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6857360221644432320
+--- !u!114 &4264134628995948222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,11 +237,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2264539205784107405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ad4c7b1ebf9ab4a9aaebb871fe30d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
-  originalSprite: {fileID: 0}
-  spriteRenderer: {fileID: 1238194487151569452}
-  spriteSheet: {fileID: 0}
-  color: 15

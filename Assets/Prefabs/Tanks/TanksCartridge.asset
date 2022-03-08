@@ -31,3 +31,6 @@ MonoBehaviour:
     - {fileID: 6198606414743933960, guid: afa3e445cba09b843829a3aa286f1ef9, type: 3}
     - {fileID: 5032917832497507148, guid: 0482c3529c36e3243bf33f20f762b2a5, type: 3}
     - {fileID: 6198606414743933960, guid: 5a4f69336d7c0f74988d98fdab3434cc, type: 3}
+  entities:
+    items:
+    - {fileID: 0}
