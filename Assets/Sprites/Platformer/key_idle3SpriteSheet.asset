@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
   m_Name: key_idle3SpriteSheet
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 0}
-  <GreySprite>k__BackingField: {fileID: 0}
+  originalSprite: {fileID: 21300000, guid: 2a7802620cf90e04ba7424d7a466a65a, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: c75d1242b1ced8a49a0b524bb2382b95, type: 3}

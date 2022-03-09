@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
   m_Name: spider_idle1
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 0}
-  <GreySprite>k__BackingField: {fileID: 0}
+  originalSprite: {fileID: 21300000, guid: a27bad22f5f87384d95352199656ccb8, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: ecc42e5ccbbde234eb995c002f651635, type: 3}

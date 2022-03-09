@@ -19,7 +19,9 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 				Debug.Log($"Making {(TileType) i} spritesheet");
 				this[i] = MakeSpriteSheet(i, defaultSprite);
 			}
-				
+#if UNITY_EDITOR
+			EditorUtility.SetDirty(this);
+#endif
 		}
 	}
 

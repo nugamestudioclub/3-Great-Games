@@ -19,6 +19,9 @@ public class SingleSpriteSheet : SpriteSheet {
 			
             Debug.Log($"{name}{value.texture.name}{ i++}");
             GreySprite = FindGrey(originalSprite);
+#if UNITY_EDITOR
+			EditorUtility.SetDirty(this);
+#endif
 		}
 	}
 
