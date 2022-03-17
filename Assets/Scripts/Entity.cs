@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class Entity : MonoBehaviour, IRefreshable, IMemorable
-{
+public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	[SerializeField]
 	private EntityData template;
+
+	public bool Yes => template.EntityId == (int)PlatformerEntityId.Brick;
 
 	private NewGlitchySprite glitchySprite;
 
@@ -13,6 +14,8 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable
 		glitchySprite = GetComponentInChildren<NewGlitchySprite>();
 		IsActive = true;
 	}
+
+	private string hex;
 
 	void Start() {
 		var cartridge = GameCollection.Instance.Cartridge(template.GameId);
@@ -25,26 +28,35 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable
 	}
 
 	public bool IsActive { get; set; }
-	public void Refresh()
-	{
+	public void Refresh() {
 		//try
 		{
 			var newObject = GameMemory.Instance.Object(ToHex);
 			EntityData newEntity = GameMemory.Instance.EntityData(ToHex);
-			Debug.Log($"Same spritesheet? template :{template.SpriteSheet.Original.texture.name} new :{newEntity.SpriteSheet.Original.texture.name}");
+			// Debug.Log($"Same spritesheet? template :{template.SpriteSheet.Original.texture.name} new :{newEntity.SpriteSheet.Original.texture.name}");
 
-			if (template.SpriteOnly)
-			{
-				Debug.Log($"Calling refresh on sprite only: Hexcode {ToHex}");
+			if (template.SpriteOnly) {
+				// Debug.Log($"Calling refresh on sprite only: Hexcode {ToHex}");
 				//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
-				
 
-				glitchySprite.Tint(GameMemory.Instance.Color(template.ColorId));
-				glitchySprite.Draw(newEntity.SpriteSheet);
-				Debug.Log($"Finishing Calling refresh on sprite only: Hexcode {ToHex}");
+				var color = GameMemory.Instance.Color(template.ColorId);
+
+				if (glitchySprite == null) {
+					Debug.Log($"{name} has no glitchy sprite");
+				}
+				else {
+					if (color == null)
+						Debug.Log($"{name} failed to tint");
+					else
+						glitchySprite.Tint(GameMemory.Instance.Color(template.ColorId));
+					if (newEntity == null)
+						Debug.Log($"{name} failed to draw");
+					else
+						glitchySprite.Draw(newEntity.SpriteSheet);
+				}
+				// Debug.Log($"Finishing Calling refresh on sprite only: Hexcode {ToHex}");
 			}
-			else
-			{
+			else {
 				/*
 				bool valid = newObject.GameId switch
 				{
@@ -70,9 +82,23 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable
 		//catch { }
 	}
 
+	/*
+	public string ToHex {
+		get {
+			if (hex == null)
+				hex =
+				$"{GameMemory.IntToHex((int)template.GameId)}" +
+				$"{GameMemory.IntToHex(template.EntityId)}" +
+				$"{GameMemory.IntToHex(template.ColorId)}" +
+				$"{GameMemory.IntToHex(0)}"; //audio id
+			return hex;
+		}
+	}
+	*/
+
 	public string ToHex =>
-		$"{GameMemory.IntToHex((int)template.GameId)}" +
-		$"{GameMemory.IntToHex(template.EntityId)}" +
-		$"{GameMemory.IntToHex(template.ColorId)}" +
-		$"{GameMemory.IntToHex(0)}"; //audio id
+	$"{GameMemory.IntToHex((int)template.GameId)}" +
+	$"{GameMemory.IntToHex(template.EntityId)}" +
+	$"{GameMemory.IntToHex(template.ColorId)}" +
+	$"{GameMemory.IntToHex(0)}"; //audio id
 }
