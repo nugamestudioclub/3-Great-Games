@@ -12,25 +12,27 @@ public class CollectableController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private Entity entity;
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField]
     AudioClip collectSound;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         myCollider = GetComponent<Collider2D>();
+        entity = GetComponent<Entity>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     void Update()
     {
         if (isCollected)
         {
-            if( GameMemory.Instance.Rand.Next(10) == 0 )
-                GameMemory.Instance.Corrupt();
-
             collectedTime += Time.deltaTime;
             if (collectedTime > collectSound.length)
             {
                 gameObject.SetActive(false);
-               // Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
 
@@ -43,11 +45,14 @@ public class CollectableController : MonoBehaviour
     }
     protected virtual void Collect()
     {
+        //if (GameMemory.Instance.Rand.Next(10) == 0)
+        GameMemory.Instance.Corrupt();
         //play sound
         audioSource.PlayOneShot(collectSound);
         //
         myCollider.enabled = false;
-        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        spriteRenderer.enabled = false;
         isCollected = true;
+        entity.IsActive = false;
     }
 }
