@@ -2,169 +2,146 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameMemory : MonoBehaviour
-{
-    public static GameMemory Instance { get; private set; }
+public class GameMemory : MonoBehaviour {
+	public static GameMemory Instance { get; private set; }
 
-    public System.Random Rand { get; private set; } = new System.Random();
+	public System.Random Rand { get; private set; } = new System.Random();
 
-    [SerializeField]
-    private int capacity = 16;
+	[SerializeField]
+	private int capacity = 16;
 
-    private bool loaded;
+	private bool loaded;
 
-    public GameCartridge ActiveCartridge { get; private set; }
+	public GameCartridge ActiveCartridge { get; private set; }
 
-    public int Corruption { get; private set; }
+	public int Corruption { get; private set; }
 
-    private ColorPalette ColorPalette
-    {
-        get => ColorPalette.FromHex(memory[0].ToHex);
-        set => memory[0] = value;
-    }
+	private ColorPalette ColorPalette {
+		get => ColorPalette.FromHex(memory[0].ToHex);
+		set => memory[0] = value;
+	}
 
-    [SerializeField]
-    private SpriteSheet missingSpriteSheet;
-    public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
+	[SerializeField]
+	private SpriteSheet missingSpriteSheet;
+	public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
 
-    private Palette<IMemorable> memory; // hex codes
+	private Palette<IMemorable> memory; // hex codes
 
-    private List<IRefreshable> refreshMemory;
+	private List<IRefreshable> refreshMemory;
 
-    void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            Instance = this;
-            memory = new Palette<IMemorable>();
-            for (int i = 0; i < capacity; ++i)
-                memory.Add(new MemoryItem());
+	void Awake() {
+		if (Instance != null) {
+			Destroy(this);
+		}
+		else {
+			DontDestroyOnLoad(this);
+			Instance = this;
+			memory = new Palette<IMemorable>();
+			for (int i = 0; i < capacity; ++i)
+				memory.Add(new MemoryItem());
 
-            refreshMemory = new List<IRefreshable>();
-        }
-    }
+			refreshMemory = new List<IRefreshable>();
+		}
+	}
 
-    public void Store(int index, IMemorable memoryItem)
-    {
-        memory[index] = memoryItem;
-        Refresh();
-    }
+	public void Store(int index, IMemorable memoryItem) {
+		memory[index] = memoryItem;
+		Refresh();
+	}
 
-    public void Subscribe(IRefreshable refreshItem)
-    {
-        refreshMemory.Add(refreshItem);
-        if (loaded)
-            refreshItem.Refresh();
-    }
+	public void Subscribe(IRefreshable refreshItem) {
+		refreshMemory.Add(refreshItem);
+		if (loaded)
+			refreshItem.Refresh();
+	}
 
-    public void Load(GameId gameId)
-    {
-        loaded = false;
+	public void Load(GameId gameId) {
+		loaded = false;
 
-        ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
-        ColorPalette = new ColorPalette(gameId);
-        // AudioPalette = new AudioPalette(GameId);
+		ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
+		ColorPalette = new ColorPalette(gameId);
+		// AudioPalette = new AudioPalette(GameId);
 
-        for (int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i)
-            memory[i + 2] = ActiveCartridge.ObjectPalette[i];
+		for (int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i)
+			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
 
-        ApplyCorruption(Corruption % 5 + 1);
+		ApplyCorruption(Corruption % 5 + 1);
 
-        loaded = true;
-    }
+		loaded = true;
+	}
 
-    public IMemorable MemoryItem(int index) => memory[index];
+	public IMemorable MemoryItem(int index) => memory[index];
 
-    public Color Color(int index) => ColorPalette[index];
+	public Color Color(int index) => ColorPalette[index];
 
-    public GlitchyObject Object(string hex)
-    {
-        int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-        string memoryHex = memory[memoryIndex].ToHex;
-        int objIndex = HexToInt(memoryHex.Substring(1, 1));
-        int gameIndex = HexToInt(memoryHex.Substring(0, 1));
-        var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
+	public GlitchyObject Object(string hex) {
+		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
+		string memoryHex = memory[memoryIndex].ToHex;
+		int objIndex = HexToInt(memoryHex.Substring(1, 1));
+		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
+		var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
 
-        return objPalette[objIndex % objPalette.Count];
-    }
+		return objPalette[objIndex % objPalette.Count];
+	}
 
-    public EntityData EntityData(string hex)
-    {
-        int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-        string memoryHex = memory[memoryIndex].ToHex;
-        int objIndex = HexToInt(memoryHex.Substring(1, 1));
-        int gameIndex = HexToInt(memoryHex.Substring(0, 1));
-        var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).EntitiesPalette;
+	public EntityData EntityData(string hex) {
+		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
+		string memoryHex = memory[memoryIndex].ToHex;
+		int objIndex = HexToInt(memoryHex.Substring(1, 1));
+		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
+		var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).EntitiesPalette;
 
-        return objPalette[objIndex % objPalette.Count];
-    }
+		return objPalette[objIndex % objPalette.Count];
+	}
 
-    private void Refresh()
-    {
-        foreach (var refreshItem in refreshMemory)
-            if (refreshItem.IsActive)
-                refreshItem.Refresh();
-        refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
-    }
+	private void Refresh() {
+		foreach (var refreshItem in refreshMemory)
+			if (refreshItem.IsActive)
+				refreshItem.Refresh();
+		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
+	}
 
-    public static int HexToInt(string hex)
-    {
-        return Convert.ToInt32(hex, 16);
-    }
+	public static int HexToInt(string hex) {
+		return Convert.ToInt32(hex, 16);
+	}
 
-    public static string IntToHex(int value)
-    {
-        return Convert.ToString(value, 16);
-    }
+	public static string IntToHex(int value) {
+		return Convert.ToString(value, 16);
+	}
 
-    /// <summary>
-    /// TODO REMOVE THIS
-    /// </summary>
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Corrupt();
+	/// <summary>
+	/// TODO REMOVE THIS
+	/// </summary>
+	private void Update() {
+		if (Input.GetKeyDown(KeyCode.C)) {
+			Corrupt();
 
-        }
-    }
-    public void Corrupt()
-    {
-        try
-        {
-            ++Corruption;
-            ApplyCorruption(1);
-        }
-        catch { }
-    }
+		}
+	}
+	public void Corrupt() {
+		++Corruption;
+		ApplyCorruption(1);
+	}
 
-    private void ApplyCorruption(int count = 1)
-    {
-        for (int i = 0; i < count; ++i)
-            memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
-        Debug.Log("Corrupting...");
-        Refresh();
-    }
+	private void ApplyCorruption(int count = 1) {
+		for (int i = 0; i < count; ++i)
+			memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
+		Debug.Log("Corrupting...");
+		Refresh();
+	}
 
-    private string RandomHexString()
-    {
-        string hex = "";
+	private string RandomHexString() {
+		string hex = "";
 
-        for (int i = 0; i < 4; ++i)
-            hex += RandomHexChar();
+		for (int i = 0; i < 4; ++i)
+			hex += RandomHexChar();
 
-        return hex;
-    }
+		return hex;
+	}
 
-    private char RandomHexChar()
-    {
-        int n = Rand.Next(16);
+	private char RandomHexChar() {
+		int n = Rand.Next(16);
 
-        return (char)(n < 10 ? '0' + n : 'A' + n - 10);
-    }
+		return (char)(n < 10 ? '0' + n : 'A' + n - 10);
+	}
 }
