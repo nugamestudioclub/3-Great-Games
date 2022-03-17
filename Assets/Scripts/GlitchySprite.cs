@@ -52,7 +52,7 @@ public abstract class GlitchySprite : MonoBehaviour {
 	}
 
 	public void Tint(Color color) {
-		Debug.Log($"Tinting {name}");
+		// Debug.Log($"Tinting {name}");
 		if( color == Color ) {
 			spriteRenderer.sprite = spriteSheet.Original;
 			spriteRenderer.color = Color.white;

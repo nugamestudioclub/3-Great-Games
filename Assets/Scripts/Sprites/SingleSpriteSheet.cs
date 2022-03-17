@@ -17,7 +17,7 @@ public class SingleSpriteSheet : SpriteSheet {
 		set {
 			originalSprite = value;
 			
-            Debug.Log($"{name}{value.texture.name}{ i++}");
+            // Debug.Log($"{name}{value.texture.name}{ i++}");
             GreySprite = FindGrey(originalSprite);
 #if UNITY_EDITOR
 			EditorUtility.SetDirty(this);

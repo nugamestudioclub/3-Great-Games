@@ -37,7 +37,7 @@ public abstract class PlatformEnemyController : MonoBehaviour
         animator.Play("ladybug_death");
 
         IsDying = true;
-        Debug.Log($"{gameObject.name} has died!");
+        // Debug.Log($"{gameObject.name} has died!");
     }
 
     abstract protected void Move();

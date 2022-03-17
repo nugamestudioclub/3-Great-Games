@@ -18,8 +18,8 @@ public class NewGlitchySprite : MonoBehaviour {
 		get => spriteSheet; 
 		set { 
 			spriteSheet = value;
-			Debug.Log($"Trying to set spritesheet of {name}");
-			Debug.Log($"Setting spritesheet original:{spriteSheet.Original.texture.name}, grey:{spriteSheet.Grey.texture.name}");
+			//Debug.Log($"Trying to set spritesheet of {name}");
+			//Debug.Log($"Setting spritesheet original:{spriteSheet.Original.texture.name}, grey:{spriteSheet.Grey.texture.name}");
 			Sprite = IsTinted ? spriteSheet.Grey : spriteSheet.Original;
 			//Sprite = spriteSheet.Grey;
 		} 
@@ -34,7 +34,7 @@ public class NewGlitchySprite : MonoBehaviour {
 	}
 
 	public void Tint(Color color) {
-		Debug.Log($"{transform.parent.name} is tinting");
+		// Debug.Log($"{transform.parent.name} is tinting");
 		if ( color == Color ) {
 			Sprite = spriteSheet.Original;
 			spriteRenderer.color = Color.white;

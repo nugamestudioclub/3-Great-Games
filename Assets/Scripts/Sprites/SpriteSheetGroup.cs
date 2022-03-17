@@ -13,10 +13,10 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		get => defaultSprite;
 		set {
 			defaultSprite = value;
-			Debug.Log($"{name} has legnth of: {Count}");
+			// Debug.Log($"{name} has legnth of: {Count}");
 			for( int i = 0; i < Count; i++)
             {
-				Debug.Log($"Making {(TileType) i} spritesheet");
+				// Debug.Log($"Making {(TileType) i} spritesheet");
 				this[i] = MakeSpriteSheet(i, defaultSprite);
 			}
 #if UNITY_EDITOR
@@ -53,20 +53,11 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 
 		sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
 
-		Debug.Log($"{spriteSheetPath} is the path!");
+		// Debug.Log($"{spriteSheetPath} is the path!");
 		
 		CreateAsset(ref spriteSheet, spriteSheetPath);
 #endif
-		if (sprite != null)
-		{
-			Debug.Log($"Trying to use: {sprite.texture.name} at {index}");
-		} else
-        {
-			//Debug.Log($"Trying to use: {defaultSprite.texture.name} at {index}");
-		}
 		spriteSheet.OriginalSprite = sprite == null ? defaultSprite : sprite;
-
-		Debug.Log($"Trying to use: {spriteSheet.OriginalSprite.texture.name} at {index}");
 
 		return spriteSheet;
 	}

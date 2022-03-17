@@ -49,12 +49,12 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 			var newObject = GameMemory.Instance.Object(ToHex);
 
 			if( spriteOnly ) {
-				Debug.Log($"Calling refresh on sprite only: Hexcode {ToHex}");
+				// Debug.Log($"Calling refresh on sprite only: Hexcode {ToHex}");
 				//if( !(ToHex == newObject.ToHex && GlitchySprite.Sprite == newObject.GlitchySprite.Sprite)  )
 				//glitchySprite.OverrideSprite(newObject.GlitchySprite);
 
 				glitchySprite.Tint(GameMemory.Instance.Color(ColorId));
-				Debug.Log($"Finishing Calling refresh on sprite only: Hexcode {ToHex}");
+				// Debug.Log($"Finishing Calling refresh on sprite only: Hexcode {ToHex}");
 			}
 			else {
 				bool valid = newObject.GameId switch {
@@ -70,7 +70,7 @@ public abstract class GlitchyObject : MonoBehaviour, IRefreshable, IMemorable {
 					Destroy(this);
 				}
 				else {
-					Debug.Log(newObject.ToHex);
+					// Debug.Log(newObject.ToHex);
 				}
 			}
 		}

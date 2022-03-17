@@ -47,7 +47,7 @@ public class Enemy_Behavior : MonoBehaviour
     }
     void Shoot()
     {
-        Debug.Log("Shoot");
+        // Debug.Log("Shoot");
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
