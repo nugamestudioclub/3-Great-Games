@@ -5,64 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Test/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Test/Tank_Test.unity
-    guid: b5664a02d48f4c74da332c0671ab313a
-  - enabled: 0
-    path: Assets/Scenes/Test/Menu_Scene.unity
-    guid: 4ee80b34988b91040b416496991db45b
-  - enabled: 0
-    path: Assets/Scenes/Test/BBBTest.unity
-    guid: a493838ffae23d24fbd94819cd301052
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Test/MarcoTest.unity
-    guid: 776bae3bbeadd5e4da6ae18d031546ba
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Menu_Scene.unity
+    path: Assets/Scenes/Production/Menu_Scene.unity
     guid: 3ee179974b8a3ad4ab7d614aff7f4847
   - enabled: 1
-    path: Assets/Scenes/Platformer_Scene.unity
-    guid: 87f922f86ba97d3498439e0046aeb7a3
-  - enabled: 1
-    path: Assets/Scenes/Credits_Scene.unity
+    path: Assets/Scenes/Production/Credits_Scene.unity
     guid: d657375aed51edb4498726b79dfe2d3e
   - enabled: 1
-    path: Assets/Scenes/Platformer_Ending.unity
-    guid: b674930865f47144d8a74b64fe7f79bd
+    path: Assets/Scenes/Production/Platformer_Scene.unity
+    guid: 87f922f86ba97d3498439e0046aeb7a3
   - enabled: 1
-    path: Assets/Scenes/space.unity
+    path: Assets/Scenes/Production/Space_Scene.unity
     guid: f7a5453b6695e444db07b04e622d207a
   - enabled: 1
-    path: Assets/Scenes/Space_Ending.unity
+    path: Assets/Scenes/Production/Tank_Scene.unity
+    guid: d99eba2793511314b99b277026a002b2
+  - enabled: 1
+    path: Assets/Scenes/Production/Platformer_Ending.unity
+    guid: b674930865f47144d8a74b64fe7f79bd
+  - enabled: 1
+    path: Assets/Scenes/Production/Space_Ending.unity
     guid: e98cc7fc6ac026349943e7c6071dd10e
   - enabled: 1
-    path: Assets/Scenes/Tank_Ending.unity
+    path: Assets/Scenes/Production/Tank_Ending.unity
     guid: 6a53b0c1eaffb3b458e78a056f62a222
-  - enabled: 1
-    path: Assets/Scenes/Tank_Test_2.unity
-    guid: d99eba2793511314b99b277026a002b2
   m_configObjects: {}

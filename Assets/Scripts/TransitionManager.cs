@@ -18,13 +18,13 @@ public class TransitionManager : MonoBehaviour
     public void ToSpace()
     {
         GameMemory.Instance.Load(GameId.SpaceShooter);
-        SceneManager.LoadScene("space", LoadSceneMode.Single);
+        SceneManager.LoadScene("Space_Scene", LoadSceneMode.Single);
     }
 
     public void ToTanks()
     {
         GameMemory.Instance.Load(GameId.Tanks);
-        SceneManager.LoadScene("Tank_Test_2", LoadSceneMode.Single);
+        SceneManager.LoadScene("Tank_Scene", LoadSceneMode.Single);
     }
 
     public void ToCredit()

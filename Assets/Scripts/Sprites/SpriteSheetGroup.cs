@@ -80,18 +80,24 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		return $"{Paths.SPRITE_SHEETS}/{folderName}/{groupName}/{groupName}_{typeName}.asset";
 	}
 
-	private static void CreateAsset(ref SingleSpriteSheet spriteSheet, string path) {
+
+#if UNITY_EDITOR
+	private static void CreateAsset(ref SingleSpriteSheet spriteSheet, string path)
+	{
 		string absolutePath = $"{Directory.GetCurrentDirectory()}/{path}";
 		if (File.Exists(absolutePath))
 		{
 			spriteSheet = AssetDatabase.LoadAssetAtPath<SingleSpriteSheet>(path);
-		} else
-        {
-			if ( !Directory.Exists(absolutePath) )
+		}
+		else
+		{
+			if (!Directory.Exists(absolutePath))
 				Directory.CreateDirectory(absolutePath);
 
 			AssetDatabase.CreateAsset(spriteSheet, path);
 		}
-		
+
 	}
+#endif
+
 }

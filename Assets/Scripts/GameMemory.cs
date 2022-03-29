@@ -62,8 +62,8 @@ public class GameMemory : MonoBehaviour {
 		ColorPalette = new ColorPalette(gameId);
 		// AudioPalette = new AudioPalette(GameId);
 
-		for (int i = 0; i < ActiveCartridge.ObjectPalette.Count; ++i)
-			memory[i + 2] = ActiveCartridge.ObjectPalette[i];
+		//for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
+		//	memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
 
 		ApplyCorruption(Corruption % 5 + 1);
 
@@ -79,9 +79,9 @@ public class GameMemory : MonoBehaviour {
 		string memoryHex = memory[memoryIndex].ToHex;
 		int objIndex = HexToInt(memoryHex.Substring(1, 1));
 		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
-		var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
+		//var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
 
-		return objPalette[objIndex % objPalette.Count];
+		return null;// objPalette[objIndex % objPalette.Count];
 	}
 
 	public EntityData EntityData(string hex) {

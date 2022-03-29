@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8402964913584089286}
   - component: {fileID: 365197311214519232}
   - component: {fileID: 1006849543}
-  - component: {fileID: 8353112787447402640}
+  - component: {fileID: 3139066680133784291}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -186,7 +186,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8353112787447402640
+--- !u!114 &3139066680133784291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,11 +195,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2380511280822222680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 365197311214519232}
-  color: 4
 --- !u!1 &3985876357502086294
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +272,8 @@ GameObject:
   - component: {fileID: 4897030413336960961}
   - component: {fileID: 4897030413336960962}
   - component: {fileID: 2255176054420346346}
-  - component: {fileID: 8054808748619506369}
   - component: {fileID: 314301501789246683}
+  - component: {fileID: 1038184988158785740}
   m_Layer: 0
   m_Name: PlatformerPlayer
   m_TagString: Player
@@ -349,21 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ecde8272e18e74ebb6f69cf5c37c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8054808748619506369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4897030413336961020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 8353112787447402640}
-  objectId: 0
 --- !u!61 &314301501789246683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -390,3 +373,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.084803805, y: 0.10762578}
   m_EdgeRadius: 0.01
+--- !u!114 &1038184988158785740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897030413336961020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  template: {fileID: 11400000, guid: 2258ca0e827e7eb4db24116e292711b6, type: 2}

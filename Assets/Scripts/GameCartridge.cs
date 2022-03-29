@@ -16,10 +16,10 @@ public class GameCartridge : ScriptableObject {
 	[SerializeField]
 	private ReadOnlyPalette<AudioClip> sounds;
 	
-	[SerializeField]
-	private ReadOnlyPalette<GlitchyObject> objects;
+	//[SerializeField]
+	//private ReadOnlyPalette<GlitchyObject> objects;
 
-	public IReadOnlyPalette<GlitchyObject> ObjectPalette => objects;
+	//public IReadOnlyPalette<GlitchyObject> ObjectPalette => objects;
 	
 	[SerializeField]
 	private ReadOnlyPalette<EntityData> entities;

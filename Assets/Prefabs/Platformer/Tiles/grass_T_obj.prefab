@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6836758047552424290}
   - component: {fileID: 3888591998937746256}
-  - component: {fileID: 5329915856385371761}
-  - component: {fileID: 5038492783620388075}
+  - component: {fileID: -6351742297384441538}
+  - component: {fileID: -656720734584997000}
   m_Layer: 0
   m_Name: grass_T_obj
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5329915856385371761
+--- !u!114 &-6351742297384441538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,12 +93,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76f4096df5151048b370fa70b6c4260, type: 3}
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3888591998937746256}
-  color: 5
---- !u!114 &5038492783620388075
+  template: {fileID: 11400000, guid: 2d76258b921759a44965c607d2d4d5d8, type: 2}
+--- !u!114 &-656720734584997000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,9 +106,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 5329915856385371761}
-  objectId: 1
