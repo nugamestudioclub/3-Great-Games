@@ -31,7 +31,7 @@ public class PlatformerPlayerController : MonoBehaviour {
         if (!feet.isColliding)
         {
             //play jump animation
-            animator.Play("player_falling");
+            animator.Play("Pplayer_falling");
         }
     }
 
@@ -47,15 +47,15 @@ public class PlatformerPlayerController : MonoBehaviour {
                 sprite.flipX = true;
             }
             rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("player_running") && feet.isColliding)
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Pplayer_running") && feet.isColliding)
             {
-                animator.Play("player_running");
+                animator.Play("Pplayer_running");
             }
         } else
         {
             if (feet.isColliding)
             {
-                animator.Play("player_idle");
+                animator.Play("Pplayer_idle");
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
         }

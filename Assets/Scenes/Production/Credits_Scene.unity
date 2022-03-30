@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 606391086}
   - component: {fileID: 606391085}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,15 +388,15 @@ RectTransform:
   m_GameObject: {fileID: 606391083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1356347992}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.0000038147, y: -47}
+  m_SizeDelta: {x: 227.99, y: 58.1917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606391085
 MonoBehaviour:
@@ -420,11 +420,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1d4a1bb2668a6af4497450e4376762a2, type: 3}
-    m_FontSize: 30
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 60
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -550,15 +550,15 @@ RectTransform:
   m_GameObject: {fileID: 886224075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1356347992}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -67.8}
-  m_SizeDelta: {x: 500, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 785.234, y: 207.7699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886224077
 MonoBehaviour:
@@ -580,28 +580,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Dev Team
+  m_text: 'Brendan Brassil - Programmer (Platformer/Console)
 
-
-    Brendan Brassil - Programmer (Platformer/Console)
-
-    Tung
-    Dao - Programmer (Tanks)
+    Tung Dao - Programmer
+    (Tanks)
 
     Marco Hampel - Programmer (Console)
 
-    Sebastian
-    Kobori - Programmer (Platformer/Console)
+    Sebastian Kobori - Programmer
+    (Platformer/Console)
 
-    Jerry Liang - Programmer (Shoot-em
-    Up)
+    Jerry Liang - Programmer (Shoot-em Up)
 
-    Queenie Liang - Artist (Sprites)
+    Queenie
+    Liang - Artist (Sprites)
 
     Marty Marshall - Artist (Sprites)
 
-    Joe
-    Turco - Musician & Programmer (Menuing)'
+    Joe Turco
+    - Musician & Programmer (Menuing)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fed455e8fe305b64a82af38d15a99f52, type: 2}
   m_sharedMaterial: {fileID: -6376040545822838514, guid: fed455e8fe305b64a82af38d15a99f52, type: 2}
@@ -628,8 +625,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -955,10 +952,10 @@ RectTransform:
   m_Father: {fileID: 1356347992}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 8.2908, y: 45}
+  m_SizeDelta: {x: 211.4084, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363039534
 MonoBehaviour:
@@ -1086,10 +1083,10 @@ RectTransform:
   m_Father: {fileID: 1356347992}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 875, y: 492}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392497112
 MonoBehaviour:
