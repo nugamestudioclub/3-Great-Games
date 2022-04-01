@@ -64,9 +64,9 @@ public class GameMemory : MonoBehaviour {
 
 		//for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
 		//	memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
-
+		
 		ApplyCorruption(Corruption % 5 + 1);
-
+		Refresh();
 		loaded = true;
 	}
 

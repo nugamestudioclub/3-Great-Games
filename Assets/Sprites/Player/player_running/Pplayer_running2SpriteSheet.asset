@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
   m_Name: Pplayer_running2SpriteSheet
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 21300000, guid: 04e2a5cc8a034413a87d7a17caf20b90, type: 3}
-  <GreySprite>k__BackingField: {fileID: 21300000, guid: 29ef2fdb43922014386259b296abf433, type: 3}
+  originalSprite: {fileID: 21300000, guid: e66741214ffe24a04b9d7e6e40dc7de9, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 11eb7ac707a0d4441bb4036854f2982d, type: 3}
