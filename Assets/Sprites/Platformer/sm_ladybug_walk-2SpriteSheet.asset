@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
-  m_Name: brick_EdgeTop
+  m_Name: sm_ladybug_walk-2SpriteSheet
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 21300000, guid: d53648326e3e10f4681e33e5ad031584, type: 3}
-  <GreySprite>k__BackingField: {fileID: 21300000, guid: 4857e326577ca354db6a15f981946a32, type: 3}
+  originalSprite: {fileID: 21300000, guid: 1d453e1663c18df4da6d404de15cc688, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 46a6fa25357da1a42b5f0302b351b0a9, type: 3}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
   m_Name: brick_InnerBottomRight
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 21300000, guid: 67bc01dbcbc985f459a31da10fbfdc4b, type: 3}
-  <GreySprite>k__BackingField: {fileID: 21300000, guid: 67bc01dbcbc985f459a31da10fbfdc4b, type: 3}
+  originalSprite: {fileID: 21300000, guid: d53648326e3e10f4681e33e5ad031584, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 4857e326577ca354db6a15f981946a32, type: 3}
