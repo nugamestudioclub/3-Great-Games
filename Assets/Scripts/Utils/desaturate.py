@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-directory = "C:\\Users\\HomeOne\\Projects\\_Sync\\GitHub\\brackeys-glitchy\\Assets\\Sprites\\Player"
+directory = "C:\\Users\\Executor\\Projects\\GitHub\\brackeys-glitchy\\Assets\\Sprites\\Player\\player_running"
 ext = ".png"
 
 def luma(r, g, b):
