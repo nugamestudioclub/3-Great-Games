@@ -58,17 +58,20 @@ public class GameMemory : MonoBehaviour {
 	public void Load(GameId gameId) {
 		loaded = false;
 
+		refreshMemory.Clear();
+
 		ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
 		ColorPalette = new ColorPalette(gameId);
 		// AudioPalette = new AudioPalette(GameId);
 
-		//for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
-		//	memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
+		for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
+			memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
 		
 		ApplyCorruption(Corruption % 5 + 1);
 		Refresh();
 		loaded = true;
 	}
+
 
 	public IMemorable MemoryItem(int index) => memory[index];
 
@@ -95,10 +98,11 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	private void Refresh() {
+		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
 		foreach (var refreshItem in refreshMemory)
 			if (refreshItem.IsActive)
 				refreshItem.Refresh();
-		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
+		
 	}
 
 	public static int HexToInt(string hex) {

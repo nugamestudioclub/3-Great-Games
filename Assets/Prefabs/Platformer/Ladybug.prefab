@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5814615314917512980}
   - component: {fileID: 5814615314917512983}
+  - component: {fileID: 6382066805858238935}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -144,6 +145,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6382066805858238935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814615314917512981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5814615315347326715
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +170,8 @@ GameObject:
   - component: {fileID: 5814615315347326661}
   - component: {fileID: 5814615315347326714}
   - component: {fileID: 1565852456700151228}
+  - component: {fileID: 3180765236132889211}
+  - component: {fileID: -3753556731192907336}
   m_Layer: 0
   m_Name: Ladybug
   m_TagString: Untagged
@@ -252,6 +267,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3180765236132889211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814615315347326715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  template: {fileID: 0}
+--- !u!114 &-3753556731192907336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814615315347326715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e894495b36a284fa7ecef40f7a1c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheets: []
+  glitchySprite: {fileID: 0}
 --- !u!1 &6089520443873230662
 GameObject:
   m_ObjectHideFlags: 0

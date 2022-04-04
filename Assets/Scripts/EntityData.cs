@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public abstract class EntityData : ScriptableObject {
+public abstract class EntityData : ScriptableObject, IMemorable {
 	public abstract GameId GameId { get; }
 
 	public abstract int EntityId { get; }
@@ -15,4 +15,10 @@ public abstract class EntityData : ScriptableObject {
 	//TODO Remove this
 	[field: SerializeField]
 	public bool SpriteOnly { get; private set; } = true;
+
+    public string ToHex =>
+		$"{GameMemory.IntToHex((int)GameId)}" +
+		$"{GameMemory.IntToHex(EntityId)}" +
+		$"{GameMemory.IntToHex(ColorId)}" +
+		$"{GameMemory.IntToHex(0)}";
 }

@@ -4,7 +4,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	[SerializeField]
 	private EntityData template;
 
-	public bool Yes => template.EntityId == (int)PlatformerEntityId.Brick;
+	//public bool Yes => template.EntityId == (int)PlatformerEntityId.Brick;
 
 	private NewGlitchySprite glitchySprite;
 

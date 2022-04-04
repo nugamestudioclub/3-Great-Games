@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SpriteSheet>k__BackingField: {fileID: 11400000, guid: a5557dbac26b7574191e501e37c114fd, type: 2}
   <SpriteOnly>k__BackingField: 1
-  entityId: 3
+  entityId: 2
   colorId: 0

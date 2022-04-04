@@ -4,8 +4,8 @@ using UnityEngine;
 public enum PlatformerEntityId {
 	Player,
 	Grass,
-	Dirt,
-	Brick,
+	BrickPurple,
+	BrickOrange,
 	Cloud,
 	Gem,
 	Key,
