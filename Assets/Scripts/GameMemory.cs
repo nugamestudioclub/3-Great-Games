@@ -58,7 +58,7 @@ public class GameMemory : MonoBehaviour {
 	public void Load(GameId gameId) {
 		loaded = false;
 
-		refreshMemory.Clear();
+		Clear();
 
 		ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
 		ColorPalette = new ColorPalette(gameId);
@@ -72,6 +72,9 @@ public class GameMemory : MonoBehaviour {
 		loaded = true;
 	}
 
+	void Clear() {
+		refreshMemory.RemoveAll(x => !(x is Console));
+	}
 
 	public IMemorable MemoryItem(int index) => memory[index];
 
