@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
-  m_Name: CloudMiddleSpriteSheet
+  m_Name: Cloud_Default
   m_EditorClassIdentifier: 
   originalSprite: {fileID: 21300000, guid: abf2b742c1a17d34792522aaa909cd1a, type: 3}
   <GreySprite>k__BackingField: {fileID: 21300000, guid: 16e1968b9fdfcce48a30e81c8bf1abac, type: 3}
