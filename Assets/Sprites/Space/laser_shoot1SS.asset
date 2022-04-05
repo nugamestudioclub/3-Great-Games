@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
   m_Name: laser_shoot1SS
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 0}
-  <GreySprite>k__BackingField: {fileID: 0}
+  originalSprite: {fileID: 21300000, guid: 5fecab2281caf164aaf0eb07b17c6dc4, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 486b56be44b79814fa8f19b9b00c141f, type: 3}

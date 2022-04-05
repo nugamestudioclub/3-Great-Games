@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
   m_Name: alien_bullet1SS
   m_EditorClassIdentifier: 
-  originalSprite: {fileID: 0}
-  <GreySprite>k__BackingField: {fileID: 0}
+  originalSprite: {fileID: 21300000, guid: d2143d58f5ff724448ecd70ad27f8427, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 4db6b33de175a9b4eb402d42bbbf9269, type: 3}
