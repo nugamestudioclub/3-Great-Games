@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be69c262bde0364085e056961666ed1, type: 3}
+  m_Name: SpaceShooterCartridge
+  m_EditorClassIdentifier: 
+  id: 1
+  colors:
+    items:
+    - {r: 0.9843138, g: 0.7803922, b: 0.9843138, a: 1}
+    - {r: 0.6117647, g: 0.37254903, b: 0.9529412, a: 1}
+    - {r: 0, g: 0.81568635, b: 1, a: 1}
+    - {r: 0.98823535, g: 0, b: 0, a: 1}
+    - {r: 0.9960785, g: 0.70980394, b: 0.9960785, a: 1}
+    - {r: 1, g: 0, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.3803922, g: 0.8941177, b: 0.6509804, a: 1}
+    - {r: 1, g: 0.7568628, b: 0.09411766, a: 1}
+    - {r: 0.8196079, g: 0.06666667, b: 0.47058827, a: 1}
+    - {r: 0, g: 0.68235296, b: 0.92549026, a: 1}
+    - {r: 0, g: 0.4156863, b: 1, a: 1}
+    - {r: 0.9843138, g: 0.9294118, b: 0.039215688, a: 1}
+    - {r: 1, g: 1, b: 0, a: 1}
+    - {r: 0, g: 0.454902, b: 1, a: 1}
+    - {r: 0, g: 0.1137255, b: 1, a: 1}
+  sounds:
+    items: []
+  entities:
+    items:
+    - {fileID: 11400000, guid: f45fb7106b8569545828aca5f8798516, type: 2}
+    - {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}
+    - {fileID: 11400000, guid: 641f10970ec2b004e8dac949bf4fa90c, type: 2}
+    - {fileID: 11400000, guid: a8a70003640b5aa438ed3493ab5c1f08, type: 2}
+    - {fileID: 11400000, guid: 31118f0232c22b245a279b5b59a21985, type: 2}
