@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TanksScore : MonoBehaviour
 {
     // Start is called before the first frame update
+    private Text text;
     void Start()
     {
-        GetComponent<UnityEngine.UI.Text>().text = "Score:" + PlayerPrefs.GetFloat("TankScore");
+        PlayerPrefs.SetFloat("TankScore", 0);
+        text = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<UnityEngine.UI.Text>().text = "Score:" + PlayerPrefs.GetFloat("TankScore");
+       text.text = "Score:" + PlayerPrefs.GetFloat("TankScore");
     }
+
+    
 }

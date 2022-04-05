@@ -579,6 +579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CRT Filter
       objectReference: {fileID: 0}
+    - target: {fileID: 9045335260047680611, guid: 4eef542ada425da4d82bfc471ed47063, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eef542ada425da4d82bfc471ed47063, type: 3}
 --- !u!224 &1365866295 stripped
@@ -712,9 +716,9 @@ RectTransform:
   m_Father: {fileID: 1847293850}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 125, y: 65}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -170, y: 100}
   m_SizeDelta: {x: 175, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715444463
