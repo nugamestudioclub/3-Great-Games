@@ -19,7 +19,12 @@ public class UpdateGlobalVolume : MonoBehaviour
     void GlobalVolume_Changed(object sender, float e) 
     {
         //on event trigger
-        ac.volume = e;
+        if (ac != null)
+        {
+            ac.volume = e;
+
+        }
+        
     }
 
 

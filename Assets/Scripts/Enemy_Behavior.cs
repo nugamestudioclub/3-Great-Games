@@ -18,7 +18,11 @@ public class Enemy_Behavior : MonoBehaviour {
 
     private Animator ani;
 
+    [SerializeField]
+    private Entity entity;
+
     void Start() {
+
         time_mark = Time.frameCount;
         ani = GetComponent<Animator>();
     }
@@ -37,6 +41,7 @@ public class Enemy_Behavior : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         GameMemory.Instance.Corrupt();
         PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") + 1);
+        entity.Deactivate();
         Destroy(me);
     }
 

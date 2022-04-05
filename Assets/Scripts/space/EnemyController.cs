@@ -80,7 +80,6 @@ public class EnemyController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
 		if( collision.gameObject.CompareTag("Bullet") ) {
-			GameMemory.Instance.ChanceOfCorruption(0.05);
 			entity.Deactivate();
 			Destroy(gameObject);
 		}

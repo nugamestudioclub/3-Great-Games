@@ -40,6 +40,7 @@ public class BulletController : MonoBehaviour {
 			GameObject go = GameObject.FindWithTag("Audio");
 			AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
 			other.playSound();
+			GameMemory.Instance.ChanceOfCorruption(0.10);
 			entity.Deactivate();
 			Destroy(gameObject);
 		}

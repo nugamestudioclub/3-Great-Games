@@ -8,7 +8,7 @@ public class VolumeSetter : MonoBehaviour
     void Awake()
     {
         slider = GetComponent<Slider>();
-        slider.onValueChanged.AddListener(delegate {SetVolume(); });
+        slider.onValueChanged.AddListener(delegate { SetVolume(); });
     }
 
     private void Start()
