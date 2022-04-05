@@ -73,7 +73,7 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	void Clear() {
-		refreshMemory.RemoveAll(x => !(x is Console));
+		refreshMemory.RemoveAll(x => !(x is HexConsole));
 	}
 
 	public IMemorable MemoryItem(int index) => memory[index];

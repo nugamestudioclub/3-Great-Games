@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9166195717504175680}
   - component: {fileID: 6324409018974457548}
   - component: {fileID: 1757127375390301079}
-  - component: {fileID: 8557833019245924213}
+  - component: {fileID: 6701384611448282876}
   m_Layer: 0
-  m_Name: shootenemy
+  m_Name: ShootEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8557833019245924213
+--- !u!114 &6701384611448282876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,15 +127,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 229854189229278928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3649d6f0fcf89e45a29e12c47dd78e6, type: 3}
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 761197725940729547}
-  platformerReplacements: 
-  spaceShooterReplacements: 
-  tanksReplacements: 
-  objectId: 2
+  template: {fileID: 11400000, guid: 641f10970ec2b004e8dac949bf4fa90c, type: 2}
 --- !u!1 &2264539205784107405
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,9 +141,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2326162714557657013}
   - component: {fileID: 1238194487151569452}
-  - component: {fileID: 761197725940729547}
+  - component: {fileID: 5671798630340190154}
   m_Layer: 0
-  m_Name: SpriteRenderer
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +214,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &761197725940729547
+--- !u!114 &5671798630340190154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,8 +223,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2264539205784107405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ad4c7b1ebf9ab4a9aaebb871fe30d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1238194487151569452}
-  color: 2

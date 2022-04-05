@@ -25,11 +25,10 @@ MonoBehaviour:
     - {r: 0.46226418, g: 0.023985408, b: 0.033132587, a: 1}
   sounds:
     items: []
-  objects:
-    items:
-    - {fileID: 6326911676404257193, guid: cb210c8042fdc25428ce656ee344b2f3, type: 3}
-    - {fileID: 6198606414743933960, guid: afa3e445cba09b843829a3aa286f1ef9, type: 3}
-    - {fileID: 6198606414743933960, guid: 5a4f69336d7c0f74988d98fdab3434cc, type: 3}
   entities:
     items:
+    - {fileID: 11400000, guid: 42dfd082aa625fd43b25ab77b4115731, type: 2}
+    - {fileID: 11400000, guid: 87c54d5f6d1dc4c4ca9f7fa72eee8935, type: 2}
     - {fileID: 11400000, guid: 89a2b0312f12ea641836ec74ad1fb315, type: 2}
+    - {fileID: 11400000, guid: edb095d9666a5e64cab940405612de01, type: 2}
+    - {fileID: 11400000, guid: eca3254f1aadade40aad4479ca470d43, type: 2}

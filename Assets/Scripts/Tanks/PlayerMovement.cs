@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             GameMemory.Instance.Corrupt();
-            tm.ToMenu();
+            SceneManager.LoadScene("Menu_Scene");
         }
         
     }

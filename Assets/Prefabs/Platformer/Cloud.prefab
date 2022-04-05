@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  spriteSheet: {fileID: 0}
   color: 13
 --- !u!1 &2789528772560354083
 GameObject:
@@ -107,7 +108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7228482995562472665}
   - component: {fileID: 8035719740350573924}
-  - component: {fileID: 7009128463630344398}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: Untagged
@@ -151,21 +151,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7009128463630344398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2789528772560354083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e424ea02abb8464e9aeaac5b9749f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteOnly: 0
-  glitchySprite: {fileID: 140991388243653327}
-  objectId: 4
 --- !u!1 &7673304638623849062
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  spriteSheet: {fileID: 0}
   color: 13
 --- !u!1 &8128715181801091741
 GameObject:
@@ -359,4 +345,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  spriteSheet: {fileID: 0}
   color: 13

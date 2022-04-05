@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6836758047552424290}
   - component: {fileID: 3888591998937746256}
-  - component: {fileID: 5939879037362224875}
-  - component: {fileID: 6198606414743933960}
+  - component: {fileID: 6603355150369828838}
+  - component: {fileID: 157561779820629975}
   m_Layer: 0
   m_Name: dirt
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5939879037362224875
+--- !u!114 &6603355150369828838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,12 +93,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb965bdfe6df174c827c777d2ab2ed9, type: 3}
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3888591998937746256}
-  colorId: 0
---- !u!114 &6198606414743933960
+  template: {fileID: 11400000, guid: edb095d9666a5e64cab940405612de01, type: 2}
+--- !u!114 &157561779820629975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,9 +106,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 274755053796369319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3320be9f405b0044a841be188052ddb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOnly: 1
-  glitchySprite: {fileID: 5939879037362224875}
-  objectId: 3

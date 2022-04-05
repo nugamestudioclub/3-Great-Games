@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44e07979bd9b9b4fbe212b1d84de6b1, type: 3}
+  m_Name: DirtTanksEntityData
+  m_EditorClassIdentifier: 
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: aecf172f7f37aa4458d0842781eeff6d, type: 2}
+  <SpriteOnly>k__BackingField: 1
+  entityId: 3
+  colorId: 0

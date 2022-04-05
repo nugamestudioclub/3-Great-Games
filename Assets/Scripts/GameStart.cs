@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour {
 	[SerializeField]
@@ -16,7 +17,7 @@ public class GameStart : MonoBehaviour {
     private void Update()
     {
         if (PlayerPrefs.GetFloat("TankScore") >= 5) {
-			tm.ToTankEnd();
-        }
+			SceneManager.LoadScene("Tank_Ending");
+		}
     }
 }

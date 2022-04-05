@@ -33,13 +33,10 @@ MonoBehaviour:
     - {r: 0, g: 0.1137255, b: 1, a: 1}
   sounds:
     items: []
-  objects:
-    items:
-    - {fileID: -720275996306567688, guid: 2e5e5ca9eacb1e14b91821b30d73070d, type: 3}
-    - {fileID: 3576641283472580401, guid: 7084e1336cf18764ca2b8c629c2776d3, type: 3}
-    - {fileID: 8557833019245924213, guid: 06835cb6e5479fe48b465a534eea8758, type: 3}
-    - {fileID: 8291491210143932993, guid: 835e550b96d6af746aaaef2dfcbe5faa, type: 3}
-    - {fileID: 717939876567637405, guid: 7a54f1a63a6fd094889c72ec9373f821, type: 3}
   entities:
     items:
+    - {fileID: 11400000, guid: f45fb7106b8569545828aca5f8798516, type: 2}
+    - {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}
+    - {fileID: 11400000, guid: 641f10970ec2b004e8dac949bf4fa90c, type: 2}
+    - {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}
     - {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}

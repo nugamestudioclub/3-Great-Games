@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6944b217d69626d43a8dfedaa827ef81, type: 3}
   m_Name: Cloud_CapLeft_TileSpriteSheet
   m_EditorClassIdentifier: 
-  type: 16
+  type: 15
   spriteGroup: {fileID: 11400000, guid: aef65b4fd52bdb7488bfe36f5ba19edb, type: 2}
