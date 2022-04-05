@@ -2,35 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class PlatformEnemyController : MonoBehaviour
-{
+public abstract class PlatformEnemyController : MonoBehaviour {
     public bool IsDying { get; private set; }
     public float moveSpeed;
     protected Rigidbody2D rb;
     private Animator animator;
     protected SpriteRenderer sr;
 
-    private void Awake()
-    {
+    private void Awake() {
         rb = GetComponentInChildren<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    protected virtual void Update()
-    {
-        if (!IsDying)
-        {
+    protected virtual void Update() {
+        if( !IsDying ) {
             //do normal behavior
             Move();
-        } 
+        }
     }
 
-    protected void Die()
-    {
-        if( GameMemory.Instance.Rand.Next(10) == 0 )
-            GameMemory.Instance.Corrupt();
+    protected void Die() {
+        GameMemory.Instance.ChanceOfCorruption(0.2);
 
         //play sound
         //play animation

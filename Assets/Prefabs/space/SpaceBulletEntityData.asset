@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c8a0f702731254991d39e1b1b65c98, type: 3}
   m_Name: SpaceBulletEntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 0}
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: ccce39ec2fe2396459c872f4ea97630d, type: 2}
   <SpriteOnly>k__BackingField: 1
-  entityId: 0
-  colorId: 0
+  entityId: 4
+  colorId: 1

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8040651733840138439}
   m_Layer: 0
   m_Name: SpaceEnemyBullet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   dir: 0
+  entity: {fileID: 8040651733840138439}
 --- !u!114 &8040651733840138439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 0}
+  template: {fileID: 11400000, guid: 31118f0232c22b245a279b5b59a21985, type: 2}
 --- !u!1 &2378165850723735056
 GameObject:
   m_ObjectHideFlags: 0

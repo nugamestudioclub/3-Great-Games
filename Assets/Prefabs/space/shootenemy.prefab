@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1757127375390301079}
   - component: {fileID: 6701384611448282876}
   m_Layer: 0
-  m_Name: ShootEnemy
+  m_Name: shootenemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   shootDelay: 3
   projectile: {fileID: 381242584841251801, guid: 7a54f1a63a6fd094889c72ec9373f821, type: 3}
   moveTime: 1
+  entity: {fileID: 6701384611448282876}
 --- !u!95 &1757127375390301079
 Animator:
   serializedVersion: 3

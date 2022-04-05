@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameMemory : MonoBehaviour {
 	public static GameMemory Instance { get; private set; }
 
-	public System.Random Rand { get; private set; } = new System.Random();
+	private System.Random rand = new System.Random();
 
 	[SerializeField]
 	private int capacity = 16;
@@ -67,7 +67,7 @@ public class GameMemory : MonoBehaviour {
 		for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
 			memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
 		
-		ApplyCorruption(Corruption % 5 + 1);
+		ApplyCorruption(Corruption % 5);
 		Refresh();
 		loaded = true;
 	}
@@ -122,9 +122,14 @@ public class GameMemory : MonoBehaviour {
 	private void Update() {
 		if (Input.GetKeyDown(KeyCode.C)) {
 			Corrupt();
-
 		}
 	}
+
+	public void ChanceOfCorruption(double chance) {
+		if( rand.NextDouble() <= chance )
+			Corrupt();
+    }
+
 	public void Corrupt() {
 		++Corruption;
 		ApplyCorruption(1);
@@ -132,8 +137,7 @@ public class GameMemory : MonoBehaviour {
 
 	private void ApplyCorruption(int count = 1) {
 		for (int i = 0; i < count; ++i)
-			memory[Rand.Next(capacity)] = new MemoryItem(RandomHexString());
-		Debug.Log("Corrupting...");
+			memory[rand.Next(capacity)] = new MemoryItem(RandomHexString());
 		Refresh();
 	}
 
@@ -147,7 +151,7 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	private char RandomHexChar() {
-		int n = Rand.Next(16);
+		int n = rand.Next(16);
 
 		return (char)(n < 10 ? '0' + n : 'A' + n - 10);
 	}

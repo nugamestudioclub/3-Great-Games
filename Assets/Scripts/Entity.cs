@@ -27,7 +27,12 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 		GameMemory.Instance.Subscribe(this);
 	}
 
-	public bool IsActive { get; set; }
+	public bool IsActive { get; private set; }
+
+	public void Activate() => IsActive = true;
+
+	public void Deactivate() => IsActive = false;
+
 	public void Refresh() {
 		//try
 		{

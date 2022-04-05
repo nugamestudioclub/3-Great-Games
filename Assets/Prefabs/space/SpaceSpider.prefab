@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  entity: {fileID: 8066016585426089048}
 --- !u!95 &3118571594355830847
 Animator:
   serializedVersion: 3
