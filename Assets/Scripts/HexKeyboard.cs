@@ -12,8 +12,20 @@ public class HexKeyboard : MonoBehaviour {
 
 	public string Text {
 		get => input.text;
-		set => input.text = value;
+		set  {
+			ChangeTextColor(input.text == value ? baseColor : altColor);
+			input.text = value;
+		}
 	}
+
+	[SerializeField]
+	private Color baseColor = Color.white;
+	[SerializeField]
+	private Color altColor = Color.red;
+	private void ChangeTextColor(Color color)
+    {
+		input.textComponent.color = color;
+    }
 
 	private void Awake() {
 		input = GetComponent<InputField>();
