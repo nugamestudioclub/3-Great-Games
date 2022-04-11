@@ -15,28 +15,36 @@ public class PlatformerPlayerController : MonoBehaviour {
     private SpriteRenderer sprite;
     private Animator animator;
 
+    private CharacterController controller;
+    private Vector2 toMove;
 
     void Awake() {
         input = GetComponentInChildren<IGlitchyInput>();
-        rb = GetComponentInChildren<Rigidbody2D>();
+        //rb = GetComponentInChildren<Rigidbody2D>();
+        controller = GetComponentInChildren<CharacterController>();
+        controller.enabled = true;
         feet = GetComponentInChildren<ColliderController>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
     }
 
     private void Update() {
-        if( input.Jumping() )
-            Jump();
+        
         Move(input.Movement());
         if (!feet.isColliding)
         {
             //play jump animation
+            controller.Move(new Vector2(0, Physics2D.gravity.y) * Time.deltaTime);
             animator.Play("Pplayer_falling");
         }
     }
 
     private void Move(Vector2 direction) {
-        if( Mathf.Abs(direction.x) > Mathf.Epsilon )
+        if (controller.isGrounded && toMove.y < 0)
+        {
+            toMove.y = 0f;
+        }
+        if ( Mathf.Abs(direction.x) > Mathf.Epsilon )
         {
             if (direction.x > Mathf.Epsilon)
             {//flip to other direction
@@ -46,7 +54,8 @@ public class PlatformerPlayerController : MonoBehaviour {
             {
                 sprite.flipX = true;
             }
-            rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+            controller.Move(new Vector2(direction.x * moveSpeed, 0) * Time.deltaTime);
+            //rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Pplayer_running") && feet.isColliding)
             {
                 animator.Play("Pplayer_running");
@@ -56,18 +65,22 @@ public class PlatformerPlayerController : MonoBehaviour {
             if (feet.isColliding)
             {
                 animator.Play("Pplayer_idle");
-                rb.velocity = new Vector2(0, rb.velocity.y);
+                //controller.Move(new Vector2(0, controller.velocity.y) * Time.deltaTime);
+                //rb.velocity = new Vector2(0, rb.velocity.y);
             }
         }
+        if (input.Jumping())
+            Jump();
+        toMove.y += Physics2D.gravity.y * Time.deltaTime;
+        controller.Move(toMove * Time.deltaTime);
     }
 
     private void Jump() {
-        if (feet.isColliding)
+        if (controller.isGrounded/*feet.isColliding*/)
         {
-            
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            toMove.y = Mathf.Sqrt(-jumpPower * 5 * Physics2D.gravity.y);
+            //controller.Move(new Vector2(controller.velocity.x, jumpPower/4));
+            //rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
-        
-
     }
 }
