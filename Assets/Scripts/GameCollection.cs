@@ -20,7 +20,7 @@ public class GameCollection : MonoBehaviour {
 
 	public GameId GameId(int id) => (GameId)(id % Count);
 
-	public GameCartridge Cartridge(int gameId) => cartridges[gameId];
+	public GameCartridge Cartridge(int gameId) => cartridges[gameId % Count];
 	public GameCartridge Cartridge(GameId gameId) => Cartridge((int)gameId);
 
 	public int Count => cartridges.Count;
