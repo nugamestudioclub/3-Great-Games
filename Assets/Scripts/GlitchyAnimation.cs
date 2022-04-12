@@ -15,8 +15,6 @@ public class GlitchyAnimation : MonoBehaviour
         get => index; 
         set {
             index = value;
-            if(name.Contains("Ladybug"))
-                Debug.Log($"{name}:Index changing to {index}");
             glitchySprite.SpriteSheet = sheets[index];
   
         }
