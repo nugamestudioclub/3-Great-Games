@@ -8,29 +8,38 @@ public class HexKeyboard : MonoBehaviour {
 	private Image image;
 	[SerializeField]
 	private int maxLength = 4;
-	
-	
 
 	public int Id { set; get; }
 
-	public string Text {
-		get => input.text;
-		set  {
-			value = value.ToUpper();
-			ChangeTextColor(input.text == value ? baseColor : altColor);
-			input.text = value;
-			image.sprite = GameMemory.Instance.StaticEntityData(Text).SpriteSheet.Grey;
+	[SerializeField]
+	private Color baseColor = Color.yellow;
+
+	[SerializeField]
+	private Color altColor = Color.red;
+
+	private Sprite Icon {
+		get {
+			return Id switch {
+				0 => GameCartridge.FromHex(Text).ColorPaletteSprite,
+				_ => GameMemory.Instance.StaticEntityData(Text).SpriteSheet.Grey
+			};
 		}
 	}
 
-	[SerializeField]
-	private Color baseColor = Color.white;
-	[SerializeField]
-	private Color altColor = Color.red;
-	private void ChangeTextColor(Color color)
-    {
+	public string Text {
+		get => input.text;
+		set {
+			value = value.ToUpper();
+			ChangeTextColor(input.text == value ? baseColor : altColor);
+			input.text = value;
+			image.sprite = Icon;
+		}
+	}
+
+
+	private void ChangeTextColor(Color color) {
 		input.textComponent.color = color;
-    }
+	}
 
 	private void Awake() {
 		input = GetComponentInChildren<InputField>();
@@ -52,6 +61,6 @@ public class HexKeyboard : MonoBehaviour {
 		if( count > 0 )
 			Text += new string('0', maxLength - Text.Length);
 		GameMemory.Instance.Store(Id, new MemoryItem(Text));
-		image.sprite = GameMemory.Instance.StaticEntityData(Text).SpriteSheet.Grey;
+		image.sprite = Icon;
 	}
 }
