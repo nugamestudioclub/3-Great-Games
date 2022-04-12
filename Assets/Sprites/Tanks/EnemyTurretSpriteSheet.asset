@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyTurretSpriteSheet
   m_EditorClassIdentifier: 
   originalSprite: {fileID: 21300000, guid: 43f55792dae3df14ea555fc97f13317a, type: 3}
-  <GreySprite>k__BackingField: {fileID: 21300000, guid: 43f55792dae3df14ea555fc97f13317a, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: eb1c6994ce0c0f745b7f22ee5836fb50, type: 3}
