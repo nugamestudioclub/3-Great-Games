@@ -5,9 +5,11 @@ using System;
 
 public class HexKeyboard : MonoBehaviour {
 	private InputField input;
-
+	private Image image;
 	[SerializeField]
 	private int maxLength = 4;
+	
+	
 
 	public int Id { set; get; }
 
@@ -17,6 +19,7 @@ public class HexKeyboard : MonoBehaviour {
 			value = value.ToUpper();
 			ChangeTextColor(input.text == value ? baseColor : altColor);
 			input.text = value;
+			image.sprite = GameMemory.Instance.StaticEntityData(Text).SpriteSheet.Grey;
 		}
 	}
 
@@ -30,7 +33,8 @@ public class HexKeyboard : MonoBehaviour {
     }
 
 	private void Awake() {
-		input = GetComponent<InputField>();
+		input = GetComponentInChildren<InputField>();
+		image = GetComponentInChildren<Image>();
 	}
 
 	void Start() {
@@ -48,5 +52,6 @@ public class HexKeyboard : MonoBehaviour {
 		if( count > 0 )
 			Text += new string('0', maxLength - Text.Length);
 		GameMemory.Instance.Store(Id, new MemoryItem(Text));
+		image.sprite = GameMemory.Instance.StaticEntityData(Text).SpriteSheet.Grey;
 	}
 }

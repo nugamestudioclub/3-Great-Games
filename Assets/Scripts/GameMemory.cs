@@ -20,7 +20,7 @@ public class GameMemory : MonoBehaviour {
 		get => ColorPalette.FromHex(memory[0].ToHex);
 		set => memory[0] = value;
 	}
-
+	//memory[0] = "5555";
 	[SerializeField]
 	private SpriteSheet missingSpriteSheet;
 	public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
@@ -81,24 +81,31 @@ public class GameMemory : MonoBehaviour {
 	public Color Color(int index) => ColorPalette[index];
 
 	public GlitchyObject Object(string hex) {
-		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-		string memoryHex = memory[memoryIndex].ToHex;
-		int objIndex = HexToInt(memoryHex.Substring(1, 1));
-		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
+		//int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
+		//string memoryHex = memory[memoryIndex].ToHex;
+		//int objIndex = HexToInt(memoryHex.Substring(1, 1));
+		//int gameIndex = HexToInt(memoryHex.Substring(0, 1));
 		//var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
 
 		return null;// objPalette[objIndex % objPalette.Count];
 	}
 
-	public EntityData EntityData(string hex) {
+	public EntityData DynamicEntityData(string hex) {
 		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
 		string memoryHex = memory[memoryIndex].ToHex;
-		int objIndex = HexToInt(memoryHex.Substring(1, 1));
-		int gameIndex = HexToInt(memoryHex.Substring(0, 1));
-		var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).EntitiesPalette;
 
-		return objPalette[objIndex % objPalette.Count];
+		return StaticEntityData(memoryHex);
 	}
+
+	public EntityData StaticEntityData(string hex)
+	{
+		int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
+		int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
+		var palette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).EntitiesPalette;
+
+		return palette[entityIndex % palette.Count];
+	}
+
 
 	private void Refresh() {
 		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
@@ -137,7 +144,11 @@ public class GameMemory : MonoBehaviour {
 
 	private void ApplyCorruption(int count = 1) {
 		for (int i = 0; i < count; ++i)
-			memory[rand.Next(capacity)] = new MemoryItem(RandomHexString());
+        {
+			int random = rand.Next(capacity);
+			memory[random] = new MemoryItem(RandomHexString());
+		}
+			
 		Refresh();
 	}
 

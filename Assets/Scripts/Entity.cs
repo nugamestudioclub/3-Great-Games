@@ -37,7 +37,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 		//try
 		{
 			//var newObject = GameMemory.Instance.Object(ToHex);
-			EntityData newEntity = GameMemory.Instance.EntityData(ToHex);
+			EntityData newEntity = GameMemory.Instance.DynamicEntityData(ToHex);
 			// Debug.Log($"Same spritesheet? template :{template.SpriteSheet.Original.texture.name} new :{newEntity.SpriteSheet.Original.texture.name}");
 
 			if (template.SpriteOnly) {
