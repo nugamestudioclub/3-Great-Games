@@ -1,6 +1,7 @@
 ﻿using static System.Uri;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class HexKeyboard : MonoBehaviour {
 	private InputField input;
@@ -13,6 +14,7 @@ public class HexKeyboard : MonoBehaviour {
 	public string Text {
 		get => input.text;
 		set  {
+			value = value.ToUpper();
 			ChangeTextColor(input.text == value ? baseColor : altColor);
 			input.text = value;
 		}
