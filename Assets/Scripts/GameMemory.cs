@@ -62,6 +62,7 @@ public class GameMemory : MonoBehaviour {
 
 		ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
 		ColorPalette = new ColorPalette(gameId);
+		Debug.Log($"Game ID: {gameId}, Hexcode:{ColorPalette.ToHex}");
 		// AudioPalette = new AudioPalette(GameId);
 
 		for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
@@ -70,6 +71,8 @@ public class GameMemory : MonoBehaviour {
 		ApplyCorruption(Corruption % 5);
 		Refresh();
 		loaded = true;
+		Refresh();
+
 	}
 
 	void Clear() {

@@ -11,7 +11,7 @@ public class NewGlitchySprite : MonoBehaviour {
 			spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
-	public Sprite Sprite { get => spriteRenderer.sprite; private set => spriteRenderer.sprite = value; }
+    public Sprite Sprite { get => spriteRenderer.sprite; private set => spriteRenderer.sprite = value; }
 	
 	private SpriteSheet spriteSheet;
 	public SpriteSheet SpriteSheet { 
