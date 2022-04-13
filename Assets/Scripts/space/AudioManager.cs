@@ -15,12 +15,6 @@ public class AudioManager : MonoBehaviour
         audioSrc = GetComponentInChildren<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void playSound()
     {
         audioSrc.PlayOneShot(explosion, 1f);

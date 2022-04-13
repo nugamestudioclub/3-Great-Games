@@ -7,7 +7,7 @@ public class GlitchyAnimation : MonoBehaviour
     [SerializeField]
     private SingleSpriteSheet[] sheets;
     [SerializeField]
-    private NewGlitchySprite glitchySprite;
+    private GlitchySprite glitchySprite;
 
     private int index;
     
