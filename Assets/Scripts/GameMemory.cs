@@ -83,16 +83,6 @@ public class GameMemory : MonoBehaviour {
 
 	public Color Color(int index) => ColorPalette[index];
 
-	public GlitchyObject Object(string hex) {
-		//int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-		//string memoryHex = memory[memoryIndex].ToHex;
-		//int objIndex = HexToInt(memoryHex.Substring(1, 1));
-		//int gameIndex = HexToInt(memoryHex.Substring(0, 1));
-		//var objPalette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).ObjectPalette;
-
-		return null;// objPalette[objIndex % objPalette.Count];
-	}
-
 	public EntityData DynamicEntityData(string hex) {
 		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
 		string memoryHex = memory[memoryIndex].ToHex;

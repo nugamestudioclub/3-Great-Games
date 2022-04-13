@@ -6,12 +6,12 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 	//public bool Yes => template.EntityId == (int)PlatformerEntityId.Brick;
 
-	private NewGlitchySprite glitchySprite;
+	private GlitchySprite glitchySprite;
 
 	private Color color;
 
 	void Awake() {
-		glitchySprite = GetComponentInChildren<NewGlitchySprite>();
+		glitchySprite = GetComponentInChildren<GlitchySprite>();
 		IsActive = true;
 	}
 
