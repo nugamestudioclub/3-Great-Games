@@ -13,16 +13,27 @@ public class GameCartridge : ScriptableObject {
 	private ReadOnlyPalette<Color> colors;
 	public IReadOnlyPalette<Color> ColorPalette => colors;
 
-	[field: SerializeField]
-	public Sprite ColorPaletteSprite { get; set; }
+	public Sprite ColorPaletteSprite
+	{
+		get {
+			const int WIDTH = 4;
+			Texture2D texture = new Texture2D(WIDTH, WIDTH, TextureFormat.ARGB32, false);
+			for (int x =0; x < WIDTH; x++)
+            {
+				for (int y = 0; y < WIDTH; y++)
+				{
+					texture.SetPixel(x, y, colors[x* WIDTH + y]);
+				}
+			}
+			texture.filterMode = FilterMode.Point;
+			texture.Apply();
+
+			return Sprite.Create(texture, new Rect(0, 0, WIDTH, WIDTH), Vector2.zero);
+		}
+	}
 
 	[SerializeField]
 	private ReadOnlyPalette<AudioClip> sounds;
-	
-	//[SerializeField]
-	//private ReadOnlyPalette<GlitchyObject> objects;
-
-	//public IReadOnlyPalette<GlitchyObject> ObjectPalette => objects;
 	
 	[SerializeField]
 	private ReadOnlyPalette<EntityData> entities;
