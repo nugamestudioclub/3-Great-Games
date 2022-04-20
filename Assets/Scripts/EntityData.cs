@@ -12,10 +12,6 @@ public abstract class EntityData : ScriptableObject, IMemorable {
 	[field: SerializeField]
 	public SpriteSheet SpriteSheet { get; private set; }
 
-	//TODO Remove this
-	[field: SerializeField]
-	public bool SpriteOnly { get; private set; } = true;
-
     public string ToHex =>
 		$"{GameMemory.IntToHex((int)GameId)}" +
 		$"{GameMemory.IntToHex(EntityId)}" +

@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: 42dfd082aa625fd43b25ab77b4115731, type: 2}
+  <CanTransform>k__BackingField: 1
 --- !u!50 &1468360754
 Rigidbody2D:
   serializedVersion: 4

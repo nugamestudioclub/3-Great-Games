@@ -27,6 +27,8 @@ public class GameMemory : MonoBehaviour {
 
 	private Palette<IMemorable> memory; // hex codes
 
+	private Palette<string> playerCodes; // player hex codes
+
 	private List<IRefreshable> refreshMemory;
 
 	void Awake() {
@@ -36,9 +38,12 @@ public class GameMemory : MonoBehaviour {
 		else {
 			DontDestroyOnLoad(this);
 			Instance = this;
+
 			memory = new Palette<IMemorable>();
 			for (int i = 0; i < capacity; ++i)
 				memory.Add(new MemoryItem());
+
+			InitializePlayerCodes();
 
 			refreshMemory = new List<IRefreshable>();
 		}
@@ -84,21 +89,56 @@ public class GameMemory : MonoBehaviour {
 	public Color Color(int index) => ColorPalette[index];
 
 	public EntityData DynamicEntityData(string hex) {
-		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-		string memoryHex = memory[memoryIndex].ToHex;
-
+		string memoryHex = GetHexWithHex(hex);
 		return StaticEntityData(memoryHex);
+	}
+
+	public string GetHexWithHex(string hex)
+    {
+		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
+		return memory[memoryIndex].ToHex;
 	}
 
 	public EntityData StaticEntityData(string hex)
 	{
 		int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
 		int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
-		var palette = GameCollection.Instance.Cartridge(gameIndex % GameCollection.Instance.Count).EntitiesPalette;
+		var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
 
-		return palette[entityIndex % palette.Count];
+		return palette[entityIndex];
 	}
 
+	public bool IsPlayer(string hex)
+	{
+		return playerCodes.Contains(hex);
+	}
+
+	public string PlayerHex(GameId id)
+    {
+		return playerCodes[(int)id];
+	}
+
+	public GameId GameOfPlayer(string hex)
+    {
+		return (GameId) playerCodes.IndexOf(hex);
+    }
+
+	private void InitializePlayerCodes()
+    {
+		playerCodes = new Palette<string>();
+		for (int i = 0; i < Enum.GetValues(typeof(GameId)).Length - 1/*TODO: make into method to get game count*/; ++i)
+		{
+			string currentHex = RandomHexString();
+			while (playerCodes.Contains(currentHex))
+			{
+				currentHex = RandomHexString();
+			}
+			playerCodes.Add(currentHex);
+			Debug.Log($"Player code {i} : {currentHex}");
+		}
+
+
+	}
 
 	private void Refresh() {
 		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
