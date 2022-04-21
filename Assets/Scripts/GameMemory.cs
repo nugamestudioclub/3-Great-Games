@@ -26,10 +26,9 @@ public class GameMemory : MonoBehaviour {
 	public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
 
 	private Palette<IMemorable> memory; // hex codes
+	private List<IRefreshable> refreshMemory;
 
 	private Palette<string> playerCodes; // player hex codes
-
-	private List<IRefreshable> refreshMemory;
 
 	void Awake() {
 		if (Instance != null) {
@@ -136,8 +135,6 @@ public class GameMemory : MonoBehaviour {
 			playerCodes.Add(currentHex);
 			Debug.Log($"Player code {i} : {currentHex}");
 		}
-
-
 	}
 
 	private void Refresh() {

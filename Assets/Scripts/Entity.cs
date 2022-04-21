@@ -34,13 +34,18 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 	public void Refresh() {
 		{
-			
 			EntityData newEntity = GameMemory.Instance.DynamicEntityData(ToHex);
 			string hex = GameMemory.Instance.GetHexWithHex(ToHex);
-			if (CanTransform && GameMemory.Instance.IsPlayer(hex))
+			GameId currentGame = GameMemory.Instance.ActiveCartridge.Id;
+			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
+			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGame == playerGameId)
 			{
-				Debug.Log($"{hex} is the {GameMemory.Instance.GameOfPlayer(hex)} player!");
 
+				Debug.Log($"{hex} is the {playerGameId} player!");
+				GameObject player = GameCollection.Instance.Cartridge(playerGameId).Player.gameObject;
+				Instantiate(player, gameObject.transform);
+				Deactivate();
+				Destroy(gameObject);
 			}
 			else if (CanTransform) {
 				Debug.Log($"{hex} is not a player!");
