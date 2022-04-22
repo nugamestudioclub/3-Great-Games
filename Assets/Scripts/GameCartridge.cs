@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 [CreateAssetMenu(
     fileName = nameof(GameCartridge),
@@ -10,8 +11,17 @@ public class GameCartridge : ScriptableObject
     private GameId id;
     public GameId Id => id;
 
-    [field: SerializeField]
-    public Entity Player { get; private set; }
+    [SerializeField]
+    private Entity player;
+    public Entity Player { 
+        get => player; 
+        private set {
+            player = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        } 
+    }
 
     [SerializeField]
     private ReadOnlyPalette<EntityData> entities;
