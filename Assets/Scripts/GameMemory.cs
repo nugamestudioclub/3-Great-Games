@@ -85,17 +85,18 @@ public class GameMemory : MonoBehaviour {
 
 	public IMemorable MemoryItem(int index) => memory[index];
 
+	public IMemorable MemoryItem(string hex) {
+		return MemoryItem(AddressOf(hex);
+	}
+
 	public Color Color(int index) => ColorPalette[index];
 
 	public EntityData DynamicEntityData(string hex) {
-		string memoryHex = GetHexWithHex(hex);
-		return StaticEntityData(memoryHex);
+		return StaticEntityData(MemoryItem(hex).ToHex);
 	}
 
-	public string GetHexWithHex(string hex)
-    {
-		int memoryIndex = HexToInt(hex.Substring(1, 1)) + 2;
-		return memory[memoryIndex].ToHex;
+	public int AddressOf(string hex) {
+		return HexToInt(hex.Substring(1, 1)) + 2;
 	}
 
 	public EntityData StaticEntityData(string hex)

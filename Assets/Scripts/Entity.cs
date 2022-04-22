@@ -35,8 +35,8 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	public void Refresh() {
 		{
 			EntityData newEntity = GameMemory.Instance.DynamicEntityData(ToHex);
-			string hex = GameMemory.Instance.GetHexWithHex(ToHex);
-			GameId currentGame = GameMemory.Instance.ActiveCartridge.Id;
+			string hex = GameMemory.Instance.MemoryItem(ToHex).ToHex;
+			GameId currentGame = template.GameId;
 			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
 			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGame == playerGameId)
 			{
