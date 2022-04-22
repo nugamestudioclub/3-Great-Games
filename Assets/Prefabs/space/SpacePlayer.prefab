@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: f45fb7106b8569545828aca5f8798516, type: 2}
+  <CanTransform>k__BackingField: 1
 --- !u!1 &3121878323957796271
 GameObject:
   m_ObjectHideFlags: 0

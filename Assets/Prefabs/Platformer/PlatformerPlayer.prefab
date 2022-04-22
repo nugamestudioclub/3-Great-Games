@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: 2258ca0e827e7eb4db24116e292711b6, type: 2}
+  <CanTransform>k__BackingField: 1
 --- !u!114 &7056715038066288366
 MonoBehaviour:
   m_ObjectHideFlags: 0

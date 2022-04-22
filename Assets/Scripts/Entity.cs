@@ -4,7 +4,9 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	[SerializeField]
 	private EntityData template;
 
-	//public bool Yes => template.EntityId == (int)PlatformerEntityId.Brick;
+	//TODO Remove this
+	[field: SerializeField]
+	public bool CanTransform { get; private set; } = false;
 
 	private GlitchySprite glitchySprite;
 
@@ -14,8 +16,6 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 		glitchySprite = GetComponentInChildren<GlitchySprite>();
 		IsActive = true;
 	}
-
-	private string hex;
 
 	void Start() {
 		var cartridge = GameCollection.Instance.Cartridge(template.GameId);
@@ -35,23 +35,39 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	public void Refresh() {
 		{
 			EntityData newEntity = GameMemory.Instance.DynamicEntityData(ToHex);
+			string hex = GameMemory.Instance.MemoryItem(ToHex).ToHex;
+			GameId currentGame = template.GameId;
+			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
+			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGame != playerGameId)
+			{
 
-			if (template.SpriteOnly) {
-
+				Debug.Log($"{hex} is the {playerGameId} player!");
+				GameObject player = GameCollection.Instance.Cartridge(playerGameId).Player.gameObject;
+				Instantiate(player, transform.position, Quaternion.identity);
+				Deactivate();
+				Destroy(gameObject);
+			}
+			else if (CanTransform) {
+				Debug.Log($"{hex} is not a player!");
+			}
+			else
+			{
 				var color = GameMemory.Instance.Color(template.ColorId);
-				if (glitchySprite == null) {
+				if (glitchySprite == null)
+				{
 					Debug.Log($"{name} has no glitchy sprite");
 				}
-				else {
+				else
+				{
 					if (newEntity == null)
 						Debug.Log($"{name} failed to draw");
 					else
 						glitchySprite.Draw(newEntity.SpriteSheet);
-                    if (color == null)
-                        Debug.Log($"{name} failed to tint");
+					if (color == null)
+						Debug.Log($"{name} failed to tint");
 					else
-                        glitchySprite.Tint(color);
-					
+						glitchySprite.Tint(color);
+
 				}
 			}
 		}
@@ -62,4 +78,6 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	$"{GameMemory.IntToHex(template.EntityId)}" +
 	$"{GameMemory.IntToHex(template.ColorId)}" +
 	$"{GameMemory.IntToHex(0)}"; //audio id
+
+	
 }
