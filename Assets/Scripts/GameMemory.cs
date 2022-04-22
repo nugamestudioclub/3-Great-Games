@@ -86,7 +86,7 @@ public class GameMemory : MonoBehaviour {
 	public IMemorable MemoryItem(int index) => memory[index];
 
 	public IMemorable MemoryItem(string hex) {
-		return MemoryItem(AddressOf(hex);
+		return MemoryItem(AddressOf(hex));
 	}
 
 	public Color Color(int index) => ColorPalette[index];
