@@ -38,12 +38,12 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 			string hex = GameMemory.Instance.MemoryItem(ToHex).ToHex;
 			GameId currentGame = template.GameId;
 			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
-			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGame == playerGameId)
+			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGame != playerGameId)
 			{
 
 				Debug.Log($"{hex} is the {playerGameId} player!");
 				GameObject player = GameCollection.Instance.Cartridge(playerGameId).Player.gameObject;
-				Instantiate(player, gameObject.transform);
+				Instantiate(player, transform.position, Quaternion.identity);
 				Deactivate();
 				Destroy(gameObject);
 			}

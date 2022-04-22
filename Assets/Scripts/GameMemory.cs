@@ -158,8 +158,20 @@ public class GameMemory : MonoBehaviour {
 	/// TODO REMOVE THIS
 	/// </summary>
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.C)) {
+		if (Input.GetKeyDown(KeyCode.G)) {
 			Corrupt();
+		}
+		if (Input.GetKeyDown(KeyCode.Comma))
+		{
+			memory[2] = new MemoryItem(playerCodes[0]); Refresh();
+		}
+		if (Input.GetKeyDown(KeyCode.Period))
+		{
+			memory[2] = new MemoryItem(playerCodes[1]); Refresh();
+		}
+		if (Input.GetKeyDown(KeyCode.Slash))
+		{
+			memory[2] = new MemoryItem(playerCodes[2]); Refresh();
 		}
 	}
 
