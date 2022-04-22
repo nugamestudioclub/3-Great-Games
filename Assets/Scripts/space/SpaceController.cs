@@ -76,7 +76,7 @@ public class SpaceController : MonoBehaviour {
 	IEnumerator Shoot() {
 		inShoot = true;
 		audioSrc.PlayOneShot(audio, 1f);
-		Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y + 0.7f, this.transform.position.z), Quaternion.identity);
+		Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y + 0.15f, this.transform.position.z), Quaternion.identity);
 		yield return new WaitForSeconds(shootDelay);
 		inShoot = false;
 	}

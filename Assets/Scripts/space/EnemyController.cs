@@ -45,13 +45,13 @@ public class EnemyController : MonoBehaviour {
 	private void FixedUpdate() {
 
 		if( state == Action.Right ) {
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 1, layerMask);
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, .2f, layerMask);
 			if( hit.collider != null ) {
 				state = Action.Down;
 			}
 		}
 		else if( state == Action.Left ) {
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, 1, layerMask);
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, .2f, layerMask);
 			if( hit.collider != null ) {
 				state = Action.Down;
 			}
@@ -65,8 +65,8 @@ public class EnemyController : MonoBehaviour {
 		down = true;
 		yield return new WaitForSeconds(0.7f);
 		down = false;
-		RaycastHit2D hit1 = Physics2D.Raycast(transform.position, Vector2.right, 30, layerMask);
-		RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.left, 30, layerMask);
+		RaycastHit2D hit1 = Physics2D.Raycast(transform.position, Vector2.right, 6, layerMask);
+		RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.left, 6, layerMask);
 		if( hit1.collider == null || hit2.collider == null ) {
 
 		}

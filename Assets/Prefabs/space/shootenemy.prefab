@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1f1adcb4621f248b468277d845b2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 0.4
   shootDelay: 3
   projectile: {fileID: 381242584841251801, guid: 7a54f1a63a6fd094889c72ec9373f821, type: 3}
   moveTime: 1

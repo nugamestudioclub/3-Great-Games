@@ -30,16 +30,16 @@ public class BulletController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
 		if( dir == Direction.Down && collision.gameObject.CompareTag("Player") ) {
-			GameObject go = GameObject.FindWithTag("Audio");
-			AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
-			other.playSound();
+			//GameObject go = GameObject.FindWithTag("Audio");
+			//AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
+			//other.playSound();
 			entity.Deactivate();
 			Destroy(gameObject);
 		}
 		else if( dir == Direction.Up && collision.gameObject.CompareTag("Enemy") ) {
-			GameObject go = GameObject.FindWithTag("Audio");
-			AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
-			other.playSound();
+			//GameObject go = GameObject.FindWithTag("Audio");
+			//AudioManager other = (AudioManager)go.GetComponent(typeof(AudioManager));
+			//other.playSound();
 			GameMemory.Instance.ChanceOfCorruption(0.10);
 			entity.Deactivate();
 			Destroy(gameObject);

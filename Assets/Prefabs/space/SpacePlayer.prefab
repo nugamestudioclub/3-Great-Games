@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e7c662846c4f4449945ec7e0b9776a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 10
+  acceleration: 2
   bullet: {fileID: 381242584841251801, guid: 835e550b96d6af746aaaef2dfcbe5faa, type: 3}
   shootDelay: 0.2
   audio: {fileID: 8300000, guid: e63bf42956d47d044899f37e553310c5, type: 3}
@@ -237,7 +237,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-6342053174208392809
 MonoBehaviour:
