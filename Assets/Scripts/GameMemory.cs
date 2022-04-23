@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameMemory : MonoBehaviour {
 	public static GameMemory Instance { get; private set; }
 
-	private System.Random rand = new System.Random();
+	private readonly System.Random rand = new System.Random();
 
 	[SerializeField]
 	private int capacity = 16;

@@ -6,8 +6,17 @@ public class Zone : MonoBehaviour {
 	[field: SerializeField]
 	public Camera PrimaryCamera { get; private set; }
 
-	[field: SerializeField]
-	public Entity Player { get; set; }
+	[SerializeField]
+	private Entity player;
+
+	public Entity Player {
+		get => player;
+		set {
+			player = value;
+			if( PrimaryCamera.gameObject.TryGetComponent(out Follower follower) )
+				follower.Follow(value.transform);
+		}
+	}
 
 	void Awake() {
 		Instance = this;
