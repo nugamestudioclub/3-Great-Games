@@ -3,49 +3,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPalette<T> : IReadOnlyPalette<T>, IList<T> {
-	new T this[int index] { get; set; }
+public interface IPalette<T> : IReadOnlyPalette<T>, IList<T>
+{
+    new T this[int index] { get; set; }
 }
 
 [Serializable]
-public class Palette<T> : IPalette<T>  {
-	[SerializeField]
-	private List<T> items;
+public class Palette<T> : IPalette<T>
+{
+    [SerializeField]
+    private List<T> items;
 
-	public Palette() {
-		items = new List<T>();
-	}
+    public Palette()
+    {
+        items = new List<T>();
+    }
 
-	public int Count => items.Count;
+    public int Count => items.Count;
 
-	public bool IsReadOnly => false;
+    public bool IsReadOnly => false;
 
-	public T this[int index] {
-		get => items[index % items.Count];
-		set => items[index % items.Count] = value;
-	}
+    public T this[int index]
+    {
+        get => items[WrappedIndex(index)];
+        set => items[WrappedIndex(index)] = value;
+    }
 
-	public int IndexOf(T item) => items.IndexOf(item);
+    private int WrappedIndex(int index) => index < 0 ? Count - (-index % Count) : index % Count;
 
-	public void Insert(int index, T item) => items.Insert(index, item);
+    public int IndexOf(T item) => items.IndexOf(item);
 
-	public void RemoveAt(int index) => items.RemoveAt(index);
+    public void Insert(int index, T item) => items.Insert(index, item);
 
-	public void Add(T item) => items.Add(item);
+    public void RemoveAt(int index) => items.RemoveAt(index);
 
-	public void Clear() => items.Clear();
+    public void Add(T item) => items.Add(item);
 
-	public bool Contains(T item) => items.Contains(item);
+    public void Clear() => items.Clear();
 
-	public void CopyTo(T[] array, int arrayIndex) => items.CopyTo(array, arrayIndex);
+    public bool Contains(T item) => items.Contains(item);
 
-	public bool Remove(T item) => items.Remove(item);
+    public void CopyTo(T[] array, int arrayIndex) => items.CopyTo(array, arrayIndex);
 
-	public IEnumerator<T> GetEnumerator() {
-		return ((IEnumerable<T>)items).GetEnumerator();
-	}
+    public bool Remove(T item) => items.Remove(item);
 
-	IEnumerator IEnumerable.GetEnumerator() {
-		return ((IEnumerable)items).GetEnumerator();
-	}
+    public IEnumerator<T> GetEnumerator()
+    {
+        return ((IEnumerable<T>)items).GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return ((IEnumerable)items).GetEnumerator();
+    }
 }

@@ -19,7 +19,7 @@ public class VolumeSetter : MonoBehaviour
 
     void SetVolume()
     {
-        GlobalVolume.Instance.Volume = slider.value;
+        GlobalVolume.Instance.Volume = 0;// slider.value;
     }
 
 }
