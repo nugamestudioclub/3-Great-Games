@@ -20,19 +20,22 @@ public class GameMemory : MonoBehaviour {
 		get => ColorPalette.FromHex(memory[0].ToHex);
 		set => memory[0] = value;
 	}
-	//memory[0] = "5555";
+
 	[SerializeField]
 	private SpriteSheet missingSpriteSheet;
 	public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
 
 	private Palette<IMemorable> memory; // hex codes
+
 	private List<IRefreshable> refreshMemory;
 
+	[ReadOnly]
+	[SerializeField]
 	private Palette<string> playerCodes; // player hex codes
 
 	void Awake() {
 		if( Instance != null )
-			return;
+			Destroy(gameObject);
 
 		Instance = this;
 
@@ -131,8 +134,13 @@ public class GameMemory : MonoBehaviour {
 	private void Refresh() {
 		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
 		foreach( var refreshItem in refreshMemory )
-			if( refreshItem.IsActive )
-				refreshItem.Refresh();
+			try {
+				if( refreshItem.IsActive )
+					refreshItem.Refresh();
+			}
+			catch( Exception ex) {
+				Debug.Log(ex.Message);
+			}
 
 	}
 
