@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Use only oncee per game and have any persisent objects as children
+// Use only once per game and have any persisent objects as children
 public class DontDestroyOnLoad : MonoBehaviour {
 	private static DontDestroyOnLoad Instance;
 
