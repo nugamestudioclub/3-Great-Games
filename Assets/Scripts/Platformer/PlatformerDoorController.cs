@@ -41,8 +41,7 @@ public class PlatformerDoorController : ColliderController
 
         if (isColliding && doorOpen && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
-            // Debug.Log("Going inside door");
-            SceneManager.LoadScene("Platformer_Ending", LoadSceneMode.Single);
+            TransitionManager.ToPlatformerEnd();
         }
     }
 

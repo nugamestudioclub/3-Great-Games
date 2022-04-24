@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Space_Ending");
+                TransitionManager.ToSpaceEnd();
                 timeRemaining = 0;
                 timerIsRunning = false;
             }

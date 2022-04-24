@@ -10,9 +10,17 @@ public class TransitionManager : MonoBehaviour {
 		SceneManager.LoadScene("Platformer_Scene", LoadSceneMode.Single);
 	}
 
+	public static void ToPlatformerEnd() {
+		SceneManager.LoadScene("Platformer_Ending", LoadSceneMode.Single);
+	}
+
 	public static void ToSpace() {
 		GameMemory.Instance.Load(GameId.SpaceShooter);
 		SceneManager.LoadScene("Space_Scene", LoadSceneMode.Single);
+	}
+
+	public static void ToTankEnd() {
+		SceneManager.LoadScene("Tank_Ending", LoadSceneMode.Single);
 	}
 
 	public static void ToTanks() {
@@ -20,24 +28,15 @@ public class TransitionManager : MonoBehaviour {
 		SceneManager.LoadScene("Tank_Scene", LoadSceneMode.Single);
 	}
 
-	public static void ToCredit() {
-		SceneManager.LoadScene("Credits_Scene", LoadSceneMode.Single);
-	}
-
-	public static void ToTankEnd() {
-		SceneManager.LoadScene("Tank_Ending", LoadSceneMode.Single);
-	}
-
 	public static void ToSpaceEnd() {
 		SceneManager.LoadScene("Space_Ending", LoadSceneMode.Single);
 	}
 
-	public static void ToPlatformerEnd() {
-		SceneManager.LoadScene("Platformer_Ending", LoadSceneMode.Single);
+	public static void ToCredits() {
+		SceneManager.LoadScene("Credits_Scene", LoadSceneMode.Single);
 	}
 
-
-	public void QuitGame() {
+	public static void Quit() {
 		Application.Quit();
 	}
 }

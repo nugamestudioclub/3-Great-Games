@@ -8,15 +8,10 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 
 	public static HexConsole Instance { get; private set; }
 	void Awake() {
-		if (Instance != null)
-		{
-			Destroy(this);
-		}
-		else
-		{
-			DontDestroyOnLoad(this);
-			Instance = this;
-		}
+		if( Instance != null )
+			return;
+
+		Instance = this;
 	}
 
 	void Start() {
