@@ -9,7 +9,7 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 	public static HexConsole Instance { get; private set; }
 	void Awake() {
 		if( Instance != null )
-			return;
+			Destroy(gameObject);
 
 		Instance = this;
 	}
