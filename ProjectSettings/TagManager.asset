@@ -53,7 +53,7 @@ TagManager:
   - name: Grass
     uniqueID: 3884258943
     locked: 0
-  - name: Tank
+  - name: Actor
     uniqueID: 3892747153
     locked: 0
   - name: Barrel
