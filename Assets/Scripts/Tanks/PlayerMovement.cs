@@ -15,9 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool enable;
 
-    [SerializeField]
-    private TransitionManager tm;
-
     private Animator ani;
 
     public UnityEvent OnShoot = new UnityEvent();
@@ -57,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             GameMemory.Instance.Corrupt();
-            SceneManager.LoadScene("Menu_Scene");
+            TransitionManager.ToMenu();
         }
         
     }

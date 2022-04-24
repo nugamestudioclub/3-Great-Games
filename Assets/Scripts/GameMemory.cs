@@ -31,21 +31,18 @@ public class GameMemory : MonoBehaviour {
 	private Palette<string> playerCodes; // player hex codes
 
 	void Awake() {
-		if (Instance != null) {
-			Destroy(this);
-		}
-		else {
-			DontDestroyOnLoad(this);
-			Instance = this;
+		if( Instance != null )
+			return;
 
-			memory = new Palette<IMemorable>();
-			for (int i = 0; i < capacity; ++i)
-				memory.Add(new MemoryItem());
+		Instance = this;
 
-			InitializePlayerCodes();
+		memory = new Palette<IMemorable>();
+		for( int i = 0; i < capacity; ++i )
+			memory.Add(new MemoryItem());
 
-			refreshMemory = new List<IRefreshable>();
-		}
+		InitializePlayerCodes();
+
+		refreshMemory = new List<IRefreshable>();
 	}
 
 	public void Store(int index, IMemorable memoryItem) {
@@ -55,7 +52,7 @@ public class GameMemory : MonoBehaviour {
 
 	public void Subscribe(IRefreshable refreshItem) {
 		refreshMemory.Add(refreshItem);
-		if (loaded)
+		if( loaded )
 			refreshItem.Refresh();
 	}
 
@@ -69,9 +66,9 @@ public class GameMemory : MonoBehaviour {
 		Debug.Log($"Game ID: {gameId}, Hexcode:{ColorPalette.ToHex}");
 		// AudioPalette = new AudioPalette(GameId);
 
-		for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
+		for( int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i )
 			memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
-		
+
 		ApplyCorruption(Corruption / 5);
 		Refresh();
 		loaded = true;
@@ -99,8 +96,7 @@ public class GameMemory : MonoBehaviour {
 		return HexToInt(hex.Substring(1, 1)) + 2;
 	}
 
-	public EntityData StaticEntityData(string hex)
-	{
+	public EntityData StaticEntityData(string hex) {
 		int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
 		int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
 		var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
@@ -108,29 +104,23 @@ public class GameMemory : MonoBehaviour {
 		return palette[entityIndex];
 	}
 
-	public bool IsPlayer(string hex)
-	{
+	public bool IsPlayer(string hex) {
 		return playerCodes.Contains(hex);
 	}
 
-	public string PlayerHex(GameId id)
-    {
+	public string PlayerHex(GameId id) {
 		return playerCodes[(int)id];
 	}
 
-	public GameId GameOfPlayer(string hex)
-    {
-		return (GameId) playerCodes.IndexOf(hex);
-    }
+	public GameId GameOfPlayer(string hex) {
+		return (GameId)playerCodes.IndexOf(hex);
+	}
 
-	private void InitializePlayerCodes()
-    {
+	private void InitializePlayerCodes() {
 		playerCodes = new Palette<string>();
-		for (int i = 0; i < Enum.GetValues(typeof(GameId)).Length - 1/*TODO: make into method to get game count*/; ++i)
-		{
+		for( int i = 0; i < Enum.GetValues(typeof(GameId)).Length - 1/*TODO: make into method to get game count*/; ++i ) {
 			string currentHex = RandomHexString();
-			while (playerCodes.Contains(currentHex))
-			{
+			while( playerCodes.Contains(currentHex) ) {
 				currentHex = RandomHexString();
 			}
 			playerCodes.Add(currentHex);
@@ -140,10 +130,10 @@ public class GameMemory : MonoBehaviour {
 
 	private void Refresh() {
 		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
-		foreach (var refreshItem in refreshMemory)
-			if (refreshItem.IsActive)
+		foreach( var refreshItem in refreshMemory )
+			if( refreshItem.IsActive )
 				refreshItem.Refresh();
-		
+
 	}
 
 	public static int HexToInt(string hex) {
@@ -158,19 +148,16 @@ public class GameMemory : MonoBehaviour {
 	/// TODO REMOVE THIS
 	/// </summary>
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.G)) {
+		if( Input.GetKeyDown(KeyCode.G) ) {
 			Corrupt();
 		}
-		if (Input.GetKeyDown(KeyCode.Comma))
-		{
+		if( Input.GetKeyDown(KeyCode.Comma) ) {
 			memory[2] = new MemoryItem(playerCodes[0]); Refresh();
 		}
-		if (Input.GetKeyDown(KeyCode.Period))
-		{
+		if( Input.GetKeyDown(KeyCode.Period) ) {
 			memory[2] = new MemoryItem(playerCodes[1]); Refresh();
 		}
-		if (Input.GetKeyDown(KeyCode.Slash))
-		{
+		if( Input.GetKeyDown(KeyCode.Slash) ) {
 			memory[2] = new MemoryItem(playerCodes[2]); Refresh();
 		}
 	}
@@ -178,7 +165,7 @@ public class GameMemory : MonoBehaviour {
 	public void ChanceOfCorruption(double chance) {
 		if( rand.NextDouble() <= chance )
 			Corrupt();
-    }
+	}
 
 	public void Corrupt() {
 		++Corruption;
@@ -186,19 +173,18 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	private void ApplyCorruption(int count = 1) {
-		for (int i = 0; i < count; ++i)
-        {
+		for( int i = 0; i < count; ++i ) {
 			int random = rand.Next(capacity);
 			memory[random] = new MemoryItem(RandomHexString());
 		}
-			
+
 		Refresh();
 	}
 
 	private string RandomHexString() {
 		string hex = "";
 
-		for (int i = 0; i < 4; ++i)
+		for( int i = 0; i < 4; ++i )
 			hex += RandomHexChar();
 
 		return hex;
