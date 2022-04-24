@@ -9,7 +9,7 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 	public static HexConsole Instance { get; private set; }
 	void Awake() {
 		if( Instance != null )
-			Destroy(gameObject);
+			return;
 
 		Instance = this;
 	}
@@ -21,9 +21,6 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 	}
 
 	public void Refresh() {
-
-		for( int i = 0; i < keyboards.Length; ++i )
-			Debug.Log($"keyboard {i} is null: {keyboards[i] == null } ");
 		for( int i = 0; i < keyboards.Length; ++i )
 			keyboards[i].Text = GameMemory.Instance.MemoryItem(i).ToHex;
 	}

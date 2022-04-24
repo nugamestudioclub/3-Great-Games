@@ -35,7 +35,7 @@ public class GameMemory : MonoBehaviour {
 
 	void Awake() {
 		if( Instance != null )
-			Destroy(gameObject);
+			return;
 
 		Instance = this;
 
@@ -133,15 +133,10 @@ public class GameMemory : MonoBehaviour {
 
 	private void Refresh() {
 		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
-		foreach( var refreshItem in refreshMemory )
-			try {
-				if( refreshItem.IsActive )
-					refreshItem.Refresh();
-			}
-			catch( Exception ex) {
-				Debug.Log(ex.Message);
-			}
 
+		foreach( var memoryItem in refreshMemory )
+			if( memoryItem.IsActive )
+				memoryItem.Refresh();
 	}
 
 	public static int HexToInt(string hex) {
