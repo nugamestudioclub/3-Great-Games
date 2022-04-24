@@ -21,7 +21,9 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 	}
 
 	public void Refresh() {
-		Debug.Log($"first keyboard is null: {keyboards[0] == null } ");
+
+		for( int i = 0; i < keyboards.Length; ++i )
+			Debug.Log($"keyboard {i} is null: {keyboards[i] == null } ");
 		for( int i = 0; i < keyboards.Length; ++i )
 			keyboards[i].Text = GameMemory.Instance.MemoryItem(i).ToHex;
 	}

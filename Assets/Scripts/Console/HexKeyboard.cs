@@ -4,8 +4,12 @@ using UnityEngine.UI;
 using System;
 
 public class HexKeyboard : MonoBehaviour {
+	[SerializeField]
 	private InputField input;
+
+	[SerializeField]
 	private Image image;
+
 	[SerializeField]
 	private int maxLength = 4;
 
@@ -39,11 +43,6 @@ public class HexKeyboard : MonoBehaviour {
 
 	private void ChangeTextColor(Color color) {
 		input.textComponent.color = color;
-	}
-
-	private void Awake() {
-		input = GetComponentInChildren<InputField>();
-		image = GetComponentInChildren<Image>();
 	}
 
 	void Start() {
