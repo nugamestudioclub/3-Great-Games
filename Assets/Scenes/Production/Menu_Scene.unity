@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 847193380}
   - component: {fileID: 847193379}
   - component: {fileID: 847193378}
+  - component: {fileID: 847193381}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -397,6 +398,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &847193381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847193377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23109172c702f4349a6f53c0af71fe39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  length: 0
 --- !u!20 &1161711367 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4482348163300412802, guid: cc631799c88dc654bbf3b2e14d90dd57, type: 3}
