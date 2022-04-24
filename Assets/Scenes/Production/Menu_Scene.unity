@@ -299,10 +299,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9e361aa7b6cf34d4898e89737fcdb2f9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   length: 0
+  RandomStart: 0
 --- !u!20 &1161711367 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4482348163300412802, guid: cc631799c88dc654bbf3b2e14d90dd57, type: 3}
@@ -947,18 +948,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334166389172336872, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334166389172336872, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334166389172336872, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334166389172336872, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1010,18 +999,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1161711367}
-    - target: {fileID: 4334166389172336873, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334166389172336873, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
-      propertyPath: m_PlaneDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334166389172336874, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4334166389172336884, guid: 35ab1e58ac55f8b4f9cf66edee718349, type: 3}
       propertyPath: m_Name
       value: Console

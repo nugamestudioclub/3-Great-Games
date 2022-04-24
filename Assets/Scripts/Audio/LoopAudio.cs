@@ -56,5 +56,6 @@ public class LoopAudio : MonoBehaviour
     {
         time = 0;
         audioSource.Play();
+        audioSource.time = time;
     }
 }
