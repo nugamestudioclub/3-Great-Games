@@ -13,13 +13,13 @@ public class VolumeSetter : MonoBehaviour
 
     private void Start()
     {
-        slider.value = GlobalVolume.Instance.Volume;
+        slider.value = .05f;// GlobalVolume.Instance.Volume;
     }
 
 
     void SetVolume()
     {
-        GlobalVolume.Instance.Volume = 0;// slider.value;
+        GlobalVolume.Instance.Volume = slider.value;
     }
 
 }
