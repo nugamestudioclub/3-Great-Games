@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d2f27b38512241802cf7cf1f5f5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  options:
+  buttons:
   - {fileID: 4715617526753515546}
   - {fileID: 4715617526174058480}
   - {fileID: 4715617524992466396}
