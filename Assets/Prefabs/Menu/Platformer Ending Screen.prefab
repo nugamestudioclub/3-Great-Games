@@ -67,11 +67,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1d4a1bb2668a6af4497450e4376762a2, type: 3}
-    m_FontSize: 30
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 64
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -115,8 +115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 90.82916}
-  m_SizeDelta: {x: 219.7, y: 31.658295}
+  m_AnchoredPosition: {x: 0, y: 200}
+  m_SizeDelta: {x: 400, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1653878682070926652
 CanvasRenderer:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7356632349810264992, guid: 797161ecbb6cffc4eb4d571611525680, type: 3}
         m_TargetAssemblyTypeName: TransitionManager, Assembly-CSharp
         m_MethodName: ToMenu
         m_Mode: 1
@@ -275,10 +275,10 @@ RectTransform:
   m_Father: {fileID: 1653878683760427838}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 61.432983}
-  m_SizeDelta: {x: -215.76611, y: -357.1332}
+  m_SizeDelta: {x: -215.76611, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1653878682671424676
 CanvasRenderer:
@@ -310,11 +310,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1d4a1bb2668a6af4497450e4376762a2, type: 3}
-    m_FontSize: 60
+    m_FontSize: 108
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 60
+    m_MaxSize: 144
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -426,8 +426,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653878683760427839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 89}
-  m_LocalScale: {x: 0.020833334, y: 0.020833334, z: 0.020833334}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01518987, y: 0.01518987, z: 0.01518987}
   m_Children:
   - {fileID: 1653878682706553140}
   - {fileID: 1653878682671424678}
@@ -438,7 +438,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 720, y: 540}
+  m_SizeDelta: {x: 1440, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1653878683760427811
 Canvas:
