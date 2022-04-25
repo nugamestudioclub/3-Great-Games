@@ -25,22 +25,22 @@ public class MenuNavigation : MonoBehaviour {
 	private List<KeyCode> nextKeys = new List<KeyCode>();
 
 	[SerializeField]
-	private float waitForSeconds = 2.0f;
+	private float waitForSeconds = 1.0f;
 
 	private void Awake() {
 		index = 0;
-		Select();
 		inputEnabled = false;
 	}
 
 	void Start() {
 		StartCoroutine(Wait());
-		inputEnabled = true;
 	}
 
 	private void Update() {
-		if( !inputEnabled )
+		if( !inputEnabled ) {
+			Debug.Log("blocked input");
 			return;
+		}
 
 		if( GetAnyDown(clickKeys) ) {
 			Click();
@@ -95,5 +95,8 @@ public class MenuNavigation : MonoBehaviour {
 
 	private IEnumerator Wait() {
 		yield return new WaitForSeconds(waitForSeconds);
+
+		inputEnabled = true;
+		Select();
 	}
 }
