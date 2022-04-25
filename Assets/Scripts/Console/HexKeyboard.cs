@@ -1,7 +1,6 @@
 ﻿using static System.Uri;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class HexKeyboard : MonoBehaviour {
 	[SerializeField]
@@ -16,10 +15,12 @@ public class HexKeyboard : MonoBehaviour {
 	public int Id { set; get; }
 
 	[SerializeField]
-	private Color baseColor = Color.yellow;
+	private Color baseColor = new Color(0.5f, 1.0f, 0.0f, 1.0f);
 
 	[SerializeField]
 	private Color altColor = Color.red;
+
+	private Graphic graphic;
 
 	private Sprite Icon {
 		get {
@@ -34,20 +35,32 @@ public class HexKeyboard : MonoBehaviour {
 		get => input.text;
 		set {
 			value = value.ToUpper();
-			ChangeTextColor(input.text == value ? baseColor : altColor);
+
+			var color = input.text == value ? baseColor : altColor;
+
+			Tint(color);
+
 			input.text = value;
 			image.sprite = Icon;
 		}
 	}
 
+	void Awake() {
+		graphic = image.GetComponent<Graphic>();
 
-	private void ChangeTextColor(Color color) {
-		input.textComponent.color = color;
+		input.placeholder.color = baseColor;
+		Tint(baseColor);
 	}
 
 	void Start() {
 		input.onValidateInput += Validate;
 		input.onEndEdit.AddListener(delegate { Submit(); });
+	}
+
+	private void Tint(Color color) {
+		input.textComponent.color = color;
+		if( Id != 0 )
+			graphic.color = color;
 	}
 
 	private char Validate(string text, int pos, char ch) {
