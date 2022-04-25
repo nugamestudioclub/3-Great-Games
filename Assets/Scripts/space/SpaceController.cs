@@ -86,12 +86,12 @@ public class SpaceController : MonoBehaviour {
 		inShoot = false;
 	}
 
-	void OnCollisionStay2D(Collision2D collision) {
-		if( collision.gameObject.CompareTag("HorzWall") || collision.gameObject.CompareTag("HorzWallTop") ) {
-			yVelocity = 0;
-		}
-		else if( collision.gameObject.CompareTag("VertWall") ) {
-			xVelocity = 0;
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (!collision.gameObject.CompareTag("Moat"))
+		{
+			GameMemory.Instance.Corrupt();
+			TransitionManager.ToMenu();
 		}
 	}
 
