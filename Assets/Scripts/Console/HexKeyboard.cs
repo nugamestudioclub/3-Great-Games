@@ -1,10 +1,11 @@
 ﻿using static System.Uri;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HexKeyboard : MonoBehaviour {
 	[SerializeField]
-	private InputField input;
+	private TMP_InputField input;
 
 	[SerializeField]
 	private Image image;
@@ -59,6 +60,7 @@ public class HexKeyboard : MonoBehaviour {
 
 	private void Tint(Color color) {
 		input.textComponent.color = color;
+		input.textComponent.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, color);
 		if( Id != 0 )
 			graphic.color = color;
 	}
