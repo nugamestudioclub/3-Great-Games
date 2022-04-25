@@ -11,10 +11,9 @@ public class MenuNavigation : MonoBehaviour {
 	[SerializeField]
 	private int index;
 
-	private void Awake() {
-		index = 0;
-		Select();
-	}
+	[ReadOnly]
+	[SerializeField]
+	private bool inputEnabled;
 
 	[SerializeField]
 	private List<KeyCode> clickKeys = new List<KeyCode>();
@@ -25,7 +24,24 @@ public class MenuNavigation : MonoBehaviour {
 	[SerializeField]
 	private List<KeyCode> nextKeys = new List<KeyCode>();
 
+	[SerializeField]
+	private float waitForSeconds = 2.0f;
+
+	private void Awake() {
+		index = 0;
+		Select();
+		inputEnabled = false;
+	}
+
+	void Start() {
+		StartCoroutine(Wait());
+		inputEnabled = true;
+	}
+
 	private void Update() {
+		if( !inputEnabled )
+			return;
+
 		if( GetAnyDown(clickKeys) ) {
 			Click();
 		}
@@ -75,5 +91,9 @@ public class MenuNavigation : MonoBehaviour {
 			if( Input.GetKeyUp(key) )
 				return true;
 		return false;
+	}
+
+	private IEnumerator Wait() {
+		yield return new WaitForSeconds(waitForSeconds);
 	}
 }
