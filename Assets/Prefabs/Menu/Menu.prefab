@@ -734,9 +734,11 @@ MonoBehaviour:
   - {fileID: 4715617524992466396}
   - {fileID: 4715617525722395571}
   index: 0
+  inputEnabled: 0
   clickKeys: 20000000
   previousKeys: 1101000077000000
   nextKeys: 1201000073000000
+  waitForSeconds: 1
 --- !u!1 &4715617526174058486
 GameObject:
   m_ObjectHideFlags: 0
