@@ -22,14 +22,14 @@ public class ShootController : MonoBehaviour {
 	[SerializeField]
 	private Entity entity;
 
-	private AudioSource deathSound;
+	[SerializeField]
+	private GameObject deathExplosion;
 
 	void Awake() {
 		state = Action.Move;
 		layerMask = 1 << 3;
 		inShoot = false;
 		originalTime = moveTime;
-		deathSound = GetComponent<AudioSource>();
 	}
 
 	void Update() {
@@ -57,10 +57,10 @@ public class ShootController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
 		if( collision.gameObject.CompareTag("Bullet") ) {
-			deathSound.Play();
+			GameObject temp = Instantiate(deathExplosion);
+			Destroy(temp, deathExplosion.GetComponent<AudioSource>().clip.length);
 			entity.Deactivate();
-			gameObject.SetActive(false);
-			Destroy(gameObject, deathSound.clip.length);
+			Destroy(gameObject);
 		}
 	}
 

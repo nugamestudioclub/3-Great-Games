@@ -48,7 +48,7 @@ public class BulletController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-		entity.Deactivate();
-		Destroy(gameObject);
+		//entity.Deactivate();
+		//Destroy(gameObject);
 	}
 }

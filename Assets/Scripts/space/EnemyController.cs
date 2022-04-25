@@ -21,7 +21,10 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField]
 	private Entity entity;
 
-	void Start() {
+	[SerializeField]
+	private GameObject deathExplosion;
+
+	void Awake() {
 		state = Action.Down;
 		layerMask = 1 << 3;
 		down = false;
@@ -80,6 +83,8 @@ public class EnemyController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
 		if( collision.gameObject.CompareTag("Bullet") ) {
+			GameObject temp = Instantiate(deathExplosion);
+			Destroy(temp, deathExplosion.GetComponent<AudioSource>().clip.length);
 			entity.Deactivate();
 			Destroy(gameObject);
 		}

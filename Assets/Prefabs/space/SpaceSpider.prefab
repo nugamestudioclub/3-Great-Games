@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
   entity: {fileID: 8066016585426089048}
+  deathExplosion: {fileID: 381242584841251801, guid: 933a1182d95b3174795c5e9d748de6c1, type: 3}
 --- !u!95 &3118571594355830847
 Animator:
   serializedVersion: 3
