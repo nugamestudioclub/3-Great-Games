@@ -2,26 +2,26 @@ using UnityEngine;
 
 [RequireComponent(typeof(IGlitchyInput))]
 public class PlatformerPlayerController : MonoBehaviour {
-    private Rigidbody2D rb;
+   
     public float jumpPower = 5f;
     public float moveSpeed = 5f;
     public float acceleration = 1;
     public float maxSpeed = 10;
 
-    private ColliderController feet;
-
     private IGlitchyInput input;
-
-    private SpriteRenderer sprite;
+    private Rigidbody2D rb;
+    private ColliderController feet;
+    private SpriteRenderer spriteRenderer;
     private Animator animator;
-
+    private AudioSource jumpSound;
 
     void Awake() {
         input = GetComponentInChildren<IGlitchyInput>();
         rb = GetComponentInChildren<Rigidbody2D>();
         feet = GetComponentInChildren<ColliderController>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
+        jumpSound = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -40,11 +40,11 @@ public class PlatformerPlayerController : MonoBehaviour {
         {
             if (direction.x > Mathf.Epsilon)
             {//flip to other direction
-                sprite.flipX = false;
+                spriteRenderer.flipX = false;
             } 
             else
             {
-                sprite.flipX = true;
+                spriteRenderer.flipX = true;
             }
             rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Pplayer_running") && feet.isColliding)
@@ -64,8 +64,8 @@ public class PlatformerPlayerController : MonoBehaviour {
     private void Jump() {
         if (feet.isColliding)
         {
-            
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumpSound.Play();
         }
         
 

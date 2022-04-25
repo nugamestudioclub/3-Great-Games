@@ -5,34 +5,36 @@ using UnityEngine.SceneManagement;
 public class ShootController : MonoBehaviour {
 	[SerializeField]
 	private float moveSpeed;
+
 	[SerializeField]
 	private float shootDelay;
+
 	[SerializeField]
 	private GameObject projectile;
-	[HideInInspector]
+
 	private Action state;
-	[HideInInspector]
 	private int layerMask;
-	[HideInInspector]
 	private bool inShoot;
 	[SerializeField]
 	private float moveTime;
-	[HideInInspector]
 	private float originalTime;
 
 	[SerializeField]
 	private Entity entity;
 
-	void Start() {
+	private AudioSource deathSound;
+
+	void Awake() {
 		state = Action.Move;
 		layerMask = 1 << 3;
 		inShoot = false;
 		originalTime = moveTime;
+		deathSound = GetComponent<AudioSource>();
 	}
 
 	void Update() {
-		float newX = this.transform.position.x;
-		float newY = this.transform.position.y;
+		float newX = transform.position.x;
+		float newY = transform.position.y;
 		moveTime -= Time.deltaTime;
 		if( state == Action.Move ) {
 			newY -= moveSpeed * Time.deltaTime;
@@ -42,7 +44,7 @@ public class ShootController : MonoBehaviour {
 				StartCoroutine(Shoot());
 			}
 		}
-		this.transform.position = new Vector2(newX, newY);
+		transform.position = new Vector2(newX, newY);
 	}
 
 	private void FixedUpdate() {
@@ -55,14 +57,16 @@ public class ShootController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
 		if( collision.gameObject.CompareTag("Bullet") ) {
+			deathSound.Play();
 			entity.Deactivate();
-			Destroy(gameObject);
+			gameObject.SetActive(false);
+			Destroy(gameObject, deathSound.clip.length);
 		}
 	}
 
 	private IEnumerator Shoot() {
 		inShoot = true;
-		Instantiate(projectile, this.transform.position, Quaternion.identity);
+		Instantiate(projectile,transform.position, Quaternion.identity);
 		state = Action.Move;
 		yield return new WaitForSeconds(shootDelay);
 		inShoot = false;

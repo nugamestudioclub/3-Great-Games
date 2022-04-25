@@ -31409,17 +31409,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1602204589 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7356632349810264992, guid: 797161ecbb6cffc4eb4d571611525680, type: 3}
-  m_PrefabInstance: {fileID: 1403047954}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744159d35427b5441ba9909d5871e1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1611174771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31704,10 +31693,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Tank
       objectReference: {fileID: 0}
-    - target: {fileID: 7471304308436018343, guid: cb210c8042fdc25428ce656ee344b2f3, type: 3}
-      propertyPath: tm
-      value: 
-      objectReference: {fileID: 1602204589}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb210c8042fdc25428ce656ee344b2f3, type: 3}
 --- !u!114 &7471304308881629832 stripped
