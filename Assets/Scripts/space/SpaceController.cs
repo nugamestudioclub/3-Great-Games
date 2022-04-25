@@ -88,14 +88,21 @@ public class SpaceController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (!collision.gameObject.CompareTag("Moat"))
-		{
+		Vector2 vector = new Vector2(xVelocity, yVelocity);
+		if (vector.magnitude > acceleration && !collision.gameObject.CompareTag("Moat"))
+        {
 			GameMemory.Instance.Corrupt();
 			TransitionManager.ToMenu();
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+		xVelocity = 0;
+		yVelocity = 0;
+	}
+
+    void OnTriggerEnter2D(Collider2D other) {
 		if( other.gameObject.CompareTag("Enemy") ) {
 			GameMemory.Instance.Corrupt();
 			TransitionManager.ToMenu();

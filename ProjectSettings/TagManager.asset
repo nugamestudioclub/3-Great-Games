@@ -10,6 +10,7 @@ TagManager:
   - HorzWallTop
   - Audio
   - Bullet
+  - Moat
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public enum PlatformerEntityId {
 	Key,
 	Door,
 	Ladybug,
+	Soil,
 }
 
 public enum PlatformerColorId {

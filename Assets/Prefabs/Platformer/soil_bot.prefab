@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2626809062928999355}
   - component: {fileID: 3645238763358374958}
+  - component: {fileID: -6758993863824678729}
+  - component: {fileID: -1117134407459902679}
   m_Layer: 0
   m_Name: soil_bot
   m_TagString: Untagged
@@ -82,3 +84,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6758993863824678729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520783668697156950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  template: {fileID: 11400000, guid: 41b71b2a798d5eb4784294f9c51d9a9d, type: 2}
+  <CanTransform>k__BackingField: 0
+--- !u!114 &-1117134407459902679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520783668697156950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
