@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2404336212535142990}
   - component: {fileID: 2412188377836757689}
   - component: {fileID: 3894851686868218131}
-  - component: {fileID: 5535763155969767632}
+  - component: {fileID: 3404399505635502782}
   m_Layer: 6
   m_Name: ResetButton
   m_TagString: Untagged
@@ -180,7 +180,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5535763155969767632
+--- !u!114 &3404399505635502782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 736424315449106753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b1d923ee31430499f9a8148c3558c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 311c2eb9486c2f64ab3a5890b2521d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1460245545832494663
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 4518743955423559616}
   - component: {fileID: 7824071756099917547}
   - component: {fileID: 6590758766684167520}
-  - component: {fileID: 1167461467018666382}
+  - component: {fileID: 8657606927902767464}
   m_Layer: 6
   m_Name: PowerButton
   m_TagString: Untagged
@@ -650,7 +650,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1167461467018666382
+--- !u!114 &8657606927902767464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8330900247204581800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b1d923ee31430499f9a8148c3558c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 311c2eb9486c2f64ab3a5890b2521d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8544941499606292337
