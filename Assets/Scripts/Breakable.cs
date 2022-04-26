@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Entity))]
 public class Breakable : MonoBehaviour
 {
-    [SerializeField]
     private Entity entity;
 
     private void Awake()
