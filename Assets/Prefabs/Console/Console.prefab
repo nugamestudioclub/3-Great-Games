@@ -967,6 +967,26 @@ PrefabInstance:
       propertyPath: consoleCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 621303614496441674, guid: 2ab45d55d0d93794a9e3d3df639ea220, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 621303614496441674, guid: 2ab45d55d0d93794a9e3d3df639ea220, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 507477573
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116068462145364294, guid: 2ab45d55d0d93794a9e3d3df639ea220, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116068462145364294, guid: 2ab45d55d0d93794a9e3d3df639ea220, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116068462145364294, guid: 2ab45d55d0d93794a9e3d3df639ea220, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 507477573
+      objectReference: {fileID: 0}
     - target: {fileID: 2733288924142930221, guid: 2ab45d55d0d93794a9e3d3df639ea220, type: 3}
       propertyPath: m_Name
       value: volume_background
