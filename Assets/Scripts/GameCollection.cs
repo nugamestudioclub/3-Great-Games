@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameId {
@@ -23,5 +24,5 @@ public class GameCollection : MonoBehaviour {
 	public GameCartridge Cartridge(int gameId) => cartridges[gameId % Count];
 	public GameCartridge Cartridge(GameId gameId) => Cartridge((int)gameId);
 
-	public int Count => cartridges.Count;
+	public static int Count => Enum.GetValues(typeof(GameId)).Length - 1;
 }

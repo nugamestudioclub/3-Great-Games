@@ -19,6 +19,11 @@ public class Palette<T> : IPalette<T>
         items = new List<T>();
     }
 
+    public Palette(int capacity)
+    {
+        items = new List<T>(capacity);
+    }
+
     public int Count => items.Count;
 
     public bool IsReadOnly => false;

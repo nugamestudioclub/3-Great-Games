@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production/Tank_Ending.unity
     guid: 6a53b0c1eaffb3b458e78a056f62a222
+  - enabled: 1
+    path: Assets/Scenes/Production/Final_Ending.unity
+    guid: 830915136e74c6d41b04d45be83d22c6
   m_configObjects: {}

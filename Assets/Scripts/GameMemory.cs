@@ -35,6 +35,8 @@ public class GameMemory : MonoBehaviour
     [SerializeField]
     private Palette<string> playerCodes; // player hex codes
 
+    private Palette<bool> gamesWon = new Palette<bool>(GameCollection.Count);
+
     void Awake()
     {
         if (Instance != null)
@@ -42,13 +44,10 @@ public class GameMemory : MonoBehaviour
 
         Instance = this;
 
-        memory = new Palette<IMemorable>();
-        for (int i = 0; i < capacity; ++i)
-            memory.Add(new MemoryItem());
-
+        
+        InitializeMemoryItems();
         InitializePlayerCodes();
-
-        refreshMemory = new List<IRefreshable>();
+        InitializeGamesWon(); 
     }
 
     public void Store(int index, IMemorable memoryItem)
@@ -133,10 +132,25 @@ public class GameMemory : MonoBehaviour
         return (GameId)playerCodes.IndexOf(hex);
     }
 
+    public bool HasWonGame(GameId gameId) => gamesWon[(int)gameId];
+
+    public void WinGame(GameId gameId)
+    {
+        gamesWon[(int)gameId] = true;
+    }
+
+    public bool AllGamesWon() => !gamesWon.Contains(false);
+    private void InitializeMemoryItems()
+    {
+        memory = new Palette<IMemorable>();
+        for (int i = 0; i < capacity; ++i)
+            memory.Add(new MemoryItem());
+        refreshMemory = new List<IRefreshable>();
+    }
     private void InitializePlayerCodes()
     {
         playerCodes = new Palette<string>();
-        for (int i = 0; i < Enum.GetValues(typeof(GameId)).Length - 1/*TODO: make into method to get game count*/; ++i)
+        for (int i = 0; i < GameCollection.Count/*TODO: make into method to get game count*/; ++i)
         {
             string currentHex = RandomHexString();
             while (playerCodes.Contains(currentHex))
@@ -146,6 +160,12 @@ public class GameMemory : MonoBehaviour
             playerCodes.Add(currentHex);
             Debug.Log($"Player code {i} : {currentHex}");
         }
+    }
+
+    private void InitializeGamesWon()
+    {
+        for (int i = 0; i < GameCollection.Count; ++i)
+            gamesWon.Add(false);
     }
 
     private void Refresh()
