@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6944b217d69626d43a8dfedaa827ef81, type: 3}
   m_Name: BushSpriteSheet
   m_EditorClassIdentifier: 
-  type: 2
-  spriteGroup: {fileID: 11400000, guid: 93f805e782adee648840095cf8dd5869, type: 2}
+  type: 0
+  spriteGroup: {fileID: 11400000, guid: 6498988609cdf2b4387805d8e03c30eb, type: 2}

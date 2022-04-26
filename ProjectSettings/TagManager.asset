@@ -48,16 +48,16 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
+  - name: Background
     uniqueID: 2116345585
     locked: 0
-  - name: Grass
+  - name: Environment
     uniqueID: 3884258943
     locked: 0
   - name: Actor
     uniqueID: 3892747153
     locked: 0
-  - name: Barrel
+  - name: GunBarrel
     uniqueID: 61236479
     locked: 0
   - name: Bullet
@@ -65,4 +65,7 @@ TagManager:
     locked: 0
   - name: Effect
     uniqueID: 2837728947
+    locked: 0
+  - name: UI
+    uniqueID: 507477573
     locked: 0
