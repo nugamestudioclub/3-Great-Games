@@ -207,6 +207,7 @@ public class GameMemory : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.G))
         {
             Corrupt();
@@ -231,6 +232,7 @@ public class GameMemory : MonoBehaviour
         {
             GlobalVolume.Instance.IncreaseVolume();
         }
+        */
     }
 
     public void ChanceOfCorruption(double chance)
