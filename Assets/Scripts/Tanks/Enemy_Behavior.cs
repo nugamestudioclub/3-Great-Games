@@ -29,7 +29,7 @@ public class Enemy_Behavior : MonoBehaviour {
     }
     private void Start()
     {
-        PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") + 1);
+        TanksScore.Instance.UpdateScore(1);
     }
     // Update is called once per frame
     void Update() {
@@ -48,17 +48,16 @@ public class Enemy_Behavior : MonoBehaviour {
         isDying = true;
         GameMemory.Instance.Corrupt();
 
-        PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") - 1);
-        if (PlayerPrefs.GetFloat("TankScore") <= 0)
-        {
-            TransitionManager.ToTankEnd();
-        }
+        TanksScore.Instance.UpdateScore(-1);
+
         entity.Deactivate();
         Destroy(me);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        Die();
+        if (!isDying) {
+            Die();
+        }  
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,12 +71,9 @@ public class Enemy_Behavior : MonoBehaviour {
 
     void Shoot() {
         GameMemory.Instance.ChanceOfCorruption(0.02);
-
-        // Debug.Log("Shoot");
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-
     }
 }

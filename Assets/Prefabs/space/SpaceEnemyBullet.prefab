@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -4175581928840239403}
   - component: {fileID: 3936567670545166705}
   - component: {fileID: 8040651733840138439}
+  - component: {fileID: -3410734916925869274}
   m_Layer: 0
   m_Name: SpaceEnemyBullet
   m_TagString: Enemy
@@ -89,6 +90,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: 31118f0232c22b245a279b5b59a21985, type: 2}
   <CanTransform>k__BackingField: 0
+--- !u!50 &-3410734916925869274
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381242584841251801}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2378165850723735056
 GameObject:
   m_ObjectHideFlags: 0

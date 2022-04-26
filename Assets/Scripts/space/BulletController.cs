@@ -48,7 +48,16 @@ public class BulletController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-		//entity.Deactivate();
-		//Destroy(gameObject);
+		entity.Deactivate();
+		Destroy(gameObject);
+	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+			entity.Deactivate();
+			Destroy(gameObject);
+		}
 	}
 }
