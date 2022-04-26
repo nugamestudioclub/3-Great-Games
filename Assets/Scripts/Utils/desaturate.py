@@ -21,6 +21,7 @@ def level(value, avg):
 def desaturate(filename, output):
 	img = Image.open(filename)
 	width, height = img.size
+	channel_count = len(img.getpixel((0, 0)))
 	
 	sum = 0
 	
@@ -29,8 +30,7 @@ def desaturate(filename, output):
 			color = img.getpixel((x, y))
 			grey = luma(color[0], color[1], color[2])
 			sum += grey
-			
-			img.putpixel((x, y), (grey, grey, grey, color[3]))
+			img.putpixel((x, y), (grey, grey, grey) if channel_count <= 3 else (grey, grey, grey, color[3]))
 			
 	avg_brightness = sum / (width * height)
 		
@@ -38,7 +38,7 @@ def desaturate(filename, output):
 		for y in range(height):
 			color = img.getpixel((x, y))
 			new_color = min(255, level(color[0], avg_brightness))
-			img.putpixel((x, y), (new_color, new_color, new_color, color[3]))
+			img.putpixel((x, y), (new_color, new_color, new_color) if channel_count <= 3 else (new_color, new_color, new_color, color[3]))
 	
 	img.save(output)
 

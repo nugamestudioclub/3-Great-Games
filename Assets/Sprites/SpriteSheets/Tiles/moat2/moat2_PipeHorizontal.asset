@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6944b217d69626d43a8dfedaa827ef81, type: 3}
-  m_Name: BushSpriteSheet
+  m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
+  m_Name: moat2_PipeHorizontal
   m_EditorClassIdentifier: 
-  type: 1
-  spriteGroup: {fileID: 11400000, guid: a39259fb7eeda5d46a8486d6d66c2a76, type: 2}
+  originalSprite: {fileID: 21300000, guid: 48086d2e70236f34ca0b77366c4e8947, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 8da1895add2db884aa459e4c1537ea1d, type: 3}
