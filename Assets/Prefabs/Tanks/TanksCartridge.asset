@@ -23,6 +23,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: eca3254f1aadade40aad4479ca470d43, type: 2}
     - {fileID: 11400000, guid: ac8bb7d1f71b85b488037847e0923a43, type: 2}
     - {fileID: 11400000, guid: 627616e803390d442895eed6481c402b, type: 2}
+    - {fileID: 11400000, guid: afbb832f884dada47a087c859d01da07, type: 2}
   colors:
     items:
     - {r: 0.6415094, g: 0.20925379, b: 0.003025995, a: 1}
@@ -33,5 +34,6 @@ MonoBehaviour:
     - {r: 0.005638622, g: 0, b: 0.5566038, a: 1}
     - {r: 1, g: 0.43018687, b: 0, a: 1}
     - {r: 0.46226418, g: 0.023985408, b: 0.033132587, a: 1}
+    - {r: 0.023529418, g: 0.12885574, b: 0.4627451, a: 1}
   sounds:
     items: []

@@ -9,6 +9,7 @@ public enum TanksEntityId {
 	Bullet,
 	Bush,
 	Moat,
+	TankGun,
 }
 
 public enum TanksColorId {

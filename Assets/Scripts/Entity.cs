@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 			var color = GameMemory.Instance.Color(template.ColorId);
 			if( glitchySprite == null ) {
-				Debug.Log($"{name} has no glitchy sprite");
+				//Debug.Log($"{name} has no glitchy sprite");
 			}
 			else {
 				if( newEntity == null )

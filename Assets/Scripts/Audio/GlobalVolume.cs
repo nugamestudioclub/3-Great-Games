@@ -7,6 +7,8 @@ public class GlobalVolume : MonoBehaviour
 
     public event EventHandler<float> VolumeChanged;
 
+    [ReadOnly]
+    [SerializeField]
     private float volume;
 
     public float Volume
@@ -25,6 +27,7 @@ public class GlobalVolume : MonoBehaviour
             return;
 
         Instance = this;
+        PlayerPrefs.SetFloat("VolumeLevel", 0.5f); //change to read properly
         Volume = PlayerPrefs.GetFloat("VolumeLevel", 0.25f);
     }
 
@@ -51,5 +54,10 @@ public class GlobalVolume : MonoBehaviour
         {
             Volume = 0;
         }
+    }
+
+    public void SetVolume(float level)
+    {
+        Volume = Mathf.Clamp01(level);
     }
 }
