@@ -34,10 +34,10 @@ public class SpaceController : MonoBehaviour {
 	}
 
 	void Update() {
-		if( Input.GetKey(KeyCode.D) ) {
+		if( Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
 			xVelocity += acceleration * Time.deltaTime;
 		}
-		else if( Input.GetKey(KeyCode.A) ) {
+		else if( Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
 			xVelocity -= acceleration * Time.deltaTime;
 		}
 		else if( Mathf.Abs(yVelocity) > Mathf.Epsilon ) {
@@ -49,10 +49,10 @@ public class SpaceController : MonoBehaviour {
 			}
 		}
 
-		if( Input.GetKey(KeyCode.S) ) {
+		if( Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
 			yVelocity -= acceleration * Time.deltaTime;
 		}
-		else if( Input.GetKey(KeyCode.W) ) {
+		else if( Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
 			yVelocity += acceleration * Time.deltaTime;
 		}
 		else if( Mathf.Abs(yVelocity) > Mathf.Epsilon ) {

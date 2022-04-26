@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class Hint : MonoBehaviour {
 	[SerializeField]
-	private Text arrow;
+	private GameObject arrow;
 
 	[SerializeField]
-	private List<Text> hints;
+	private List<GameObject> hints;
 
 	void Start() {
-		arrow.gameObject.SetActive(false);
+		arrow.SetActive(false);
 		foreach( var hint in hints )
-			hint.gameObject.SetActive(false);
+			hint.SetActive(false);
 	}
 
 	public void Reveal(GameId gameId) {
-		arrow.gameObject.SetActive(true);
-		hints[(int)gameId].gameObject.SetActive(true);
+		arrow.SetActive(true);
+		hints[(int)gameId].SetActive(true);
 	}
 }
