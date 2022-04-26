@@ -3,10 +3,11 @@ using UnityEngine;
 
 public enum TanksEntityId {
 	Player,
-	Brick,
+	Tree,
 	Enemy,
 	Dirt,
 	Bullet,
+	Bush,
 }
 
 public enum TanksColorId {

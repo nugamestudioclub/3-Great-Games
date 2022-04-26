@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44e07979bd9b9b4fbe212b1d84de6b1, type: 3}
-  m_Name: BrickTanksEntityData
+  m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
+  m_Name: bush_TRight
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 69f65225e6361b645b9286022bd2875d, type: 2}
-  <SpriteOnly>k__BackingField: 1
-  entityId: 1
-  colorId: 6
+  originalSprite: {fileID: 21300000, guid: a988c8413432d28478508c58b827c12f, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 952d0104dee04774382b9df4b682de0e, type: 3}

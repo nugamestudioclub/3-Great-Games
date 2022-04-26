@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -126780226138114324}
   - component: {fileID: -6008663728900297361}
   m_Layer: 0
-  m_Name: brick_tanks
+  m_Name: tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 67bc01dbcbc985f459a31da10fbfdc4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2dfe0392e61c3d64ba699d0dd88501b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: 87c54d5f6d1dc4c4ca9f7fa72eee8935, type: 2}
+  <CanTransform>k__BackingField: 0
 --- !u!114 &-6008663728900297361
 MonoBehaviour:
   m_ObjectHideFlags: 0
