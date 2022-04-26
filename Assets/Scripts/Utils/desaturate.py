@@ -3,7 +3,6 @@ from PIL import Image
 import traceback
 
 directory = "C:\\Users\\Executor\\Projects\\GitHub\\brackeys-glitchy\\Assets\\Sprites"
-# directory = "C:\\Users\\Executor\\Desktop\\brick"
 ext = ".png"
 
 def luma(r, g, b):
