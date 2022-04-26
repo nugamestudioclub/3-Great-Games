@@ -21,6 +21,7 @@ public class Enemy_Behavior : MonoBehaviour {
     [SerializeField]
     private Entity entity;
 
+    private bool isDying;
     void Awake() {
 
         time_mark = Time.frameCount;
@@ -42,9 +43,11 @@ public class Enemy_Behavior : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void Die()
+    {
+        isDying = true;
         GameMemory.Instance.Corrupt();
-        
+
         PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") - 1);
         if (PlayerPrefs.GetFloat("TankScore") <= 0)
         {
@@ -52,6 +55,19 @@ public class Enemy_Behavior : MonoBehaviour {
         }
         entity.Deactivate();
         Destroy(me);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        Die();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log($"Colliding with: {collision.name}");
+        if (collision.gameObject.CompareTag("Bullet") && !isDying)
+        {
+            Die();
+        }
     }
 
     void Shoot() {

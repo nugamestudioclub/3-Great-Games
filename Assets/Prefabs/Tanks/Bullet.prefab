@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3258902169418240397}
   - component: {fileID: 4767038039450935739}
   - component: {fileID: 9115579930292138567}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -173,3 +173,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: eca3254f1aadade40aad4479ca470d43, type: 2}
+  <CanTransform>k__BackingField: 0

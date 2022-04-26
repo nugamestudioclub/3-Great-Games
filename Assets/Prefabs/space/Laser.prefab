@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3936567670545166705}
   - component: {fileID: 423220379588087920}
   - component: {fileID: -7045005397735176144}
-  m_Layer: 0
+  - component: {fileID: 1336739404388074130}
+  m_Layer: 7
   m_Name: Laser
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -109,6 +110,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: a8a70003640b5aa438ed3493ab5c1f08, type: 2}
   <CanTransform>k__BackingField: 0
+--- !u!50 &1336739404388074130
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381242584841251801}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &2378165850723735056
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +142,7 @@ GameObject:
   - component: {fileID: 1246425798507091375}
   - component: {fileID: 2076635239006829029}
   - component: {fileID: 1999863515260434384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,8 +200,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -274907691
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5fecab2281caf164aaf0eb07b17c6dc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

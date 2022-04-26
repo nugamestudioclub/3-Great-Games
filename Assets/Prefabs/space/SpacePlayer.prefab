@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8106901111686906149}
   - component: {fileID: 2468077013896822657}
   - component: {fileID: 109777785}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 866283864391521211}
   - component: {fileID: 8229482749855620186}
   - component: {fileID: -6342053174208392809}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpacePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 9039101513379606259}
   - component: {fileID: 7599599065478314612}
   - component: {fileID: 4791485989182272314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

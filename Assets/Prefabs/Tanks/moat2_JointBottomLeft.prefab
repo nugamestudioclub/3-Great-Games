@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3888591998937746256}
   - component: {fileID: -126780226138114324}
   - component: {fileID: -6008663728900297361}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: moat2_JointBottomLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -402220143
-  m_SortingLayer: 3
+  m_SortingLayerID: -410708353
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 312f23bba2627194ebb993bdf93c97a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
