@@ -21,10 +21,14 @@ public class Enemy_Behavior : MonoBehaviour {
     [SerializeField]
     private Entity entity;
 
-    void Start() {
+    void Awake() {
 
         time_mark = Time.frameCount;
         ani = GetComponent<Animator>();
+    }
+    private void Start()
+    {
+        PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") + 1);
     }
     // Update is called once per frame
     void Update() {
@@ -41,8 +45,8 @@ public class Enemy_Behavior : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         GameMemory.Instance.Corrupt();
         
-        PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") + 1);
-        if (PlayerPrefs.GetFloat("TankScore") >= 5)
+        PlayerPrefs.SetFloat("TankScore", PlayerPrefs.GetFloat("TankScore") - 1);
+        if (PlayerPrefs.GetFloat("TankScore") <= 0)
         {
             TransitionManager.ToTankEnd();
         }

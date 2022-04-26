@@ -7,7 +7,7 @@ public class TanksScore : MonoBehaviour
 {
     // Start is called before the first frame update
     private Text text;
-    void Start()
+    void Awake()
     {
         PlayerPrefs.SetFloat("TankScore", 0);
         text = GetComponent<Text>();
@@ -16,7 +16,7 @@ public class TanksScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       text.text = "Score:" + PlayerPrefs.GetFloat("TankScore");
+       text.text = "Enemies Remaining: " + PlayerPrefs.GetFloat("TankScore");
     }
 
     

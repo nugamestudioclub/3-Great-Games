@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4821114c3dbb9ca468015ddc49118b38, type: 3}
   m_Name: soil
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 26c9409e6a6e1a642affbde96513e7ce, type: 2}
-  entityId: 5
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: e6e475870de64b04a91f6db7ab292971, type: 2}
+  entityId: 9
   colorId: 9
