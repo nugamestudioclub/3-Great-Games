@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3936567670545166705}
   - component: {fileID: 8040651733840138439}
   - component: {fileID: -3410734916925869274}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpaceEnemyBullet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1246425798507091375}
   - component: {fileID: 2076635239006829029}
   - component: {fileID: 7436744306365355691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
