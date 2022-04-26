@@ -27,9 +27,13 @@ public class MenuNavigation : MonoBehaviour {
 	[SerializeField]
 	private float waitForSeconds = 1.0f;
 
+
+	private AudioSource audioSource;
+
 	private void Awake() {
 		index = 0;
 		inputEnabled = false;
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	void Start() {
@@ -71,6 +75,11 @@ public class MenuNavigation : MonoBehaviour {
 		index = ++index % buttons.Count;
 		Select();
 	}
+
+	public void PlaySound()
+    {
+		audioSource.Play();
+    }
 
 	public static bool GetAnyDown(IList<KeyCode> keys) {
 		foreach( var key in keys )
