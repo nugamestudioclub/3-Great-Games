@@ -178,6 +178,7 @@ MonoBehaviour:
   firePoint: {fileID: 4758341142449490467}
   bulletPrefab: {fileID: 5452822692741021400, guid: fac1b7cd3b841934c9d11e255d37a193, type: 3}
   bulletForce: 5
+  shootDelay: 5
   entity: {fileID: -377277104469482644}
 --- !u!61 &4758341141213108095
 BoxCollider2D:

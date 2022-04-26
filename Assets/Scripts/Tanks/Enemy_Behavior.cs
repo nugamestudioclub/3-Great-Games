@@ -16,6 +16,9 @@ public class Enemy_Behavior : MonoBehaviour {
 
     private float time_mark;
 
+    [SerializeField]
+    private float shootDelay;
+
     private Animator ani;
 
     [SerializeField]
@@ -36,10 +39,10 @@ public class Enemy_Behavior : MonoBehaviour {
         //transform.LookAt(player, new Vector3(0,0,1));
         //transform.rotation = new Quaternion(0, 0, transform.rotation.x * -1, 1);
         transform.Rotate(0, 0, -rotSpeed * Time.deltaTime);
-
-        if( Time.frameCount - time_mark > 240 ) {
+        time_mark += Time.fixedDeltaTime;
+        if( time_mark >= shootDelay ) {
             Shoot();
-            time_mark = Time.frameCount;
+            time_mark = 0.0f;
         }
     }
 
