@@ -398,6 +398,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 115600608, guid: f5289952090eeb44792d6e54db53a7e5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5302937591604263614, guid: 04866bef40d3518439793d0b195cec43, type: 3}
+    - target: {fileID: 115600608, guid: f5289952090eeb44792d6e54db53a7e5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RevealPlatformerHint
+      objectReference: {fileID: 0}
+    - target: {fileID: 115600608, guid: f5289952090eeb44792d6e54db53a7e5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMemory, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1653878682620276546, guid: f5289952090eeb44792d6e54db53a7e5, type: 3}
       propertyPath: m_RootOrder
       value: 1

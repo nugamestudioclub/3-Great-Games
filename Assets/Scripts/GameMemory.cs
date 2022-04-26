@@ -31,6 +31,9 @@ public class GameMemory : MonoBehaviour
 
     private List<IRefreshable> refreshMemory;
 
+    [SerializeField]
+    private Hint hint;
+
     [ReadOnly]
     [SerializeField]
     private Palette<string> playerCodes; // player hex codes
@@ -137,6 +140,18 @@ public class GameMemory : MonoBehaviour
     public void WinGame(GameId gameId)
     {
         gamesWon[(int)gameId] = true;
+    }
+
+    public static void RevealPlatformerHint() {
+        Instance.hint.Reveal(GameId.Platformer);
+    }
+
+    public static void RevealTanksHint() {
+        Instance.hint.Reveal(GameId.Tanks);
+    }
+
+    public static void RevealSpaceShooterHint() {
+        Instance.hint.Reveal(GameId.SpaceShooter);
     }
 
     public bool AllGamesWon() => !gamesWon.Contains(false);
