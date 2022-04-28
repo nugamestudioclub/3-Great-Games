@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(
     fileName = nameof(GameCartridge),
@@ -23,10 +24,29 @@ public class GameCartridge : ScriptableObject
         } 
     }
 
+    //[field: SerializeField]
     [SerializeField]
-    private ReadOnlyPalette<EntityData> entities;
+    private ReadOnlyPalette<Entity> entities; //make into entities
+    public ReadOnlyPalette<Entity> EntitiesPalette
+    {
+        get => entities;
+        private set
+        {
+            entities = value;
+            for (int i = 0; i < entities.Count; i++)
+            {
+                //entityDataPalette.Add(entities[i].template);
+            }
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
+    }
 
-    public IReadOnlyPalette<EntityData> EntitiesPalette => entities;
+    //[SerializeField]
+    //private Palette<EntityData> entityDataPalette = new Palette<EntityData>();
+
+   // public IReadOnlyPalette<EntityData> EntityDataPalette => entityDataPalette;
 
     [SerializeField]
     private ReadOnlyPalette<Color> colors;

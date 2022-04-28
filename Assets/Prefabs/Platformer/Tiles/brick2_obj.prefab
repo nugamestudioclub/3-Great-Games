@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 11400000, guid: 3b4e746af489ff048bb2c20239bbfce0, type: 2}
+  <CanTransform>k__BackingField: 1
+  <IsBrick>k__BackingField: 1
 --- !u!114 &-6008663728900297361
 MonoBehaviour:
   m_ObjectHideFlags: 0

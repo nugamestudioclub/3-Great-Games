@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	[SerializeField]
-	private EntityData template;
+	public EntityData template;
 
 	//TODO Remove this
 	[field: SerializeField]
 	public bool CanTransform { get; private set; } = false;
+
+	[field: SerializeField]
+	public bool IsBrick { get; private set; } = false;
 
 	private GlitchySprite glitchySprite;
 
@@ -34,11 +38,13 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 	public void Refresh() {
 		{
-			EntityData newEntity = GameMemory.Instance.DynamicEntityData(ToHex);
+			Entity newEntity = GameMemory.Instance.DynamicEntity(ToHex);
+			EntityData newEntityData = GameMemory.Instance.DynamicEntityData(ToHex);
 			string hex = GameMemory.Instance.MemoryItem(ToHex).ToHex;
-			GameId currentGame = template.GameId;
+			GameId currentGameId = template.GameId;
 			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
-			if( CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGame != playerGameId ) {
+			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGameId != playerGameId)
+			{
 				Debug.Log($"{hex} is the {playerGameId} player!");
 
 				var playerTemplate = GameCollection.Instance.Cartridge(playerGameId).Player.gameObject;
@@ -49,16 +55,31 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 				Deactivate();
 				Destroy(gameObject);
 			}
+			else if (CanTransform && IsBrick && !newEntity.ToHex.Equals(ToHex))
+            {
+				//disconnect
+				gameObject.SetActive(false);
+
+				var entityObject = Instantiate(newEntity.gameObject, transform.position, Quaternion.identity);
+				Debug.Log($"{name} was swapped with {entityObject.name}");
+				
+				var cellPos = Zone.Instance.Tilemap.WorldToCell(transform.position);
+				
+				Deactivate();
+				//Destroy(gameObject);
+				Zone.Instance.Tilemap.SetTile(cellPos, null);
+
+			}
 
 			var color = GameMemory.Instance.Color(template.ColorId);
 			if( glitchySprite == null ) {
 				//Debug.Log($"{name} has no glitchy sprite");
 			}
 			else {
-				if( newEntity == null )
+				if(newEntityData == null )
 					Debug.Log($"{name} failed to draw");
 				else
-					glitchySprite.Draw(newEntity.SpriteSheet);
+					glitchySprite.Draw(newEntityData.SpriteSheet);
 				if( color == null )
 					Debug.Log($"{name} failed to tint");
 				else

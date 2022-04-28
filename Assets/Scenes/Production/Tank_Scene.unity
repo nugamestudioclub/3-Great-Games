@@ -17570,6 +17570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 997afefd6008b374baf80a5c63ecdcc9, type: 3}
+--- !u!1839735485 &1196847261 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 5452186314529345736, guid: 997afefd6008b374baf80a5c63ecdcc9, type: 3}
+  m_PrefabInstance: {fileID: 1196847260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1230308362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19023,6 +19028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PrimaryCamera>k__BackingField: {fileID: 809859980}
   player: {fileID: 0}
+  <Tilemap>k__BackingField: {fileID: 1196847261}
 --- !u!4 &1841174825
 Transform:
   m_ObjectHideFlags: 0
