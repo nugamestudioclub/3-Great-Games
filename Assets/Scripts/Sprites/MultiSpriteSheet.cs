@@ -10,9 +10,13 @@ public class MultiSpriteSheet : SpriteSheet {
 	private int id;
 
 	[SerializeField]
-	private SpriteSheet[] spriteSheets;
+	private Palette<SpriteSheet> spriteSheets;
 
-	public override Sprite Original => spriteSheets[id].Original;
+	public override Sprite Original => OriginalAt(id);
 
-	public override Sprite Grey => spriteSheets[id].Grey;
+	public override Sprite Grey => GreyAt(id);
+
+    public override Sprite GreyAt(int index) => spriteSheets[index].Grey;
+
+    public override Sprite OriginalAt(int index) => spriteSheets[index].Original;
 }

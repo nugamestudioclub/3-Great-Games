@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821114c3dbb9ca468015ddc49118b38, type: 3}
-  m_Name: KeyEntityData
+  m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
+  m_Name: Gem12SS
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 4cbb74619ce745b49ad7316b9e0e8983, type: 2}
-  entityId: 6
-  colorId: 15
+  originalSprite: {fileID: 21300000, guid: be7b7b924c247214f9f481d96aaeb19e, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: df4edeaea2b5eef44b7b3743ce39d11b, type: 3}

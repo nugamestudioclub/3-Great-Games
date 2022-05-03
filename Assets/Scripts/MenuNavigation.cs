@@ -42,7 +42,7 @@ public class MenuNavigation : MonoBehaviour {
 
 	private void Update() {
 		if( !inputEnabled ) {
-			Debug.Log("blocked input");
+			//Debug.Log("blocked input");
 			return;
 		}
 

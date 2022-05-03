@@ -64,4 +64,8 @@ public class TileSpriteSheet : SpriteSheet {
 	public override Sprite Original => spriteGroup.OriginalSprite((int)type);
 
 	public override Sprite Grey => spriteGroup.GreySprite((int)type);
+
+    public override Sprite GreyAt(int index) => spriteGroup.GreySprite(index);
+
+    public override Sprite OriginalAt(int index) => spriteGroup.OriginalSprite(index);
 }

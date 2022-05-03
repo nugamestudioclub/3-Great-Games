@@ -17,72 +17,21 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves:
-  - curve:
-    - time: 0
-      value: {fileID: 21300000, guid: 3d8307e43a3a8294c80c7dc3d97f60d0, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: c7b44e80ddc27ad4e956e5688d3ebd5b, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 9e919fe720a61484fb5cb9114993e620, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: dbafc22a4955ff04d9a0ac1ef3d212b5, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 1c9f85b42f4a2744a879ef602fe80da3, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 96223dbd9fd4777478daf94f48a61886, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: 35d51ca25a2418f489c72baf1fe63de6, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: efd218ef94ba52c4ca0448f576c43b7d, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: 9ac01687a7ee7454ea27291878a76bce, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 3542e0922bda7e14bb406b4993394e68, type: 3}
-    - time: 0.8333333
-      value: {fileID: 21300000, guid: 10bf19221660fb4408c61a8c8fc0e18a, type: 3}
-    - time: 0.9166667
-      value: {fileID: 21300000, guid: be7b7b924c247214f9f481d96aaeb19e, type: 3}
-    - time: 1
-      value: {fileID: 21300000, guid: be7b7b924c247214f9f481d96aaeb19e, type: 3}
-    attribute: m_Sprite
-    path: Sprite
-    classID: 212
-    script: {fileID: 0}
+  m_PPtrCurves: []
   m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 850496168
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: 3d8307e43a3a8294c80c7dc3d97f60d0, type: 3}
-    - {fileID: 21300000, guid: c7b44e80ddc27ad4e956e5688d3ebd5b, type: 3}
-    - {fileID: 21300000, guid: 9e919fe720a61484fb5cb9114993e620, type: 3}
-    - {fileID: 21300000, guid: dbafc22a4955ff04d9a0ac1ef3d212b5, type: 3}
-    - {fileID: 21300000, guid: 1c9f85b42f4a2744a879ef602fe80da3, type: 3}
-    - {fileID: 21300000, guid: 96223dbd9fd4777478daf94f48a61886, type: 3}
-    - {fileID: 21300000, guid: 35d51ca25a2418f489c72baf1fe63de6, type: 3}
-    - {fileID: 21300000, guid: efd218ef94ba52c4ca0448f576c43b7d, type: 3}
-    - {fileID: 21300000, guid: 9ac01687a7ee7454ea27291878a76bce, type: 3}
-    - {fileID: 21300000, guid: 3542e0922bda7e14bb406b4993394e68, type: 3}
-    - {fileID: 21300000, guid: 10bf19221660fb4408c61a8c8fc0e18a, type: 3}
-    - {fileID: 21300000, guid: be7b7b924c247214f9f481d96aaeb19e, type: 3}
-    - {fileID: 21300000, guid: be7b7b924c247214f9f481d96aaeb19e, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0833334
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -129,4 +78,67 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 4
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 5
+    messageOptions: 0
+  - time: 0.5
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 6
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 7
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 8
+    messageOptions: 0
+  - time: 0.75
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 9
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 10
+    messageOptions: 0
+  - time: 0.9166667
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 11
+    messageOptions: 0
+  - time: 1
+    functionName: set_Index
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

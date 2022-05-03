@@ -26,6 +26,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 		color = cartridge.ColorPalette[template.ColorId];
 		glitchySprite.Color = color;
+		glitchySprite.OriginalColor = color;
 		glitchySprite.Draw(template.SpriteSheet);
 		GameMemory.Instance.Subscribe(this);
 	}

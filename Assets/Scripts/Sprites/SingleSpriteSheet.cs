@@ -46,4 +46,7 @@ public class SingleSpriteSheet : SpriteSheet {
 	private static string FindGrey(string path) {
 		return FileSystem.WithSuffix(path, "_grey");
 	}
+
+	public override Sprite OriginalAt(int index) => Original;
+	public override Sprite GreyAt(int index) => Grey;
 }
