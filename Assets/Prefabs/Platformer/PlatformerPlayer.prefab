@@ -285,8 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: 2258ca0e827e7eb4db24116e292711b6, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: 2258ca0e827e7eb4db24116e292711b6, type: 2}
   <CanTransform>k__BackingField: 1
+  <IsBrick>k__BackingField: 0
 --- !u!114 &7056715038066288366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,16 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e894495b36a284fa7ecef40f7a1c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheets:
-  - {fileID: 11400000, guid: bc32736e111b190458c1e5139de05eee, type: 2}
-  - {fileID: 11400000, guid: 82930ae2af7ba1743b79559a17a94dc6, type: 2}
-  - {fileID: 11400000, guid: c1cc310aa25ac2346a828a035c058c39, type: 2}
-  - {fileID: 11400000, guid: f741e08ef6db2eb4da7178f33f3d0000, type: 2}
-  - {fileID: 11400000, guid: 30af3c915f653bc4ebc55fde0d3f9408, type: 2}
-  - {fileID: 11400000, guid: 21ca5f41c0fa26b4fbc98e506f8f1eb7, type: 2}
-  - {fileID: 11400000, guid: cfc25dd2026ae7f4c89a041083b8c394, type: 2}
-  - {fileID: 11400000, guid: bc4c7d5a69b8b734cb9afa535c0bcd6d, type: 2}
-  - {fileID: 11400000, guid: 9061a82926605e54d8f4b4ba4d160d26, type: 2}
   glitchySprite: {fileID: 3139066680133784291}
 --- !u!95 &856974890617767265
 Animator:

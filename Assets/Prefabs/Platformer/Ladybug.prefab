@@ -282,8 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: a4e629555c554e34ebd0ca19dd7a4941, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: a4e629555c554e34ebd0ca19dd7a4941, type: 2}
   <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
 --- !u!114 &-3753556731192907336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,9 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e894495b36a284fa7ecef40f7a1c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheets:
-  - {fileID: 11400000, guid: 87a3917a22e84ea428573b4e7c79eac4, type: 2}
-  - {fileID: 11400000, guid: b0582107b02eca04f8fb2f1104102b19, type: 2}
   glitchySprite: {fileID: 6382066805858238935}
 --- !u!82 &1375720941303896264
 AudioSource:

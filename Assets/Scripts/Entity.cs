@@ -2,8 +2,8 @@
 using UnityEngine.Tilemaps;
 
 public class Entity : MonoBehaviour, IRefreshable, IMemorable {
-	[SerializeField]
-	public EntityData template;
+	[field: SerializeField]
+	public EntityData Template { get; private set; }
 
 	//TODO Remove this
 	[field: SerializeField]
@@ -22,12 +22,12 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	void Start() {
-		var cartridge = GameCollection.Instance.Cartridge(template.GameId);
+		var cartridge = GameCollection.Instance.Cartridge(Template.GameId);
 
-		color = cartridge.ColorPalette[template.ColorId];
+		color = cartridge.ColorPalette[Template.ColorId];
 		glitchySprite.Color = color;
 		glitchySprite.OriginalColor = color;
-		glitchySprite.Draw(template.SpriteSheet);
+		glitchySprite.Draw(Template.SpriteSheet);
 		GameMemory.Instance.Subscribe(this);
 	}
 
@@ -42,7 +42,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 			Entity newEntity = GameMemory.Instance.DynamicEntity(ToHex);
 			EntityData newEntityData = GameMemory.Instance.DynamicEntityData(ToHex);
 			string hex = GameMemory.Instance.MemoryItem(ToHex).ToHex;
-			GameId currentGameId = template.GameId;
+			GameId currentGameId = Template.GameId;
 			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
 			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGameId != playerGameId)
 			{
@@ -72,7 +72,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 			}
 
-			var color = GameMemory.Instance.Color(template.ColorId);
+			var color = GameMemory.Instance.Color(Template.ColorId);
 			if( glitchySprite == null ) {
 				//Debug.Log($"{name} has no glitchy sprite");
 			}
@@ -92,9 +92,9 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public string ToHex =>
-	$"{GameMemory.IntToHex((int)template.GameId)}" +
-	$"{GameMemory.IntToHex(template.EntityId)}" +
-	$"{GameMemory.IntToHex(template.ColorId)}" +
+	$"{GameMemory.IntToHex((int)Template.GameId)}" +
+	$"{GameMemory.IntToHex(Template.EntityId)}" +
+	$"{GameMemory.IntToHex(Template.ColorId)}" +
 	$"{GameMemory.IntToHex(0)}"; //audio id
 
 

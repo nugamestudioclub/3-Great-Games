@@ -172,5 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: eca3254f1aadade40aad4479ca470d43, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: eca3254f1aadade40aad4479ca470d43, type: 2}
   <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0

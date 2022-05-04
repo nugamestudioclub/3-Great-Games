@@ -130,7 +130,7 @@ public class GameMemory : MonoBehaviour
         int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
         var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
 
-        return palette[entityIndex].template;
+        return palette[entityIndex].Template;
     }
 
     public bool IsPlayer(string hex)
