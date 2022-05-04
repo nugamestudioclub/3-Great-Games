@@ -8,7 +8,6 @@ using UnityEngine;
 	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(SingleSpriteSheet))
 ]
 public class SingleSpriteSheet : SpriteSheet {
-	static int i = 0;
 	[SerializeField]
 	[SerializeProperty(nameof(OriginalSprite))]
 	private Sprite originalSprite;

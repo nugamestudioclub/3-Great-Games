@@ -5,7 +5,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-public abstract class SpriteSheetGroup : ScriptableObject {
+public abstract class GroupSpriteSheet : SpriteSheet {
 	[SerializeField]
 	[SerializeProperty(nameof(DefaultSprite))]
 	private Sprite defaultSprite;
@@ -14,8 +14,7 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		set {
 			defaultSprite = value;
 			// Debug.Log($"{name} has legnth of: {Count}");
-			for( int i = 0; i < Count; i++)
-            {
+			for( int i = 0; i < Count; i++ ) {
 				// Debug.Log($"Making {(TileType) i} spritesheet");
 				this[i] = MakeSpriteSheet(i, defaultSprite);
 			}
@@ -29,14 +28,18 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 
 	public int Count => SpriteSheets.Count;
 
+	public override Sprite Original => OriginalAt(0);
+
+	public override Sprite Grey => GreyAt(0);
+
 	protected SingleSpriteSheet this[int index] {
 		get => SpriteSheets[IndexOrZero(index)];
 		set => SpriteSheets[IndexOrZero(index)] = value;
 	}
 
-	public Sprite OriginalSprite(int index) => this[index].Original;
+	public override Sprite OriginalAt(int index) => this[index].Original;
 
-	public Sprite GreySprite(int index) => this[index].Grey;
+	public override Sprite GreyAt(int index) => this[index].Grey;
 
 	private SingleSpriteSheet MakeSpriteSheet(int index, Sprite defaultSprite) {
 		Sprite sprite = null;
@@ -54,7 +57,7 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 		sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
 
 		// Debug.Log($"{spriteSheetPath} is the path!");
-		
+
 		CreateAsset(ref spriteSheet, spriteSheetPath);
 #endif
 		spriteSheet.OriginalSprite = sprite == null ? defaultSprite : sprite;
@@ -82,16 +85,13 @@ public abstract class SpriteSheetGroup : ScriptableObject {
 
 
 #if UNITY_EDITOR
-	private static void CreateAsset(ref SingleSpriteSheet spriteSheet, string path)
-	{
+	private static void CreateAsset(ref SingleSpriteSheet spriteSheet, string path) {
 		string absolutePath = $"{Directory.GetCurrentDirectory()}/{path}";
-		if (File.Exists(absolutePath))
-		{
+		if( File.Exists(absolutePath) ) {
 			spriteSheet = AssetDatabase.LoadAssetAtPath<SingleSpriteSheet>(path);
 		}
-		else
-		{
-			if (!Directory.Exists(absolutePath))
+		else {
+			if( !Directory.Exists(absolutePath) )
 				Directory.CreateDirectory(absolutePath);
 
 			AssetDatabase.CreateAsset(spriteSheet, path);

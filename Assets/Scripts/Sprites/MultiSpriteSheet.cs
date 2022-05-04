@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(
 	fileName = nameof(MultiSpriteSheet),
@@ -7,14 +6,11 @@ using UnityEngine;
 ]
 public class MultiSpriteSheet : SpriteSheet {
 	[SerializeField]
-	private int id;
-
-	[SerializeField]
 	private Palette<SpriteSheet> spriteSheets;
 
-	public override Sprite Original => OriginalAt(id);
+	public override Sprite Original => OriginalAt(0);
 
-	public override Sprite Grey => GreyAt(id);
+	public override Sprite Grey => GreyAt(0);
 
     public override Sprite GreyAt(int index) => spriteSheets[index].Grey;
 

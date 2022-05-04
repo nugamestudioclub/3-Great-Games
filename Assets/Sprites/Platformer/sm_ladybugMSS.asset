@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384bfb4d93c0e4d4dadc3a4ac5bdb2bb, type: 3}
   m_Name: sm_ladybugMSS
   m_EditorClassIdentifier: 
-  id: 0
   spriteSheets:
-    items: []
+    items:
+    - {fileID: 11400000, guid: 87a3917a22e84ea428573b4e7c79eac4, type: 2}
+    - {fileID: 11400000, guid: b0582107b02eca04f8fb2f1104102b19, type: 2}

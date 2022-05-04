@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d84d1ee49f28a064e86bfd3c0a1a5661, type: 3}
-  m_Name: Brick2SpriteSheetGroup
+  m_Name: Brick2_TileSpriteSheet
   m_EditorClassIdentifier: 
   defaultSprite: {fileID: 21300000, guid: 67bc01dbcbc985f459a31da10fbfdc4b, type: 3}
   spriteSheets:

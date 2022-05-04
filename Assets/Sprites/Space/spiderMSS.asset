@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384bfb4d93c0e4d4dadc3a4ac5bdb2bb, type: 3}
   m_Name: spiderMSS
   m_EditorClassIdentifier: 
-  id: 0
   spriteSheets:
-    items: []
+    items:
+    - {fileID: 11400000, guid: 4080ea5ffc5250e4b888f9dfb8ecaf3d, type: 2}
+    - {fileID: 11400000, guid: d2dbf7bbe0b0ff640a29de3026ea7dac, type: 2}
