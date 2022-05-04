@@ -12,12 +12,12 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	[field: SerializeField]
 	public bool IsBrick { get; private set; } = false;
 
-	private GlitchySprite glitchySprite;
+	protected GlitchySprite GlitchySprite { get; private set; }
 
 	private Color color;
 
 	void Awake() {
-		glitchySprite = GetComponentInChildren<GlitchySprite>();
+		GlitchySprite = GetComponentInChildren<GlitchySprite>();
 		IsActive = true;
 	}
 
@@ -25,10 +25,21 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 		var cartridge = GameCollection.Instance.Cartridge(Template.GameId);
 
 		color = cartridge.ColorPalette[Template.ColorId];
-		glitchySprite.Color = color;
-		glitchySprite.OriginalColor = color;
-		glitchySprite.Draw(Template.SpriteSheet);
+
+		InitializeColor();
+		InitializeSprite();
+
 		GameMemory.Instance.Subscribe(this);
+	}
+
+	protected virtual void InitializeColor() {
+		Debug.Log(name);
+		GlitchySprite.Color = color;
+		GlitchySprite.OriginalColor = color;
+	}
+
+	protected virtual void InitializeSprite() {
+		GlitchySprite.Draw(Template.SpriteSheet);
 	}
 
 	public bool IsActive { get; private set; }
@@ -44,8 +55,7 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 			string hex = GameMemory.Instance.MemoryItem(ToHex).ToHex;
 			GameId currentGameId = Template.GameId;
 			GameId playerGameId = GameMemory.Instance.GameOfPlayer(hex);
-			if (CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGameId != playerGameId)
-			{
+			if( CanTransform && GameMemory.Instance.IsPlayer(hex) && currentGameId != playerGameId ) {
 				Debug.Log($"{hex} is the {playerGameId} player!");
 
 				var playerTemplate = GameCollection.Instance.Cartridge(playerGameId).Player.gameObject;
@@ -56,16 +66,15 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 				Deactivate();
 				Destroy(gameObject);
 			}
-			else if (CanTransform && IsBrick && !newEntity.ToHex.Equals(ToHex))
-            {
+			else if( CanTransform && IsBrick && !newEntity.ToHex.Equals(ToHex) ) {
 				//disconnect
 				gameObject.SetActive(false);
 
 				var entityObject = Instantiate(newEntity.gameObject, transform.position, Quaternion.identity);
 				Debug.Log($"{name} was swapped with {entityObject.name}");
-				
+
 				var cellPos = Zone.Instance.Tilemap.WorldToCell(transform.position);
-				
+
 				Deactivate();
 				//Destroy(gameObject);
 				Zone.Instance.Tilemap.SetTile(cellPos, null);
@@ -73,18 +82,18 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 			}
 
 			var color = GameMemory.Instance.Color(Template.ColorId);
-			if( glitchySprite == null ) {
+			if( GlitchySprite == null ) {
 				//Debug.Log($"{name} has no glitchy sprite");
 			}
 			else {
-				if(newEntityData == null )
+				if( newEntityData == null )
 					Debug.Log($"{name} failed to draw");
 				else
-					glitchySprite.Draw(newEntityData.SpriteSheet);
+					GlitchySprite.Draw(newEntityData.SpriteSheet);
 				if( color == null )
 					Debug.Log($"{name} failed to tint");
 				else
-					glitchySprite.Tint(color);
+					GlitchySprite.Tint(color);
 
 			}
 
@@ -92,10 +101,8 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 	}
 
 	public string ToHex =>
-	$"{GameMemory.IntToHex((int)Template.GameId)}" +
-	$"{GameMemory.IntToHex(Template.EntityId)}" +
-	$"{GameMemory.IntToHex(Template.ColorId)}" +
-	$"{GameMemory.IntToHex(0)}"; //audio id
-
-
+		$"{GameMemory.IntToHex((int)Template.GameId)}" +
+		$"{GameMemory.IntToHex(Template.EntityId)}" +
+		$"{GameMemory.IntToHex(Template.ColorId)}" +
+		$"{GameMemory.IntToHex(0)}"; //audio id
 }
