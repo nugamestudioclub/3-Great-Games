@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4148424766629911061}
   - component: {fileID: 1653802165907757013}
+  - component: {fileID: 8815148933659348726}
+  - component: {fileID: -8375748660911303547}
   m_Layer: 0
   m_Name: cloud_left
   m_TagString: Untagged
@@ -82,3 +84,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8815148933659348726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2455747396824144686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3245bffadcaf294d9165d8aa52ac01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Template>k__BackingField: {fileID: 11400000, guid: fdfb10294e6de2140a8cf06ec5641c11, type: 2}
+  <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
+  type: 15
+--- !u!114 &-8375748660911303547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2455747396824144686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

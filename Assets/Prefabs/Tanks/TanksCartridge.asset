@@ -22,7 +22,7 @@ MonoBehaviour:
     - {fileID: 6603355150369828838, guid: 5a4f69336d7c0f74988d98fdab3434cc, type: 3}
     - {fileID: 9115579930292138567, guid: fac1b7cd3b841934c9d11e255d37a193, type: 3}
     - {fileID: -126780226138114324, guid: 9aad7a05082c4a7469e15db364a9d526, type: 3}
-    - {fileID: -126780226138114324, guid: 68d32080462a4e745b91db90c312d1df, type: 3}
+    - {fileID: -5375450475399469532, guid: 68d32080462a4e745b91db90c312d1df, type: 3}
     - {fileID: 3188008510611272199, guid: d3d74bfb4ca6cd249ab926b71978a229, type: 3}
   colors:
     items:

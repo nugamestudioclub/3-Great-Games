@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8496910186900096923}
   - component: {fileID: 6749143624698130321}
   - component: {fileID: 7632211176152598592}
-  - component: {fileID: -791403694962256081}
+  - component: {fileID: 9000421378306952967}
   m_Layer: 0
   m_Name: cloud_middle
   m_TagString: Untagged
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-791403694962256081
+--- !u!114 &9000421378306952967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6880409277282355029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
+  m_Script: {fileID: 11500000, guid: e3245bffadcaf294d9165d8aa52ac01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Template>k__BackingField: {fileID: 11400000, guid: fdfb10294e6de2140a8cf06ec5641c11, type: 2}
   <CanTransform>k__BackingField: 0
   <IsBrick>k__BackingField: 0
+  type: 19

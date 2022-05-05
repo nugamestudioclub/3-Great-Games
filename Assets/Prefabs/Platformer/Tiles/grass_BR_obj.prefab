@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6836758047552424290}
   - component: {fileID: 3888591998937746256}
+  - component: {fileID: -3859156981963741635}
+  - component: {fileID: 4197874136232559436}
   m_Layer: 0
   m_Name: grass_BR_obj
   m_TagString: Untagged
@@ -82,3 +84,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3859156981963741635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274755053796369319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3245bffadcaf294d9165d8aa52ac01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Template>k__BackingField: {fileID: 11400000, guid: 2d76258b921759a44965c607d2d4d5d8, type: 2}
+  <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
+  type: 10
+--- !u!114 &4197874136232559436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274755053796369319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fde4e52e809af144948bd074d9ca23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

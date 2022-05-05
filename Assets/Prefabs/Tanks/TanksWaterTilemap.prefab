@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 8814976325730381979}
   - component: {fileID: 8183123570662854482}
   - component: {fileID: 6686059637684396858}
+  - component: {fileID: 7091032025681461855}
+  - component: {fileID: 2120882663620925419}
+  - component: {fileID: 9062745758822609050}
   m_Layer: 4
-  m_Name: Layer1
-  m_TagString: Untagged
+  m_Name: Water
+  m_TagString: Moat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,6 +253,125 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!50 &7091032025681461855
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169504193470005729}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &2120882663620925419
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169504193470005729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 0}
+    m_ColliderPaths:
+    - - X: 4799999
+        Y: 3200000
+      - X: -4800000
+        Y: 3200000
+      - X: -4800000
+        Y: -3200000
+      - X: 4799999
+        Y: -3200000
+    - - X: -3200000
+        Y: -1600000
+      - X: -3200000
+        Y: 1600000
+      - X: 3200000
+        Y: 1600000
+      - X: 3200000
+        Y: -1600000
+  - m_Collider: {fileID: 9062745758822609050}
+    m_ColliderPaths:
+    - - X: 0
+        Y: 0
+      - X: 1600000
+        Y: 0
+      - X: 1600000
+        Y: 1600000
+      - X: 3200000
+        Y: 1600000
+      - X: 3200000
+        Y: 3200000
+      - X: -1600000
+        Y: 3200000
+      - X: -1600000
+        Y: -1600000
+      - X: 0
+        Y: -1600000
+    - - X: 3200000
+        Y: 0
+      - X: 1600000
+        Y: 0
+      - X: 1600000
+        Y: -1600000
+      - X: 3200000
+        Y: -1600000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.4799706, y: -0.32}
+      - {x: 0.4799706, y: 0.32}
+      - {x: -0.48000002, y: 0.3199707}
+      - {x: -0.4799707, y: -0.32}
+    - - {x: 0.16, y: -0.1599706}
+      - {x: 0, y: -0.1599706}
+      - {x: 0.0000294, y: 0}
+      - {x: 0.16, y: 0.000029300001}
+      - {x: 0.1600294, y: 0.16}
+      - {x: 0.32, y: 0.1599706}
+      - {x: 0.3199706, y: 0}
+      - {x: 0.16, y: -0.000029300001}
+    - - {x: -0.16, y: -0.1599706}
+      - {x: -0.32, y: -0.1599706}
+      - {x: -0.3199706, y: 0.16}
+      - {x: -0.16, y: 0.1599706}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!19719996 &9062745758822609050
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169504193470005729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &8825753913388963690
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +384,7 @@ GameObject:
   - component: {fileID: 4479798470657575697}
   m_Layer: 4
   m_Name: TanksWaterTilemap
-  m_TagString: Untagged
+  m_TagString: Moat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +416,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &7414708145213791462
+--- !u!114 &2229564349910695446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

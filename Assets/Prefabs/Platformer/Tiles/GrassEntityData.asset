@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4821114c3dbb9ca468015ddc49118b38, type: 3}
   m_Name: GrassEntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: eb5e08c555a4c3843b258f55c154e5d8, type: 2}
-  <SpriteOnly>k__BackingField: 1
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 64affb0cb199f344bb4dff7e64a8d8ce, type: 2}
   entityId: 1
   colorId: 5
