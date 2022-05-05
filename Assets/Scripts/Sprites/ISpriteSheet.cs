@@ -8,4 +8,8 @@ public interface ISpriteSheet {
 	Sprite OriginalAt(int index);
 
 	Sprite GreyAt(int index);
+
+	Sprite OriginalAtOrNext(int index);
+
+	Sprite GreyAtOrNext(int index);
 }
