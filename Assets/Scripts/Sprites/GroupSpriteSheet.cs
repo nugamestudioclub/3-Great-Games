@@ -30,7 +30,7 @@ public abstract class GroupSpriteSheet : SpriteSheet
 
     protected abstract IList<SingleSpriteSheet> SpriteSheets { get; }
 
-    public int Count => SpriteSheets.Count;
+    public override int Count => SpriteSheets.Count;
 
     public override Sprite Original => OriginalAt(0);
 
@@ -46,35 +46,27 @@ public abstract class GroupSpriteSheet : SpriteSheet
 
     public override Sprite GreyAt(int index) => this[index].Grey;
 
-    public override Sprite OriginalAtOrNext(int index)
+    private SpriteSheet AtOrNext(int index)
     {
-        if (index != 0 && OriginalAt(index) == Original)
+        
+        if (index == 0 || this[index].Original != Original)
         {
-            int nextIndex = index;
-            do
-            {
-                nextIndex = (nextIndex + 1) % Count;
-            }
-            while (nextIndex != index && OriginalAt(nextIndex) == Original);
-            
-        }
-        return OriginalAt(index);
-    }
 
-    public override Sprite GreyAtOrNext(int index)
-    {
-        if (index != 0 && GreyAt(index) == Grey)
+            return this[index];
+        }
+        int nextIndex = index;
+        do
         {
-            int nextIndex = index;
-            do
-            {
-                nextIndex = (nextIndex + 1) % Count;
-            }
-            while (nextIndex != index && GreyAt(nextIndex) == Grey);
-
+            nextIndex = (nextIndex + 1) % Count;
         }
-        return GreyAt(index);
+        while (nextIndex != index && this[nextIndex].Original == Original);
+
+
+        return this[nextIndex];
     }
+    public override Sprite OriginalAtOrNext(int index) => AtOrNext(index).Original;
+
+    public override Sprite GreyAtOrNext(int index) => AtOrNext(index).Grey;
 
     private SingleSpriteSheet MakeSpriteSheet(int index, Sprite defaultSprite)
     {

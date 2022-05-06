@@ -5,6 +5,8 @@ public abstract class SpriteSheet : ScriptableObject, ISpriteSheet {
 
 	public abstract Sprite Grey { get; }
 
+    public abstract int Count { get; }
+
     public abstract Sprite OriginalAt(int index);
     
     public abstract Sprite GreyAt(int index);

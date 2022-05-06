@@ -13,6 +13,8 @@ public class MultiSpriteSheet : SpriteSheet
 
     public override Sprite Grey => GreyAt(0);
 
+    public override int Count => spriteSheets.Count;
+
     public override Sprite OriginalAt(int index) => spriteSheets[index].Original;
 
     public override Sprite OriginalAtOrNext(int index) => OriginalAt(index);

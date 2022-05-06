@@ -12,4 +12,6 @@ public interface ISpriteSheet {
 	Sprite OriginalAtOrNext(int index);
 
 	Sprite GreyAtOrNext(int index);
+
+	int Count { get; }
 }

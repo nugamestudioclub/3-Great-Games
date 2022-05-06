@@ -32,7 +32,9 @@ public class SingleSpriteSheet : SpriteSheet {
 
 	public override Sprite Grey => GreySprite;
 
-	private static Sprite FindGrey(Sprite sprite) {
+    public override int Count => 1;
+
+    private static Sprite FindGrey(Sprite sprite) {
 		Sprite greySprite = null;
 
 #if UNITY_EDITOR
