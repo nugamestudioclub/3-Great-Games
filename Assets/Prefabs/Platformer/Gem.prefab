@@ -46,7 +46,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2789528772560354083}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cdc4270b6fb05754fad9fff94b6bd801, type: 2}
   m_CullingMode: 0
@@ -195,7 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: 4bad011955a51fd4fb13b9b2b667ff28, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: 4bad011955a51fd4fb13b9b2b667ff28, type: 2}
+  <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
 --- !u!114 &7047413170371261313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,15 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e894495b36a284fa7ecef40f7a1c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   glitchySprite: {fileID: 3270603723420715226}
 --- !u!1 &7673304638623849062
 GameObject:

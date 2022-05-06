@@ -130,9 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e894495b36a284fa7ecef40f7a1c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheets:
-  - {fileID: 11400000, guid: 4080ea5ffc5250e4b888f9dfb8ecaf3d, type: 2}
-  - {fileID: 11400000, guid: d2dbf7bbe0b0ff640a29de3026ea7dac, type: 2}
   glitchySprite: {fileID: 4264134628995948222}
 --- !u!114 &8066016585426089048
 MonoBehaviour:
@@ -146,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: c38e9a3fc71bb4b4584ee44d6be55349, type: 2}
   <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
 --- !u!1 &2264539205784107405
 GameObject:
   m_ObjectHideFlags: 0

@@ -135,7 +135,7 @@ public class VolumeKnob : MonoBehaviour
     private float AngleToVolume(float a)
     {
         float tempAngle = (-a /  startingAngle + 1) / 2;
-        Debug.Log($"Angle is: {tempAngle}");
+        //Debug.Log($"Angle is: {tempAngle}");
         return tempAngle;
     }
 }

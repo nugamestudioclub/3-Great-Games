@@ -5,8 +5,6 @@ using UnityEngine;
 public class GlitchyAnimation : MonoBehaviour
 {
     [SerializeField]
-    private SingleSpriteSheet[] sheets;
-    [SerializeField]
     private GlitchySprite glitchySprite;
 
     private int index;
@@ -15,8 +13,7 @@ public class GlitchyAnimation : MonoBehaviour
         get => index; 
         set {
             index = value;
-            glitchySprite.SpriteSheet = sheets[index];
-  
+            glitchySprite.DrawFrame(Index);
         }
     } 
 }

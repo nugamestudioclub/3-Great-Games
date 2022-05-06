@@ -218,8 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: 89a2b0312f12ea641836ec74ad1fb315, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: 89a2b0312f12ea641836ec74ad1fb315, type: 2}
   <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
 --- !u!61 &3993516846061744289
 BoxCollider2D:
   m_ObjectHideFlags: 0

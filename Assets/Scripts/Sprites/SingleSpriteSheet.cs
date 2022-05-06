@@ -8,7 +8,6 @@ using UnityEngine;
 	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(SingleSpriteSheet))
 ]
 public class SingleSpriteSheet : SpriteSheet {
-	static int i = 0;
 	[SerializeField]
 	[SerializeProperty(nameof(OriginalSprite))]
 	private Sprite originalSprite;
@@ -46,4 +45,12 @@ public class SingleSpriteSheet : SpriteSheet {
 	private static string FindGrey(string path) {
 		return FileSystem.WithSuffix(path, "_grey");
 	}
+
+	public override Sprite OriginalAt(int index) => Original;
+
+	public override Sprite GreyAt(int index) => Grey;
+
+	public override Sprite FindUniqueOriginal(int start) => OriginalAt(start);
+
+	public override Sprite FindUniqueGrey(int start) => GreyAt(start);
 }

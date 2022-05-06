@@ -9,6 +9,8 @@ public enum GameId {
 	Tanks,
 }
 
+
+
 public class GameCollection : MonoBehaviour {
 	public static GameCollection Instance { get; private set; }
 

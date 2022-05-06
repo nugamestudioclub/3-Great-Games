@@ -42,7 +42,7 @@ public class MenuNavigation : MonoBehaviour {
 
 	private void Update() {
 		if( !inputEnabled ) {
-			Debug.Log("blocked input");
+			//Debug.Log("blocked input");
 			return;
 		}
 
@@ -66,13 +66,13 @@ public class MenuNavigation : MonoBehaviour {
 	}
 
 	public void Previous() {
-		index = (--index + buttons.Count) % buttons.Count;
+		index = (index - 1 + buttons.Count) % buttons.Count;
 		Select();
 
 	}
 
 	public void Next() {
-		index = ++index % buttons.Count;
+		index = (index + 1) % buttons.Count;
 		Select();
 	}
 

@@ -1,7 +1,15 @@
 ﻿using UnityEngine;
 
 public interface ISpriteSheet {
-	Sprite OriginalSprite { get; }
+	Sprite Original { get; }
 
-	Sprite GreySprite { get; }
+	Sprite Grey { get; }
+
+	Sprite OriginalAt(int index);
+
+	Sprite GreyAt(int index);
+
+	Sprite FindUniqueOriginal(int start);
+
+	Sprite FindUniqueGrey(int start);
 }

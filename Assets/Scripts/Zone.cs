@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Zone : MonoBehaviour {
 	public static Zone Instance { get; private set; }
@@ -17,6 +18,9 @@ public class Zone : MonoBehaviour {
 				follower.Follow(value.transform);
 		}
 	}
+
+	[field:SerializeField]
+	public Tilemap Tilemap { get; private set; }
 
 	void Awake() {
 		Instance = this;

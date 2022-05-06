@@ -1,67 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+#if UNITY_EDITOR
+#endif
 using UnityEngine;
 
-public enum TileType {
-	// standard
-	Default, // serialized
-	Block,   // 4 edges
-	Center,  // no edges
-
-	// edges
-	EdgeLeft,
-	EdgeRight,
-	EdgeTop,
-	EdgeTopLeft,
-	EdgeTopRight,
-	EdgeBottom,
-	EdgeBottomLeft,
-	EdgeBottomRight,
-
-	// inner corners
-	InnerTopLeft,
-	InnerTopRight,
-	InnerBottomLeft,
-	InnerBottomRight,
-
-	// caps (one thick, one exit)
-	CapLeft,
-	CapRight,
-	CapTop,
-	CapBottom,
-
-	// pipes (one thick, two non adjacent exits)
-	PipeHorizontal,
-	PipeVertical,
-
-	//joint (one thick, two adjacent exits)
-	JointTopLeft,
-	JointTopRight,
-	JointBottomLeft,
-	JointBottomRight,
-
-	// T (one thick, three exits)
-	TLeft,
-	TRight,
-	TTop,
-	TBottom,
-
-	// cross (one thick, 4 exits)
-	Cross,
-}
-
-[Serializable]
 [CreateAssetMenu(
 	fileName = nameof(TileSpriteSheet),
 	menuName = Paths.SCRIPTABLE_SPRITE_SHEETS + "/" + nameof(TileSpriteSheet))
 ]
-public class TileSpriteSheet : SpriteSheet {
+public class TileSpriteSheet : GroupSpriteSheet {
+	[ReadOnly]
 	[SerializeField]
-	private TileType type;
+	private SingleSpriteSheet[] spriteSheets = new SingleSpriteSheet[Enum.GetValues(typeof(TileType)).Length];
 
-	[SerializeField]
-	private TileSpriteSheetGroup spriteGroup;
+	protected override IList<SpriteSheet> SpriteSheets => spriteSheets;
 
-	public override Sprite Original => spriteGroup.OriginalSprite((int)type);
+	protected override string FolderName() => "Tiles";
 
-	public override Sprite Grey => spriteGroup.GreySprite((int)type);
+	protected override string TypeName(int index) => Enum.GetName(typeof(TileType), index);
 }

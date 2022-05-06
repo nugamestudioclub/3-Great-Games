@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4821114c3dbb9ca468015ddc49118b38, type: 3}
   m_Name: KeyEntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: da3426835dfb4d743aadd97bacb82526, type: 2}
-  <SpriteOnly>k__BackingField: 1
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 4cbb74619ce745b49ad7316b9e0e8983, type: 2}
   entityId: 6
   colorId: 15

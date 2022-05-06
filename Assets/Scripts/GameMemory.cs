@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GameMemory : MonoBehaviour
 {
+
     public static GameMemory Instance { get; private set; }
 
     private readonly System.Random rand = new System.Random();
@@ -47,10 +49,10 @@ public class GameMemory : MonoBehaviour
 
         Instance = this;
 
-        
+
         InitializeMemoryItems();
         InitializePlayerCodes();
-        InitializeGamesWon(); 
+        InitializeGamesWon();
     }
 
     public void Store(int index, IMemorable memoryItem)
@@ -101,23 +103,35 @@ public class GameMemory : MonoBehaviour
 
     public Color Color(int index) => ColorPalette[index];
 
-    public EntityData DynamicEntityData(string hex)
-    {
-        return StaticEntityData(MemoryItem(hex).ToHex);
-    }
-
     public int AddressOf(string hex)
     {
         return HexToInt(hex.Substring(1, 1)) + 2;
     }
 
-    public EntityData StaticEntityData(string hex)
+    public Entity DynamicEntity(string hex)
+    {
+        return StaticEntity(MemoryItem(hex).ToHex);
+    }
+
+    public Entity StaticEntity(string hex)
     {
         int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
         int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
         var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
 
         return palette[entityIndex];
+    }
+    public EntityData DynamicEntityData(string hex)
+    {
+        return StaticEntityData(MemoryItem(hex).ToHex);
+    }
+    public EntityData StaticEntityData(string hex)
+    {
+        int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
+        int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
+        var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
+
+        return palette[entityIndex].Template;
     }
 
     public bool IsPlayer(string hex)
@@ -142,15 +156,18 @@ public class GameMemory : MonoBehaviour
         gamesWon[(int)gameId] = true;
     }
 
-    public static void RevealPlatformerHint() {
+    public static void RevealPlatformerHint()
+    {
         Instance.hint.Reveal(GameId.Platformer);
     }
 
-    public static void RevealTanksHint() {
+    public static void RevealTanksHint()
+    {
         Instance.hint.Reveal(GameId.Tanks);
     }
 
-    public static void RevealSpaceShooterHint() {
+    public static void RevealSpaceShooterHint()
+    {
         Instance.hint.Reveal(GameId.SpaceShooter);
     }
 
@@ -190,6 +207,13 @@ public class GameMemory : MonoBehaviour
         foreach (var memoryItem in refreshMemory)
             if (memoryItem.IsActive)
                 memoryItem.Refresh();
+        if (Zone.Instance != null)
+        {
+            TilemapCollider2D tilemapCollider = Zone.Instance.Tilemap.GetComponent<TilemapCollider2D>();
+            tilemapCollider.ProcessTilemapChanges();
+            //Zone.Instance.Tilemap.enabled = false;
+            //Zone.Instance.Tilemap.enabled = true;
+        }
     }
 
     public static int HexToInt(string hex)

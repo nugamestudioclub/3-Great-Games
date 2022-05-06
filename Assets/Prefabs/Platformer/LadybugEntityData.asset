@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4821114c3dbb9ca468015ddc49118b38, type: 3}
   m_Name: LadybugEntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 87a3917a22e84ea428573b4e7c79eac4, type: 2}
-  <SpriteOnly>k__BackingField: 1
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 7c6e23ae9a98aa343857bc8632606037, type: 2}
   entityId: 8
   colorId: 6

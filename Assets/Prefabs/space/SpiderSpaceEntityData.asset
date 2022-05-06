@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c8a0f702731254991d39e1b1b65c98, type: 3}
   m_Name: SpiderSpaceEntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 4080ea5ffc5250e4b888f9dfb8ecaf3d, type: 2}
-  <SpriteOnly>k__BackingField: 1
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 1c38b7c0ed492a447b85d6bfc16484e4, type: 2}
   entityId: 1
   colorId: 15

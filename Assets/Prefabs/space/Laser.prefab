@@ -108,8 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee6ba09f2e4ce44a9580f1e7c849c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: a8a70003640b5aa438ed3493ab5c1f08, type: 2}
+  <Template>k__BackingField: {fileID: 11400000, guid: a8a70003640b5aa438ed3493ab5c1f08, type: 2}
   <CanTransform>k__BackingField: 0
+  <IsBrick>k__BackingField: 0
 --- !u!50 &1336739404388074130
 Rigidbody2D:
   serializedVersion: 4
