@@ -9,7 +9,7 @@ public interface ISpriteSheet {
 
 	Sprite GreyAt(int index);
 
-	Sprite OriginalAtOrNext(int index);
+	Sprite FindUniqueOriginal(int start);
 
-	Sprite GreyAtOrNext(int index);
+	Sprite FindUniqueGrey(int start);
 }

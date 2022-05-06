@@ -9,7 +9,7 @@ public abstract class SpriteSheet : ScriptableObject, ISpriteSheet {
     
     public abstract Sprite GreyAt(int index);
 
-    public abstract Sprite OriginalAtOrNext(int index);
+	public abstract Sprite FindUniqueOriginal(int start);
 
-    public abstract Sprite GreyAtOrNext(int index);
+	public abstract Sprite FindUniqueGrey(int start);
 }

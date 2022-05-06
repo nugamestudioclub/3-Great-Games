@@ -52,7 +52,7 @@ public class TileEntity : Entity {
 	[SerializeField]
 	private TileType type;
 
-	protected override void InitializeSprite() {
+	protected override void InitialDraw() {
 		GlitchySprite.Draw(Template.SpriteSheet, (int)type);
 	}
 }

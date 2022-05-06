@@ -13,7 +13,7 @@ public class TileSpriteSheet : GroupSpriteSheet {
 	[SerializeField]
 	private SingleSpriteSheet[] spriteSheets = new SingleSpriteSheet[Enum.GetValues(typeof(TileType)).Length];
 
-	protected override IList<SingleSpriteSheet> SpriteSheets => spriteSheets;
+	protected override IList<SpriteSheet> SpriteSheets => spriteSheets;
 
 	protected override string FolderName() => "Tiles";
 

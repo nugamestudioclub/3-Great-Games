@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44e07979bd9b9b4fbe212b1d84de6b1, type: 3}
   m_Name: Bush_EntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 6498988609cdf2b4387805d8e03c30eb, type: 2}
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: a39259fb7eeda5d46a8486d6d66c2a76, type: 2}
   entityId: 5
   colorId: 4

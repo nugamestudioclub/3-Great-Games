@@ -42,10 +42,10 @@ public class GlitchySprite : MonoBehaviour {
 		SpriteSheet = spriteSheet;
 	}
 
-	public void Draw(int index)
+	public void DrawFrame(int index)
 	{
 		this.index = index;
-		UpdateSprite();
+		Sprite = IsTinted ? spriteSheet.FindUniqueGrey(index) : spriteSheet.FindUniqueOriginal(index);
 	}
 
 	public void Tint(Color color) {

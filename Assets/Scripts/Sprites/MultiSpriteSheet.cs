@@ -15,9 +15,9 @@ public class MultiSpriteSheet : SpriteSheet
 
     public override Sprite OriginalAt(int index) => spriteSheets[index].Original;
 
-    public override Sprite OriginalAtOrNext(int index) => OriginalAt(index);
-
     public override Sprite GreyAt(int index) => spriteSheets[index].Grey;
 
-    public override Sprite GreyAtOrNext(int index) => GreyAt(index);
+    public override Sprite FindUniqueOriginal(int start) => OriginalAt(start);
+
+    public override Sprite FindUniqueGrey(int start) => GreyAt(start);
 }

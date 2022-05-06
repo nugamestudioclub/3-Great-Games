@@ -47,7 +47,10 @@ public class SingleSpriteSheet : SpriteSheet {
 	}
 
 	public override Sprite OriginalAt(int index) => Original;
+
 	public override Sprite GreyAt(int index) => Grey;
-    public override Sprite OriginalAtOrNext(int index) => Original;
-	public override Sprite GreyAtOrNext(int index) => Grey;
+
+	public override Sprite FindUniqueOriginal(int start) => OriginalAt(start);
+
+	public override Sprite FindUniqueGrey(int start) => GreyAt(start);
 }

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Brick2_TileSpriteSheet
   m_EditorClassIdentifier: 
   defaultSprite: {fileID: 21300000, guid: 67bc01dbcbc985f459a31da10fbfdc4b, type: 3}
+  uniqueSpriteSheets:
+    items:
+    - {fileID: 11400000, guid: f23f1672b902b6b4aa5f8841c5941384, type: 2}
   spriteSheets:
   - {fileID: 11400000, guid: f23f1672b902b6b4aa5f8841c5941384, type: 2}
   - {fileID: 11400000, guid: 2af3c097c26ffb245bfb5f5876723638, type: 2}

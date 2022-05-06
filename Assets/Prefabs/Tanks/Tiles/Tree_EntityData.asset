@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44e07979bd9b9b4fbe212b1d84de6b1, type: 3}
   m_Name: Tree_EntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: cb0d941bcf51bd84fa440297cdad799d, type: 2}
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: c64b5ff466d87294393645dd9d121839, type: 2}
   entityId: 1
   colorId: 1

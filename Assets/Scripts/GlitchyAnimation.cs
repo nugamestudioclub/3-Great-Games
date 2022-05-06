@@ -13,8 +13,7 @@ public class GlitchyAnimation : MonoBehaviour
         get => index; 
         set {
             index = value;
-            glitchySprite.Draw(Index);
-            //print($"Glitchy sprite is: {glitchySprite.SpriteSheet.OriginalAt(index).name}");
+            glitchySprite.DrawFrame(Index);
         }
     } 
 }

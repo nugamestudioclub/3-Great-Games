@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44e07979bd9b9b4fbe212b1d84de6b1, type: 3}
   m_Name: Moat2_EntityData
   m_EditorClassIdentifier: 
-  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 93f805e782adee648840095cf8dd5869, type: 2}
+  <SpriteSheet>k__BackingField: {fileID: 11400000, guid: 5da6a8a984fea704a9cbce324d70def8, type: 2}
   entityId: 6
   colorId: 5

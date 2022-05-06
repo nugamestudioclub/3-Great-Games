@@ -26,20 +26,27 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 
 		color = cartridge.ColorPalette[Template.ColorId];
 
-		InitializeColor();
-		InitializeSprite();
+		InitialTint();
+		InitialDraw();
 
 		GameMemory.Instance.Subscribe(this);
 	}
 
-	protected virtual void InitializeColor() {
-		Debug.Log(name);
+	protected virtual void InitialDraw() {
+		GlitchySprite.Draw(Template.SpriteSheet);
+	}
+
+	protected virtual void InitialTint() {
 		GlitchySprite.Color = color;
 		GlitchySprite.OriginalColor = color;
 	}
 
-	protected virtual void InitializeSprite() {
-		GlitchySprite.Draw(Template.SpriteSheet);
+	protected virtual void Draw(SpriteSheet spriteSheet) {
+		GlitchySprite.Draw(spriteSheet);
+	}
+
+	protected virtual void Tint(Color color) {
+		GlitchySprite.Tint(color);
 	}
 
 	public bool IsActive { get; private set; }
@@ -89,11 +96,11 @@ public class Entity : MonoBehaviour, IRefreshable, IMemorable {
 				if( newEntityData == null )
 					Debug.Log($"{name} failed to draw");
 				else
-					GlitchySprite.Draw(newEntityData.SpriteSheet);
+					Draw(newEntityData.SpriteSheet);
 				if( color == null )
 					Debug.Log($"{name} failed to tint");
 				else
-					GlitchySprite.Tint(color);
+					Tint(color);
 
 			}
 

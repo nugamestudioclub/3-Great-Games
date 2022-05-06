@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Tree_TileSpriteSheet
   m_EditorClassIdentifier: 
   defaultSprite: {fileID: 21300000, guid: 2dfe0392e61c3d64ba699d0dd88501b4, type: 3}
+  uniqueSpriteSheets:
+    items:
+    - {fileID: 11400000, guid: e664e3d0d7c0dd64d8d288e138ac4d20, type: 2}
   spriteSheets:
   - {fileID: 11400000, guid: e664e3d0d7c0dd64d8d288e138ac4d20, type: 2}
   - {fileID: 11400000, guid: a9c48ffcb3356f6408dac560ad8891c5, type: 2}

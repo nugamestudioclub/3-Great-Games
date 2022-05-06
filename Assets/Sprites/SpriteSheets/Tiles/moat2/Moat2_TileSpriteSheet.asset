@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: Moat2_TileSpriteSheet
   m_EditorClassIdentifier: 
   defaultSprite: {fileID: 21300000, guid: e9b182807fd92c447a08eb32606aeab2, type: 3}
+  uniqueSpriteSheets:
+    items:
+    - {fileID: 11400000, guid: 89b452c0646341a43a8582b6d98ea413, type: 2}
+    - {fileID: 11400000, guid: 59c6ff7ce58b3cf48b27085419173671, type: 2}
+    - {fileID: 11400000, guid: 744818e15cd8f874686673d05747f76f, type: 2}
+    - {fileID: 11400000, guid: 0ce52c82e3963ba479871e2fff80920a, type: 2}
+    - {fileID: 11400000, guid: 0e08db47422501240904b535341e55b3, type: 2}
+    - {fileID: 11400000, guid: 1d16544b617db1a4a9327b9575da1a6e, type: 2}
+    - {fileID: 11400000, guid: fc8f4fac63a877b4597fc426110d177d, type: 2}
+    - {fileID: 11400000, guid: 355ff9ce72dfb6244bd1ec96034b0c24, type: 2}
+    - {fileID: 11400000, guid: f20f1c615b53d0a45affc79f34c6852a, type: 2}
   spriteSheets:
   - {fileID: 11400000, guid: 89b452c0646341a43a8582b6d98ea413, type: 2}
   - {fileID: 11400000, guid: f0919ff5fcf30144a896fb23f4002a0b, type: 2}
