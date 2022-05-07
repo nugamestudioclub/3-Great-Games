@@ -36,13 +36,29 @@ public class HexKeyboard : MonoBehaviour {
 	public string Text {
 		get => input.text;
 		set {
-			value = value.ToUpper();
-			
-			Tint(value == text ? baseColor : altColor);
+			Color color;
 
-			text = value;
-			input.text = value;
-			image.sprite = Icon;
+			if( string.IsNullOrEmpty(value) ) {
+				input.text = "0000";
+				color = baseColor;
+			}
+			else {
+				input.text = value.ToUpper();
+				color = value == text ? baseColor : altColor;
+			}
+			text = input.text
+				;
+			if( GameMemory.Instance.IsActive ) {
+				image.sprite = Icon;
+				image.enabled = true;
+
+			}
+			else {
+				image.sprite = null;
+				image.enabled = false;
+			}
+
+			Tint(color);
 		}
 	}
 
