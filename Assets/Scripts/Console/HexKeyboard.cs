@@ -32,15 +32,15 @@ public class HexKeyboard : MonoBehaviour {
 		}
 	}
 
+	private string text;
 	public string Text {
 		get => input.text;
 		set {
 			value = value.ToUpper();
+			
+			Tint(value == text ? baseColor : altColor);
 
-			var color = input.text == value ? baseColor : altColor;
-
-			Tint(color);
-
+			text = value;
 			input.text = value;
 			image.sprite = Icon;
 		}
@@ -70,11 +70,10 @@ public class HexKeyboard : MonoBehaviour {
 	}
 
 	private void Submit() {
-		int count = maxLength - Text.Length;
+		int count = maxLength - input.text.Length;
 
 		if( count > 0 )
-			Text += new string('0', maxLength - Text.Length);
-		GameMemory.Instance.Store(Id, new MemoryItem(Text));
-		image.sprite = Icon;
+			input.text += new string('0', count);
+		GameMemory.Instance.Store(Id, new MemoryItem(input.text));
 	}
 }
