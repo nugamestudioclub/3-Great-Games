@@ -3,235 +3,215 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GameMemory : MonoBehaviour
-{
+public class GameMemory : MonoBehaviour {
 
-    public static GameMemory Instance { get; private set; }
+	public static GameMemory Instance { get; private set; }
 
-    private readonly System.Random rand = new System.Random();
+	private readonly System.Random rand = new System.Random();
 
-    [SerializeField]
-    private int capacity = 16;
+	[SerializeField]
+	private int capacity = 16;
 
-    private bool loaded;
+	private bool loaded;
 
-    public GameCartridge ActiveCartridge { get; private set; }
+	public bool IsActive { get; private set; }
 
-    public int Corruption { get; private set; }
+	public GameCartridge ActiveCartridge { get; private set; }
 
-    private ColorPalette ColorPalette
-    {
-        get => ColorPalette.FromHex(memory[0].ToHex);
-        set => memory[0] = value;
-    }
+	public int Corruption { get; private set; }
 
-    [SerializeField]
-    private SpriteSheet missingSpriteSheet;
-    public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
+	private ColorPalette ColorPalette {
+		get => ColorPalette.FromHex(memory[0].ToHex);
+		set => memory[0] = value;
+	}
 
-    private Palette<IMemorable> memory; // hex codes
+	[SerializeField]
+	private SpriteSheet missingSpriteSheet;
+	public SpriteSheet MissingSpriteSheet => missingSpriteSheet;
 
-    private List<IRefreshable> refreshMemory;
+	private Palette<IMemorable> memory; // hex codes
 
-    [SerializeField]
-    private Hint hint;
+	private List<IRefreshable> refreshMemory;
 
-    [ReadOnly]
-    [SerializeField]
-    private Palette<string> playerCodes; // player hex codes
+	[SerializeField]
+	private Hint hint;
 
-    private Palette<bool> gamesWon = new Palette<bool>(GameCollection.Count);
+	[ReadOnly]
+	[SerializeField]
+	private Palette<string> playerCodes; // player hex codes
 
-    void Awake()
-    {
-        if (Instance != null)
-            return;
+	private Palette<bool> gamesWon = new Palette<bool>(GameCollection.Count);
 
-        Instance = this;
+	void Awake() {
+		if( Instance != null )
+			return;
 
+		Instance = this;
 
-        InitializeMemoryItems();
-        InitializePlayerCodes();
-        InitializeGamesWon();
-    }
+		InitializeMemoryItems();
+		InitializePlayerCodes();
+		InitializeGamesWon();
 
-    public void Store(int index, IMemorable memoryItem)
-    {
-        memory[index] = memoryItem;
-        Refresh();
-    }
+		Load(GameId.None);
+	}
 
-    public void Subscribe(IRefreshable refreshItem)
-    {
-        refreshMemory.Add(refreshItem);
-        if (loaded)
-            refreshItem.Refresh();
-    }
+	public void Store(int index, IMemorable memoryItem) {
+		memory[index] = memoryItem;
+		Refresh();
+	}
 
-    public void Load(GameId gameId)
-    {
-        loaded = false;
+	public void Subscribe(IRefreshable refreshItem) {
+		refreshMemory.Add(refreshItem);
+		if( loaded )
+			refreshItem.Refresh();
+	}
 
-        Clear();
+	public void Load(GameId gameId) {
+		loaded = false;
+		Clear();
+		
+		if( gameId == GameId.None ) {
+			ActiveCartridge = null;
+			for( int i = 0; i < memory.Count; ++i )
+				memory[i] = new MemoryItem("");
+			IsActive = false;
+		}
+		else {
+			ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
+			ColorPalette = new ColorPalette(gameId);
+			Debug.Log($"Game ID: {gameId}, Hexcode:{ColorPalette.ToHex}");
+			// AudioPalette = new AudioPalette(GameId);
 
-        ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
-        ColorPalette = new ColorPalette(gameId);
-        Debug.Log($"Game ID: {gameId}, Hexcode:{ColorPalette.ToHex}");
-        // AudioPalette = new AudioPalette(GameId);
+			for( int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i )
+				memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
 
-        for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
-            memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
+			ApplyCorruption(Corruption / 5);
+			IsActive = true;
+		}
 
-        ApplyCorruption(Corruption / 5);
-        Refresh();
-        loaded = true;
-        Refresh();
+		loaded = true;
+		Refresh();
+	}
 
-    }
+	void Clear() {
+		refreshMemory.RemoveAll(x => !(x is HexConsole));
+	}
 
-    void Clear()
-    {
-        refreshMemory.RemoveAll(x => !(x is HexConsole));
-    }
+	public IMemorable MemoryItem(int index) => memory[index];
 
-    public IMemorable MemoryItem(int index) => memory[index];
+	public IMemorable MemoryItem(string hex) {
+		return MemoryItem(AddressOf(hex));
+	}
 
-    public IMemorable MemoryItem(string hex)
-    {
-        return MemoryItem(AddressOf(hex));
-    }
+	public Color Color(int index) => ColorPalette[index];
 
-    public Color Color(int index) => ColorPalette[index];
+	public int AddressOf(string hex) {
+		return HexToInt(hex.Substring(1, 1)) + 2;
+	}
 
-    public int AddressOf(string hex)
-    {
-        return HexToInt(hex.Substring(1, 1)) + 2;
-    }
+	public Entity DynamicEntity(string hex) {
+		return StaticEntity(MemoryItem(hex).ToHex);
+	}
 
-    public Entity DynamicEntity(string hex)
-    {
-        return StaticEntity(MemoryItem(hex).ToHex);
-    }
+	public Entity StaticEntity(string hex) {
+		int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
+		int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
+		var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
 
-    public Entity StaticEntity(string hex)
-    {
-        int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
-        int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
-        var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
+		return palette[entityIndex];
+	}
+	public EntityData DynamicEntityData(string hex) {
+		return StaticEntityData(MemoryItem(hex).ToHex);
+	}
+	public EntityData StaticEntityData(string hex) {
+		int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
+		int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
+		var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
 
-        return palette[entityIndex];
-    }
-    public EntityData DynamicEntityData(string hex)
-    {
-        return StaticEntityData(MemoryItem(hex).ToHex);
-    }
-    public EntityData StaticEntityData(string hex)
-    {
-        int gameIndex = HexToInt(hex.Substring(0, 1));    //1XXX
-        int entityIndex = HexToInt(hex.Substring(1, 1));  //X1XX
-        var palette = GameCollection.Instance.Cartridge(gameIndex).EntitiesPalette;
+		return palette[entityIndex].Template;
+	}
 
-        return palette[entityIndex].Template;
-    }
+	public bool IsPlayer(string hex) {
+		return playerCodes.Contains(hex);
+	}
 
-    public bool IsPlayer(string hex)
-    {
-        return playerCodes.Contains(hex);
-    }
+	public string PlayerHex(GameId id) {
+		return playerCodes[(int)id];
+	}
 
-    public string PlayerHex(GameId id)
-    {
-        return playerCodes[(int)id];
-    }
+	public GameId GameOfPlayer(string hex) {
+		return (GameId)playerCodes.IndexOf(hex);
+	}
 
-    public GameId GameOfPlayer(string hex)
-    {
-        return (GameId)playerCodes.IndexOf(hex);
-    }
+	public bool HasWonGame(GameId gameId) => gamesWon[(int)gameId];
 
-    public bool HasWonGame(GameId gameId) => gamesWon[(int)gameId];
+	public void WinGame(GameId gameId) {
+		gamesWon[(int)gameId] = true;
+	}
 
-    public void WinGame(GameId gameId)
-    {
-        gamesWon[(int)gameId] = true;
-    }
+	public static void RevealPlatformerHint() {
+		Instance.hint.Reveal(GameId.Platformer);
+	}
 
-    public static void RevealPlatformerHint()
-    {
-        Instance.hint.Reveal(GameId.Platformer);
-    }
+	public static void RevealTanksHint() {
+		Instance.hint.Reveal(GameId.Tanks);
+	}
 
-    public static void RevealTanksHint()
-    {
-        Instance.hint.Reveal(GameId.Tanks);
-    }
+	public static void RevealSpaceShooterHint() {
+		Instance.hint.Reveal(GameId.SpaceShooter);
+	}
 
-    public static void RevealSpaceShooterHint()
-    {
-        Instance.hint.Reveal(GameId.SpaceShooter);
-    }
+	public bool AllGamesWon() => !gamesWon.Contains(false);
+	private void InitializeMemoryItems() {
+		memory = new Palette<IMemorable>();
+		for( int i = 0; i < capacity; ++i )
+			memory.Add(new MemoryItem());
+		refreshMemory = new List<IRefreshable>();
+	}
+	private void InitializePlayerCodes() {
+		playerCodes = new Palette<string>();
+		for( int i = 0; i < GameCollection.Count/*TODO: make into method to get game count*/; ++i ) {
+			string currentHex = RandomHexString();
+			while( playerCodes.Contains(currentHex) ) {
+				currentHex = RandomHexString();
+			}
+			playerCodes.Add(currentHex);
+			Debug.Log($"Player code {i} : {currentHex}");
+		}
+	}
 
-    public bool AllGamesWon() => !gamesWon.Contains(false);
-    private void InitializeMemoryItems()
-    {
-        memory = new Palette<IMemorable>();
-        for (int i = 0; i < capacity; ++i)
-            memory.Add(new MemoryItem());
-        refreshMemory = new List<IRefreshable>();
-    }
-    private void InitializePlayerCodes()
-    {
-        playerCodes = new Palette<string>();
-        for (int i = 0; i < GameCollection.Count/*TODO: make into method to get game count*/; ++i)
-        {
-            string currentHex = RandomHexString();
-            while (playerCodes.Contains(currentHex))
-            {
-                currentHex = RandomHexString();
-            }
-            playerCodes.Add(currentHex);
-            Debug.Log($"Player code {i} : {currentHex}");
-        }
-    }
+	private void InitializeGamesWon() {
+		for( int i = 0; i < GameCollection.Count; ++i )
+			gamesWon.Add(false);
+	}
 
-    private void InitializeGamesWon()
-    {
-        for (int i = 0; i < GameCollection.Count; ++i)
-            gamesWon.Add(false);
-    }
+	private void Refresh() {
+		refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
 
-    private void Refresh()
-    {
-        refreshMemory.RemoveAll((IRefreshable r) => r == null || !r.IsActive);
+		foreach( var memoryItem in refreshMemory )
+			if( memoryItem.IsActive )
+				memoryItem.Refresh();
+		if( Zone.Instance != null ) {
+			TilemapCollider2D tilemapCollider = Zone.Instance.Tilemap.GetComponent<TilemapCollider2D>();
+			tilemapCollider.ProcessTilemapChanges();
+			//Zone.Instance.Tilemap.enabled = false;
+			//Zone.Instance.Tilemap.enabled = true;
+		}
+	}
 
-        foreach (var memoryItem in refreshMemory)
-            if (memoryItem.IsActive)
-                memoryItem.Refresh();
-        if (Zone.Instance != null)
-        {
-            TilemapCollider2D tilemapCollider = Zone.Instance.Tilemap.GetComponent<TilemapCollider2D>();
-            tilemapCollider.ProcessTilemapChanges();
-            //Zone.Instance.Tilemap.enabled = false;
-            //Zone.Instance.Tilemap.enabled = true;
-        }
-    }
+	public static int HexToInt(string hex) {
+		return Convert.ToInt32(hex, 16);
+	}
 
-    public static int HexToInt(string hex)
-    {
-        return Convert.ToInt32(hex, 16);
-    }
+	public static string IntToHex(int value) {
+		return Convert.ToString(value, 16);
+	}
 
-    public static string IntToHex(int value)
-    {
-        return Convert.ToString(value, 16);
-    }
-
-    /// <summary>
-    /// TODO REMOVE THIS
-    /// </summary>
-    private void Update()
-    {
-        /*
+	/// <summary>
+	/// TODO REMOVE THIS
+	/// </summary>
+	private void Update() {
+		/*
         if (Input.GetKeyDown(KeyCode.G))
         {
             Corrupt();
@@ -257,45 +237,39 @@ public class GameMemory : MonoBehaviour
             GlobalVolume.Instance.IncreaseVolume();
         }
         */
-    }
+	}
 
-    public void ChanceOfCorruption(double chance)
-    {
-        if (rand.NextDouble() <= chance)
-            Corrupt();
-    }
+	public void ChanceOfCorruption(double chance) {
+		if( rand.NextDouble() <= chance )
+			Corrupt();
+	}
 
-    public void Corrupt()
-    {
-        ++Corruption;
-        ApplyCorruption(1);
-    }
+	public void Corrupt() {
+		++Corruption;
+		ApplyCorruption(1);
+	}
 
-    private void ApplyCorruption(int count = 1)
-    {
-        for (int i = 0; i < count; ++i)
-        {
-            int random = rand.Next(capacity);
-            memory[random] = new MemoryItem(RandomHexString());
-        }
+	private void ApplyCorruption(int count = 1) {
+		for( int i = 0; i < count; ++i ) {
+			int random = rand.Next(capacity);
+			memory[random] = new MemoryItem(RandomHexString());
+		}
 
-        Refresh();
-    }
+		Refresh();
+	}
 
-    private string RandomHexString()
-    {
-        string hex = "";
+	private string RandomHexString() {
+		string hex = "";
 
-        for (int i = 0; i < 4; ++i)
-            hex += RandomHexChar();
+		for( int i = 0; i < 4; ++i )
+			hex += RandomHexChar();
 
-        return hex;
-    }
+		return hex;
+	}
 
-    private char RandomHexChar()
-    {
-        int n = rand.Next(16);
+	private char RandomHexChar() {
+		int n = rand.Next(16);
 
-        return (char)(n < 10 ? '0' + n : 'A' + n - 10);
-    }
+		return (char)(n < 10 ? '0' + n : 'A' + n - 10);
+	}
 }
