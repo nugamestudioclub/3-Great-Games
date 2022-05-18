@@ -39,8 +39,7 @@ public class CollectableController : MonoBehaviour {
 			Collect();
 	}
 	protected virtual void Collect() {
-		//if (GameMemory.Instance.Rand.Next(10) == 0)
-		GameMemory.Instance.ChanceOfCorruption(0.33);
+		GameMemory.Instance.ChanceOfCorruption(0.33f);
 		//play sound
 		audioSource.PlayOneShot(collectSound);
 		//

@@ -17,7 +17,13 @@ public class GameMemory : MonoBehaviour
 
     public GameCartridge ActiveCartridge { get; private set; }
 
-    public int Corruption { get; private set; }
+    [field: ReadOnly]
+    [field: SerializeField]
+    public float Corruption { get; private set; }
+    [SerializeField]
+    private float corruptionFactorPercent = .10f;
+    [SerializeField]
+    private float corruptionIncremenetFactor = .33f;
 
     private ColorPalette ColorPalette
     {
@@ -82,11 +88,11 @@ public class GameMemory : MonoBehaviour
         for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
             memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
 
-        ApplyCorruption(Corruption / 5);
+
         Refresh();
         loaded = true;
         Refresh();
-
+        ChanceOfCorruption(Corruption);
     }
 
     void Clear()
@@ -259,16 +265,16 @@ public class GameMemory : MonoBehaviour
         */
     }
 
-    public void ChanceOfCorruption(double chance)
+    public void ChanceOfCorruption(float chance)
     {
+        Corruption += chance * corruptionIncremenetFactor;
         if (rand.NextDouble() <= chance)
-            Corrupt();
+            ApplyCorruption(rand.Next((int)(Corruption * corruptionFactorPercent) + 1) + 1);
     }
 
     public void Corrupt()
     {
-        ++Corruption;
-        ApplyCorruption(1);
+        ChanceOfCorruption(1f);
     }
 
     private void ApplyCorruption(int count = 1)
