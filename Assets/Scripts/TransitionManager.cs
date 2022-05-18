@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour {
 	public static void ToMenu() {
+		GameMemory.Instance.Load(GameId.None);
 		if (GameMemory.Instance.AllGamesWon())
         {
 			SceneManager.LoadScene("Final_Ending", LoadSceneMode.Single);
@@ -45,6 +46,7 @@ public class TransitionManager : MonoBehaviour {
 	}
 
 	public static void ToCredits() {
+		GameMemory.Instance.Load(GameId.None);
 		SceneManager.LoadScene("Credits_Scene", LoadSceneMode.Single);
 	}
 

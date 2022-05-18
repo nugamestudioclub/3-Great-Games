@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HexKeyboard : MonoBehaviour {
+public class HexKeyboard : MonoBehaviour
+{
 	[SerializeField]
 	private TMP_InputField input;
 
@@ -23,58 +24,87 @@ public class HexKeyboard : MonoBehaviour {
 
 	private Graphic graphic;
 
-	private Sprite Icon {
-		get {
-			return Id switch {
+	private Sprite Icon
+	{
+		get
+		{
+			return Id switch
+			{
 				0 => GameCartridge.FromHex(Text).ColorPaletteSprite,
 				_ => GameMemory.Instance.StaticEntityData(Text).SpriteSheet.Grey
 			};
 		}
 	}
 
-	public string Text {
+	private string text;
+	public string Text
+	{
 		get => input.text;
-		set {
-			value = value.ToUpper();
+		set
+		{
+			Color color;
 
-			var color = input.text == value ? baseColor : altColor;
+			if (string.IsNullOrEmpty(value))
+			{
+				input.text = "0000";
+				color = baseColor;
+			}
+			else
+			{
+				input.text = value.ToUpper();
+				color = value == text ? baseColor : altColor;
+			}
+
+			text = input.text;
+
+			if (GameMemory.Instance.IsActive)
+			{
+				image.sprite = Icon;
+				image.enabled = true;
+			}
+			else
+			{
+				image.sprite = null;
+				image.enabled = false;
+			}
 
 			Tint(color);
-
-			input.text = value;
-			image.sprite = Icon;
 		}
 	}
 
-	void Awake() {
+	void Awake()
+	{
 		graphic = image.GetComponent<Graphic>();
 
 		input.placeholder.color = baseColor;
 		Tint(baseColor);
 	}
 
-	void Start() {
+	void Start()
+	{
 		input.onValidateInput += Validate;
 		input.onEndEdit.AddListener(delegate { Submit(); });
 	}
 
-	private void Tint(Color color) {
+	private void Tint(Color color)
+	{
 		input.textComponent.color = color;
 		input.textComponent.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, color);
-		if( Id != 0 )
+		if (Id != 0)
 			graphic.color = color;
 	}
 
-	private char Validate(string text, int pos, char ch) {
+	private char Validate(string text, int pos, char ch)
+	{
 		return text.Length < 4 && IsHexDigit(ch) ? char.ToUpper(ch) : '\0';
 	}
 
-	private void Submit() {
-		int count = maxLength - Text.Length;
+	private void Submit()
+	{
+		int count = maxLength - input.text.Length;
 
-		if( count > 0 )
-			Text += new string('0', maxLength - Text.Length);
-		GameMemory.Instance.Store(Id, new MemoryItem(Text));
-		image.sprite = Icon;
+		if (count > 0)
+			input.text += new string('0', count);
+		GameMemory.Instance.Store(Id, new MemoryItem(input.text));
 	}
 }

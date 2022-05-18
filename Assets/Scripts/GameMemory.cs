@@ -15,6 +15,7 @@ public class GameMemory : MonoBehaviour
 
     private bool loaded;
 
+    public bool IsActive { get; private set; }
     public GameCartridge ActiveCartridge { get; private set; }
 
     [field: ReadOnly]
@@ -59,6 +60,8 @@ public class GameMemory : MonoBehaviour
         InitializeMemoryItems();
         InitializePlayerCodes();
         InitializeGamesWon();
+
+        Load(GameId.None);
     }
 
     public void Store(int index, IMemorable memoryItem)
@@ -76,23 +79,34 @@ public class GameMemory : MonoBehaviour
 
     public void Load(GameId gameId)
     {
-        loaded = false;
-
-        Clear();
-
-        ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
-        ColorPalette = new ColorPalette(gameId);
-        Debug.Log($"Game ID: {gameId}, Hexcode:{ColorPalette.ToHex}");
-        // AudioPalette = new AudioPalette(GameId);
-
-        for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
-            memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
-
-
         Refresh();
+        if (gameId == GameId.None)
+        {
+            ActiveCartridge = null;
+            for (int i = 0; i < memory.Count; ++i)
+                memory[i] = new MemoryItem("");
+            IsActive = false;
+        } else
+        {
+            loaded = false;
+
+            Clear();
+
+            ActiveCartridge = GameCollection.Instance.Cartridge(gameId);
+            ColorPalette = new ColorPalette(gameId);
+            Debug.Log($"Game ID: {gameId}, Hexcode:{ColorPalette.ToHex}");
+            // AudioPalette = new AudioPalette(GameId);
+
+            for (int i = 0; i < ActiveCartridge.EntitiesPalette.Count; ++i)
+                memory[i + 2] = ActiveCartridge.EntitiesPalette[i];
+
+            IsActive = true;
+            Refresh();
+            ChanceOfCorruption(Corruption);
+        }
+        
         loaded = true;
-        Refresh();
-        ChanceOfCorruption(Corruption);
+        
     }
 
     void Clear()
