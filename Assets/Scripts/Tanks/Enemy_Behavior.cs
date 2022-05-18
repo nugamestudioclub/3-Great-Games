@@ -49,7 +49,7 @@ public class Enemy_Behavior : MonoBehaviour {
     private void Die()
     {
         isDying = true;
-        GameMemory.Instance.Corrupt();
+        GameMemory.Instance.ChanceOfCorruption(.5f);
 
         TanksScore.Instance.UpdateScore(-1);
 
@@ -65,7 +65,6 @@ public class Enemy_Behavior : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"Colliding with: {collision.name}");
         if (collision.gameObject.CompareTag("Bullet") && !isDying)
         {
             Die();
@@ -73,7 +72,7 @@ public class Enemy_Behavior : MonoBehaviour {
     }
 
     void Shoot() {
-        GameMemory.Instance.ChanceOfCorruption(0.02);
+        GameMemory.Instance.ChanceOfCorruption(0.02f);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 

@@ -51,7 +51,7 @@ public abstract class GroupSpriteSheet : SpriteSheet {
 	public override Sprite GreyAt(int index) => this[index].Grey;
 
 	public override Sprite FindUniqueOriginal(int start) {
-		Debug.Log($"size of {uniqueSpriteSheets}: {uniqueSpriteSheets.Count}");
+		//Debug.Log($"size of {uniqueSpriteSheets}: {uniqueSpriteSheets.Count}");
 		return uniqueSpriteSheets[start].Original;
 	}
 
