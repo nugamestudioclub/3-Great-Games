@@ -94,8 +94,8 @@ public class GameMemory : MonoBehaviour {
 			IsActive = true;
 			Refresh();
 			ChanceOfCorruption(Corruption);
-			Refresh();
 		}
+		Refresh();
 
 		loaded = true;
 
