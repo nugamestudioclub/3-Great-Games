@@ -22,6 +22,6 @@ public class HexConsole : MonoBehaviour, IRefreshable {
 
 	public void Refresh() {
 		for( int i = 0; i < keyboards.Length; ++i )
-			keyboards[i].Text = GameMemory.Instance.MemoryItem(i).ToHex;
+			keyboards[i].Text = GameMemory.Instance.At(i).ToHex;
 	}
 }
